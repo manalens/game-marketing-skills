@@ -72,7 +72,9 @@ https://docs.manalens.dev/mcp/overview
 2. **Find the people.** Follow [references/finding-contacts.md](references/finding-contacts.md):
    writers who covered the similar games (the writer, not a tips@ inbox), small and mid YouTube
    creators found by searching each similar game, Twitch streamers from SullyGnome game pages,
-   curators by tag fit, and aggregator accounts. The
+   curators by tag fit, and aggregator accounts. Rank creators by how many games like yours they
+   covered recently, not by subscribers. An AI tool may sort the list the user built; it never
+   supplies channels or emails. The
    [Manalens Steam marketing snapshot](https://manalens.dev/tools/steam-marketing-snapshot?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=press_outreach)
    lists creators who covered similar games. The agent cannot browse YouTube or Twitch for the
    user: ask the user to run the searches (or the snapshot) and paste the results, then sort them.
@@ -98,7 +100,10 @@ https://docs.manalens.dev/mcp/overview
    templates in [references/emails.md](references/emails.md): short subject with the game's name,
    the hook and the news; the first line says why this person; the key is in the email, not
    offered; embargo date, time and time zone (the same for press and creators); three links. Under
-   150 words. Draft the one follow-up in the same file. Set `status` to `drafted`.
+   150 words; for creators, near the 289 character body of Rigney's example. Ask creators to
+   mention the key was free. If an AI tool drafts the body, give it only facts and the rules in
+   [references/emails.md](references/emails.md#ai-drafts), then write the first line yourself
+   from their real work. Draft the one follow-up in the same file. Set `status` to `drafted`.
 6. **Keys, safely.**
    - Keys only to the business email published on the channel or outlet page. If a request comes
      from another address, reply to the published one.
@@ -167,11 +172,19 @@ first.
   undercounts. Judge by lift and coverage.
 - **Small rows disappear:** Steam hides UTM combinations with very few visits. Use the shared
   `creators_small` value for tiny creators, and keep the beat list short.
+- **AI-found contacts:** language models produce plausible but false facts, so a channel or email
+  an AI tool suggests may not exist or may reach the wrong person. Copy each email from the
+  channel or outlet page, where YouTube shows it only if the owner added one.
+- **Biggest channels first:** a generic email to the top 50 streamers is unlikely to work
+  (Gamesight via Game Developer, 2021). Audience fit beats size.
 
 ## Version notes
 
 - Key rules (3-week wait for new AppIDs, Release State Override keys generally limited to 2,500,
   Curator Connect: 100 curators, 5 copies each): Steamworks documentation, read 2026-11-26.
+- Disclosure (FTC 16 CFR 255.5: free products and early access are material connections; Valve
+  User Reviews: disclose a free copy) and the 289 character pitch (Push to Talk, 11 Jul 2025):
+  read 2026-11-26.
 - Timing (press 3 weeks or more, creators 4 to 6 weeks, one follow-up, reminder 2 days before
   the embargo): IMPRESS, the 2024 Big Games Machine survey (claim), Blitz and Rigney via Manalens,
   IndieGamesPlus. See [references/sources.md](references/sources.md).

@@ -18,8 +18,10 @@ Pick the languages that pay back, in order, and give the translator what they ne
 words in the repo, price each language, decide store page only or full game, list every asset
 that has text, and write `launch/localization.md`. When translations come back, check them.
 
-Valve says over 60% of Steam users run Steam in a language other than English, and that the
-less a language looks like English, the higher the expected return. A store page translation is
+Valve says over 60% of Steam users run Steam in a language other than English, that Steam has
+full official support for 29 languages, and that the less a language looks like English, the
+higher the expected return. Valve also writes that Steam favors localized products, judged by the
+game's own language settings, not the store page. A store page translation is
 cheap and doubles as a test: translate the page first, watch wishlists by country, then translate
 the game for the languages that respond.
 
@@ -72,12 +74,19 @@ Find these in the repo first (string files, README, store page text in `launch/`
    game name and localized images), screenshots with UI text, trailer captions or subtitles,
    the game name if you localize it, in-game images with words, and the Steam language table
    (Interface, Full Audio, Subtitles). Tick only what is done.
-6. **Check fonts.** For each target script (CJK, Cyrillic, Thai, Arabic), name the font and
-   confirm it has the glyphs. For CJK, plan a fallback font and its file size, and test the
-   smallest text at 1280x800 for Steam Deck.
+6. **Check fonts and length.** For each target script (CJK, Cyrillic, Thai, Arabic), name the
+   font and confirm it has the glyphs. For CJK, plan a fallback font and its file size, and test
+   the smallest text at 1280x800 for Steam Deck. Before any translation, turn on
+   pseudolocalization (in Godot, an `expansion_ratio` of 0.3 makes each string 30% longer) and
+   fix overflows and hard-coded strings. See
+   [references/assets-and-fonts.md](references/assets-and-fonts.md#pseudolocalization-before-any-translation).
 7. **Write the vendor brief** from [references/vendor-brief.md](references/vendor-brief.md):
    word counts per file, file formats to return, glossary, character list, placeholders and
-   tags that must stay, length limits, context screenshots, tone, and the deadline.
+   tags that must stay, length limits, context screenshots, tone, and the deadline. If the team
+   drafts with an AI tool, use the context table, prompt and review order in the same file
+   ([AI or machine translation drafts](references/vendor-brief.md#ai-or-machine-translation-drafts)):
+   glossary, context, plurals, placeholders and length limits go in; flagged lines, a script
+   check and a native speaker who plays the build come after.
 8. **Write `launch/localization.md`** (shape below).
 9. **Hand off.** For live review-language shares of comps, point to
    [Steam reviews by language](https://manalens.dev/tools/steam-review-languages?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=localization_plan).
@@ -138,6 +147,15 @@ each new language with `utm_campaign=update` and the post ID in `utm_content`
   atlas, and test that no glyph shows as a box.
 - **One survey month:** Simplified Chinese moved 9.41 points in October 2026. Look at a few
   months before you rank two close languages.
+- **AI translation is a draft:** a word such as Close can be a button or a distance, and AI makes
+  the same context mistakes as a person without context, only faster. Send context with every
+  batch and have a native speaker play the build.
+- **Disclose AI translation on Steam:** the Content Survey covers AI content that ships with the
+  game and that players consume, and names localization. Tools that only speed up your own work
+  are not its focus. Valve reviews AI content like any other, so a wrong or offensive line is
+  yours to fix.
+- **English fields left blank:** English is the store's default and only fallback language, so
+  its fields cannot be empty, even if the game launches in another language first.
 
 ## Version notes
 
@@ -148,7 +166,12 @@ each new language with `utm_campaign=update` and the post ID in `utm_content`
   from the Manalens tools, not Valve rules.
 - Valve localization rules (store page and game localized separately, localized name and
   images, release a language as an update for all customers): Steamworks Localization and
-  Languages docs, read 2026-11-18.
+  Languages docs, read 2026-11-18. 29 fully supported languages, QA by a second company or by
+  players, and "Steam favors products that are localized": same page, read 2026-11-26.
+- AI localization counts in the Steam Content Survey; English is the only fallback for store
+  fields: Steamworks Content Survey and Store Page Written Description, read 2026-11-26.
+- Pseudolocalization (`expansion_ratio`) and PO template regeneration: Godot 4.7 docs, read
+  2026-11-26.
 - Sources: [references/sources.md](references/sources.md).
 
 Last verified 2026-11-26.

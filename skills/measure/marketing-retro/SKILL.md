@@ -45,7 +45,9 @@ Look in the repo first. Ask only for what is missing.
 1. **`marketing/posts.csv`** (required). Columns `post_id,date,platform,format,title,url,link`.
    `link` is the tagged link. If the file is missing, stop: say that `shorts-script` and
    `reddit-post` create it, or the user can add rows by hand.
-2. **Date range.** Default: the last 7 days of posts. For a format decision, use 14 to 28 days.
+2. **Date range.** Default: the last 7 days of posts. For a weekly retro, use the last full
+   Monday to Sunday week, so weeks compare (our practice). For a format decision, use 14 to 28
+   days.
 3. **Platform stats** (views and watch time). A CSV the user fills in or exports:
    `post_id,views,avg_view_duration_s,avg_view_pct,likes,comments,shares,follows,variant`.
    Only `post_id` and one of views or AVD are required. AVD also takes `0:12`. `variant` is
@@ -127,6 +129,11 @@ https://docs.manalens.dev/mcp/overview
 5. **Read the report and add a short "What we change" list** at the end of the file: the formats
    for next week, the links to fix, and the exports to redo in 4 days. Do not claim a winner when
    the report says "too early" or "not different yet".
+   Before you explain a lift, ask the user for the calendar of the range and the week before:
+   sales, festivals, updates, press and posts. Name each one next to the lift days. Do not say a
+   post caused a lift when another event on those days can explain it; write "unknown" where the
+   cause is not known. Add one line of context per big change, then one decision (our
+   practice).
 
 6. **Check.** Run:
 
@@ -171,8 +178,9 @@ Each week, read **wishlists per beat** (By campaign), then **wishlists per forma
   search counts nothing. Fix the link.
 - **A post shows 0 but its beat has visits:** Steam hides UTM combinations with few visits. Read
   By campaign. Do not call a post dead from one hidden row.
-- **UTM is a floor:** clicks in a social app's browser followed by a wishlist in the Steam client
-  are lost, and many viewers search Steam later on PC. The lift shows what UTM missed. It also
+- **UTM is a floor:** Steam counts Tracked Visits only for players logged in to Steam. Clicks in a
+  social app's browser followed by a wishlist in the Steam client are lost, and many viewers
+  search Steam later on PC. The lift shows what UTM missed. It also
   includes sales, festivals and press, so read it as a rough upper view.
 - **Last days are short:** Steam finalizes a wishlist about 4 days after the visit.
 - **Counted twice:** daily exports and a range export for the same days add up twice. The script

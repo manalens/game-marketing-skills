@@ -25,7 +25,8 @@ Never spend a fresh tester on a guided task: a person can be new to the game onl
 - **Genre communities and r/playtesters:** strangers who play the genre. Read each community's
   rules first, post one clip and a signup form, not a public download.
 - **Steam Playtest:** a separate test app on your store page. Players request access next to the
-  wishlist button; you add them in batches. Free; you may not charge for access. You can also
+  wishlist button; you add them in batches, and Steam picks them at random from the signups.
+  Free; you may not charge for access. You can also
   send Playtest keys before the store page is live. Feedback collection is up to you, so link the
   survey from the main menu.
 - **itch.io restricted page:** open only to people you approve, hidden from itch.io search and

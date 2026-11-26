@@ -30,3 +30,12 @@ Written in our own words. Valve pages are the primary source for sizes and rules
 - Chris Zukowski, "How the Steam Personal Calendar affects your launch" (25 June 2026): look like
   your genre at a glance.
   https://howtomarketagame.com/2026/06/25/how-the-steam-personal-calendar-affects-your-launch/
+- Valve, Content Survey (AI content that ships with the game and players consume, artwork
+  included; reviewed like other content), read 26 November 2026:
+  https://partner.steamgames.com/doc/gettingstarted/contentsurvey
+- Game Developer, "Valve tweaks and clarifies AI disclosure rules for Steam" (Danielle Riendeau,
+  16 January 2026; read 26 November 2026): marketing assets and the store page count.
+  https://www.gamedeveloper.com/business/valve-tweaks-and-clarifies-ai-disclosure-rules-for-steam
+- GDC, State of the Game Industry, November 2026 (read 26 November 2026): 55% of surveyed game
+  professionals said generative AI is having a negative impact; "large opposition" to it in
+  player-facing features. https://gdconf.com/state-of-the-game-industry-november-2026/

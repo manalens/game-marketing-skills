@@ -33,7 +33,10 @@ Look in the repo first. Ask only for what is missing.
    `tracking-plan`. Do not invent it.
 2. **Date range.** Default: the last 30 days for the funnel. Retention to day 30 needs 60 to 90
    days and ends yesterday.
-3. **The question.** Drop-off, retention by source, playtime, quit points, or a dashboard.
+3. **The question.** Drop-off, retention by source, playtime, quit points, or a dashboard. Tie
+   it to a decision the user must make, such as "rebalance level 4 or not", and pin it to one
+   event, one date range and one split (by build or by source). "Is my game fun?" has no event
+   behind it (our practice).
 4. **Data.** Manalens MCP if connected (check that `get_analytics` is listed). Otherwise a CSV
    from any analytics tool's raw event export with these columns:
    `user_id` or `anonymous_id`, `event`, `timestamp`, optional `properties` (JSON) and `source`.
@@ -105,6 +108,15 @@ Look in the repo first. Ask only for what is missing.
      over 2 hours (the refund line).
    - **Quits:** the top 3 last events with their level or step.
    Every group or cohort under 30 players: say "too small" and do not rank it.
+   Before you write, check the numbers (OpenAI and Anthropic advice for AI data work; the order
+   is our practice):
+   - **Row count first:** the events and players the script or SQL read match the export. A
+     partial read, or rows dropped for empty IDs, gives confident numbers about the wrong players.
+   - **One number by hand:** recompute one or two headline numbers, such as players at step 1,
+     and compare them with the analytics tool's own report for the same dates.
+   - **Keep the method:** the SQL files or the script command stay next to the report, so anyone
+     can rerun them.
+   - **Say what the data cannot answer.** Write "the data cannot show this" rather than a guess.
 
 6. **Turn findings into next steps.** Add `## What we change` to the report: at most three
    actions, each naming the number that triggered it and the number to check later. Use the
@@ -179,6 +191,11 @@ Look in the repo first. Ask only for what is missing.
   `JSONExtractRaw` (see the queries file).
 - **Heartbeats as quit points:** skip housekeeping events with `--ignore` (default:
   `session_start,session_end,heartbeat,app_unclean_exit`).
+- **Raw exports hold personal data:** the European Commission counts cookie IDs, IP addresses
+  and advertising IDs as personal data, and pseudonymised data that can be re-identified still
+  counts. Keep the raw CSV out of the repo and out of the report: the report holds counts and
+  rates, never user IDs. Do not paste raw rows into another AI chat. For a question about one
+  player, look in the analytics tool.
 
 ## Version notes
 

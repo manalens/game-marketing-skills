@@ -46,3 +46,24 @@ asset rules, since 1 September 2022). A localized logo follows the same rule.
   Unreal uses composite fonts with sub-font ranges for CJK.
 - German and French strings often run longer than English. Leave room in buttons, or test with a
   pseudo-localized build (each string padded and accented) before the vendor starts.
+
+## Pseudolocalization (before any translation)
+
+Godot's pseudolocalization settings test the game before a translator or an AI tool starts
+(Godot documentation, Pseudolocalization, Godot 4.7, read 26 November 2026):
+
+- An `expansion_ratio` of 0.3 makes each string 30% longer, or double the vowels. Text that
+  overflows its button or box shows up at once.
+- Accented letters in place of plain ones show strings that are not localized (they stay plain)
+  and glyphs missing from your fonts.
+- Fix every overflow and hard-coded string before you send files out (Manalens practice).
+- Godot can generate a PO template from scenes and scripts. Regenerate it after you change
+  strings, or the new lines cannot be translated (Godot documentation, Localization using
+  gettext).
+
+## English on the store page
+
+English is the default and only fallback language for store text, so its fields cannot be blank
+(Steamworks, Store Page Written Description). Events and announcements also show the English
+version when a language is missing, and you can upload all event translations as one CSV
+(Steamworks, Events and Announcements Tools).

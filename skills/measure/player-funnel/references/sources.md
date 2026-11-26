@@ -28,3 +28,16 @@ Written in our own words. Checked 2026-11-26.
 - ClickHouse `windowFunnel`: https://clickhouse.com/docs/sql-reference/aggregate-functions/parametric-functions#windowfunnel
 - The SQL in `queries.md` was run against ClickHouse 26.11 (embedded) on synthetic events with
   the `raw_events` and `sessions` columns, and matched `scripts/funnel.py` on the same data.
+- OpenAI Help Center, Data analysis with ChatGPT (OpenAI, read 26 November 2026):
+  https://help.openai.com/en/articles/8437071-data-analysis-with-chatgpt (review the code,
+  outputs and assumptions; spot-check key numbers before a decision).
+- Claude documentation, Reduce hallucinations (Anthropic, read 26 November 2026):
+  https://docs.claude.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations
+  (allow the model to say it does not know; use only the given data).
+- European Commission, Data protection explained (read 26 November 2026):
+  https://commission.europa.eu/law/law-topic/data-protection/data-protection-explained_en (names,
+  emails, IP addresses, cookie IDs and advertising IDs are personal data; re-identifiable
+  pseudonymised data still is).
+- Manalens guide "How to analyze gameplay data with AI" (26 November 2026), the source of the
+  practice items (a question tied to a decision, row count first, no player IDs in the output):
+  https://manalens.dev/blog/ai-gameplay-data-analysis?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=player_funnel

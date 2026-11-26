@@ -32,8 +32,12 @@ Look in the repo first. Ask only for what is missing.
 1. **The game:** README, design docs, press notes, `marketing/`. Pull the genre label in 3 to 5
    words, the loop verbs, setting, art style, camera, player count, and what is in the build.
 2. **Similar games:** 3 to 5 games players will compare it with, including the biggest game in the
-   genre. For a full comparison, 10 to 20. Check the design docs for "inspired by" lists first.
-3. **Their tags:** the top tags of each similar game, in page order. Ask the user to copy them
+   genre. For a full comparison, 10 to 20 with the same core loop and a similar price. HTMAG
+   (23 August 2022) advises games from the last 3 years, failures and hidden gems included. Check the design
+   docs for "inspired by" lists first. Open every game on Steam: a list from an AI tool can hold
+   only famous hits, or games that do not exist.
+3. **Their tags:** the top tags of each similar game, in page order. Valve suggests this source.
+   Never take them from an AI answer. Ask the user to copy them
    from each store page (the "+" button shows all), or to run the compare mode of the tag analyzer
    (Workflow step 2). Save them as `launch/similar-tags.txt`, one game per line:
    `Slay the Spire: Roguelike Deckbuilder, Deckbuilding, Card Game, ...`
@@ -151,6 +155,10 @@ to the UTM rows from [docs/LINKS.md](../../../docs/LINKS.md).
   your section on the Developer Preview Page before the fest, while you can still fix tags.
 - **Clever tags at the top:** a rare tag that is not your genre hides you from the players whose
   calendar and recommendations should show you. Specific, yes; off-genre, no.
+- **An AI shortlist:** an AI tool can rank tags from the pasted tags of 5 to 10 similar games and
+  your fact sheet, with the most specific genre first, and can group the games by hook to show
+  which tags only the best reviewed ones use. It cannot know your build. Check each tag against
+  the build, then set and order them yourself in the Tag Wizard (Manalens practice).
 
 ## Version notes
 

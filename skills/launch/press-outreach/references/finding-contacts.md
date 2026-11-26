@@ -41,10 +41,25 @@ posted videos about them.
 - Open each channel. Keep it when it uploads regularly, plays games like yours, and its recent
   videos have real views and comments.
 - Small and mid creators who play the genre are the main list. They answer more often, and their
-  viewers came for that genre. One mid-size creator can be the first domino: in one case a single
+  viewers came for that genre. Rank by how many games like yours a channel covered recently, not
+  by subscribers. Gamesight's Adam Lieb told Game Developer (30 Aug 2021) that a generic email to
+  the top 50 streamers is unlikely to work, and that the share of a creator's audience that
+  watches games like yours matters most. Hydroneer's developer sent about 30 emails; two
+  creators with about 1.5 to 2 million subscribers each picked it up, and wishlists went from
+  about 1,000 to about 60,000 by release (GameDiscoverCo, 27 Jun 2022). One mid-size creator can be the first domino: in one case a single
   video pulled other creators in (HTMAG, Aug 2025).
 - Take the email from the channel's About page ("View email address"). That is the business
-  email. Write in `contact_source` where you found it.
+  email. YouTube shows it only if the channel owner added one (YouTube Help, Business Inquiry
+  Emails). Write in `contact_source` where you found it.
+
+### Using AI on the list
+
+An AI tool can suggest search terms and comparable games, and sort the list you built: group by
+genre, size and platform from your own notes, and rank by recent coverage of similar games. It
+cannot find the people or their emails. Language models produce "plausible but false
+statements" (OpenAI, 5 Sep 2025), and a channel name or email address that looks right may not
+exist. Open every channel yourself, and copy every email from the channel or outlet page
+(Manalens practice).
 
 ## 4. Twitch streamers
 

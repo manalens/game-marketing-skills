@@ -29,9 +29,19 @@ Written in our own words. Checked 2026-11-26. "Claim" marks one source's number.
   (wishlist-only week-one rate 2.2%, cohorts 1.0% to 7.4%; one game).
 - Manalens docs, Steam integration: https://docs.manalens.dev/integrations/steam (Steam UTM import
   and Steamworks Financial API wishlist sync with adds, deletes, purchases and gifts per day in
-  GMT; dashboard setup "coming soon"; early access).
+  GMT; the sync is in early access; re-read 26 November 2026: the UTM CSV import is live).
 - Manalens docs, MCP server: https://docs.manalens.dev/mcp/overview (`get_steam_stats` `report` `wishlists`: daily
   adds, deletes, purchases, gifts, net and outstanding change; `report` `utm`; `get_analytics`
   reports; `get_attribution` groups; checked 2026-11-26).
 - Manalens tools: Steam wishlist CSV analyzer (header `DateLocal,Game,Adds,Deletes,
   PurchasesAndActivations,Gifts`; lines above the header skipped) and wishlist quality forecaster.
+- Steam Refunds policy (Valve, last updated 23 April 2024, read 26 November 2026):
+  https://store.steampowered.com/steam_refunds/ (refund on request within 14 days of purchase
+  and under 2 hours of playtime).
+- Steamworks, UTM Analytics (Valve, read 26 November 2026):
+  https://partner.steamgames.com/doc/marketing/utm_analytics (a wishlist counts for a tagged
+  visit within 72 hours).
+- Manalens guide "How to use AI to write a weekly metrics report for your game" (26 November
+  2026), the source of the weekly practice items (full past week, one line of context per big
+  change, one decision, no benchmarks from memory):
+  https://manalens.dev/blog/ai-weekly-game-metrics-report?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=wishlist_analysis

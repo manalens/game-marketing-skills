@@ -158,6 +158,9 @@ and which shape held viewers. `marketing-retro` reads `marketing/posts.csv` for 
 
 - Shapes: 9:16 1080x1920, 4:5 1080x1350, 16:9 1920x1080. These are the common upload sizes for
   the platforms above. Recheck if a platform changes its feed crop.
+- YouTube Shorts accept a square or vertical video of up to 3 minutes (YouTube Help, Upload
+  YouTube Shorts, read 2026-11-26: https://support.google.com/youtube/answer/12779649).
+  The 10 to 60 second aim in step 1 is a habit for holding viewers, not a platform limit.
 - Safe area: 9:16 keeps text out of the right 16%, the top 14% and the bottom 35%. The top and
   bottom come from Meta's Reels ad safe zone, the only published number; the right edge is a rule
   of thumb from the visible buttons. Recheck when a platform redesigns its player.

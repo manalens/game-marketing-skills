@@ -81,12 +81,15 @@ connect Manalens (14-day trial): https://docs.manalens.dev/mcp/overview
 2. **Write the short description.** Formula: genre (and setting), then the hook, then 2 or 3
    player verbs in loop order. Write the 3 to 5 word label first; if you cannot, the positioning
    is the problem, not the text. Plain text, about 300 characters or fewer, no "Now available",
-   no dates, no Early Access promises, no links, no line breaks. Write 3 versions, pick one, and
-   save it alone to `launch/steam-short-description.txt` for the check.
+   no dates, no prices, no Early Access promises, no links, no other game names, no line breaks.
+   Write 3 versions from the fact table only, pick one, and rewrite it in the team's voice. Mark
+   each claim and check it against the build. Save it alone to
+   `launch/steam-short-description.txt` for the check.
 3. **Write About This Game.** Short blocks with bold headers, each opening with what the player
    does, with a GIF slot between blocks. Lead with the core loop, then the systems, then the
    content at launch, then what is different. No jargon a newcomer to the genre would miss. No
-   links, no fake Steam buttons, no ads for other games. If the game is in Early Access, add
+   links or QR codes, no prices, no fake Steam buttons, no text that names or points to other
+   games on Steam. If the game is in Early Access, add
    Valve's Early Access answers in their own field, not here. Template:
    [references/page-rules.md](references/page-rules.md#about-this-game).
 4. **Plan the screenshots.** List the files in store order with one line each: what it shows and
@@ -198,6 +201,13 @@ use it as a rough floor, not a target. Every link you post to the page uses the 
   the Personal Calendar until release. Set a date you can keep.
 - **Trailer queue:** Valve transcodes trailers first in, first out, and a re-upload goes to the
   back. You cannot release while one is still converting. Upload early.
+- **AI-written text:** disclose AI text that players read on the page (and AI translations) in
+  the Content Survey; tools that only speed up your own writing are not its focus. Valve reviews
+  it like any other text, so the risk is an invented feature, a number nobody counted, or a
+  comparable game's name. Steps and sources:
+  [references/page-rules.md](references/page-rules.md#ai-drafted-text).
+- **English fields left blank:** English is the only fallback language, so its fields must be
+  filled even for a game that launches in another language first.
 - **The grader cannot see everything:** the grader and `review_steam_page` cannot judge capsule
   readability, screenshot content or the trailer's opening. The local check and your eyes cover those.
 
@@ -206,7 +216,11 @@ use it as a rough floor, not a target. Every link you post to the page uses the 
 - Screenshots: at least 5, 1920x1080 or larger, 16:9, at least 5 categorized as gameplay (Valve
   assets doc and announcement of 3 November 2026).
 - Description images under 5 MB each, 15 MB in total; no links; no time-based text in the short
-  description (Valve, Store Page Written Description, read 19 November 2026).
+  description (Valve, Store Page Written Description, read 19 November 2026). No prices, no
+  implied URLs or QR codes, no references to other products, English as the only fallback:
+  same page, read 24 November 2026.
+- AI disclosure: Steamworks Content Survey, read 26 November 2026; store page and marketing
+  assets in scope per Game Developer, 16 January 2026.
 - Review: submit 7 business days ahead; build review took up to 12 business days on
   3 November 2026. First game: 21 days after the app fee, Coming Soon for 2 weeks.
 - Personal Calendar left Steam Labs on 23 October 2026; exact date 60+ days ahead.

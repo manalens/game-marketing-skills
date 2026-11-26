@@ -22,6 +22,11 @@ this skill through the Manalens website content (files named below), which cites
 - Steamworks, Bundles: https://partner.steamgames.com/doc/store/application/bundles
 - Steamworks, Downloadable Content: https://partner.steamgames.com/doc/store/application/dlc
 - Steamworks, Steam Keys: https://partner.steamgames.com/doc/features/keys
+- Steamworks, User Reviews: https://partner.steamgames.com/doc/store/reviews (read 2026-11-26):
+  reviewers need recorded playtime; only purchases count toward the score.
+- Steamworks, IUserReviewsService, GetAppReviews:
+  https://partner.steamgames.com/doc/webapi/IUserReviewsService (read 2026-11-26): any app, no
+  key, up to 100 reviews per page.
 - Valve, revenue share tiers, 30 November 2018:
   https://steamcommunity.com/groups/steamworks/announcements/detail/1697191267930157838
 
@@ -33,6 +38,10 @@ this skill through the Manalens website content (files named below), which cites
   https://newsletter.gamediscover.co/p/discount-strategy-your-key-post-launch
 - How To Market A Game, "4 tips to help you price your indie game", 23 August 2022:
   https://howtomarketagame.com/2022/08/23/4-tips-to-help-you-price-your-indie-game/
+- How To Market A Game, Benchmarks: https://howtomarketagame.com/benchmarks/ (read 2026-11-26):
+  Boxleiter sales per review by release year.
+- OpenAI, "Why language models hallucinate", 5 September 2025:
+  https://openai.com/index/why-language-models-hallucinate/ (read 2026-11-26)
 - How To Market A Game, "Bundling is giving", 14 December 2022:
   https://howtomarketagame.com/2022/12/14/bundling-is-giving/
 - How To Market A Game, "Benchmark: How much money can you make from DLC?", 3 March 2026:
@@ -51,3 +60,6 @@ this skill through the Manalens website content (files named below), which cites
 - `glossary-terms/steam-sales-stores.ts`, `glossary-terms/release.ts`: discount, cooldown,
   launch discount, regional pricing, bundle, DLC and itch.io rules.
 - `article-tldr.ts`: roguelike, deckbuilder and cozy price counts, free to play vs premium.
+- `guides/ai-game-dev-4.ts` ("How to do game market research with AI", 26 November 2026): the
+  3-year comp advice and the Boxleiter table (cited above), the "write unknown" prompt line and
+  the store-page-first checks (Manalens practice).

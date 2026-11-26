@@ -38,8 +38,9 @@ Look in the repo first, then ask only for what is missing.
    experience needs a blind test with new players; difficulty and fun need your target players;
    bugs can use anyone, including other developers. Output: goal, type and the decision it feeds,
    at the top of `playtest/plan.md`.
-2. **Size and recruit.** About 5 testers per round find most usability problems (Nielsen), so
-   run small rounds and fix between them. For rates (how many quit, how many wishlist), aim for
+2. **Size and recruit.** About 5 testers per round find most usability problems (Nielsen: a
+   first study with 5 found 85%), so run small rounds and fix between them. With a handful of
+   testers, read answers as a list of problems to check in the build, not as percentages. For rates (how many quit, how many wishlist), aim for
    30 or more new players per build (a Manalens working minimum, not a research figure). Draft
    the call for testers from the template in the reference: friends and other developers for a
    build that runs, then Discord or newsletter, genre communities such as r/playtesters (read the
@@ -73,7 +74,9 @@ Look in the repo first, then ask only for what is missing.
    `python3 scripts/survey_report.py playtest/responses.csv --segment "how often" --out playtest/report-data.md`.
    It counts choices, gives medians for scales, splits by the segment, groups free text by
    keyword and flags small samples. Map key questions the header text did not match with
-   `--role change="what would you fix"`.
+   `--role change="what would you fix"`. For 50 or more free-text answers, you may also tag them
+   with an AI model and a codebook you wrote, with a quote per tag and a hand-checked sample of
+   50: [references/ai-tagging.md](references/ai-tagging.md). Remove names and emails first.
 9. **Write `playtest/report.md`.** Read the data file and the notes, then write: what we tested,
    who (count per segment), the top 3 to 5 problems with evidence (quotes, counts, and the event
    data for the same testers), what to change, and what to test next round. Pair each problem
@@ -129,7 +132,13 @@ reads `playtest/report.md` to tie fixes to later demo numbers.
 - **Survey without IDs:** without a tester ID, answers cannot be joined to play data. Add it
   before the round, not after.
 - **Personal data in quotes:** testers write names and emails into text boxes. Remove them before
-  sharing the report.
+  sharing the report or uploading answers to an AI tool. The European Commission counts names,
+  emails and online identifiers as personal data, even when pseudonymised data can be re-identified.
+- **Trusting AI tag counts unchecked:** LLMs matched people well on broad sentiment of Steam
+  reviews, and less well on finer judgments. Hand-check 50 comments, and drop any tag whose quote
+  you cannot find in the export.
+- **Comparing tag shares too early:** wait for 20 or more testers before you compare how often a
+  tag appears (Manalens practice). Below that, each tag is a problem to check, not a rate.
 - **Steam Playtest does not collect feedback:** Valve says that part is up to you. Link the survey
   from the main menu or the invite.
 - **Playtest during Next Fest:** Valve advises against a live Steam Playtest during the fest,
@@ -140,7 +149,11 @@ reads `playtest/report.md` to tie fixes to later demo numbers.
 - Steam Playtest: free, signups from the store page in batches, keys possible before the page is
   live, no charging for access, feedback collection is up to the developer, no effect on Next Fest
   eligibility (Steamworks Steam Playtest docs, as read by Manalens 19 and 24 Nov 2026).
-- Survey length (8 to 12 questions, 8 or fewer under 15 minutes) and the 30 players per build
-  minimum are Manalens practice, not standards. Sources: [references/sources.md](references/sources.md).
+- Survey length (8 to 12 questions, 8 or fewer under 15 minutes), the 30 players per build
+  minimum for rates and the 20 testers before comparing tag shares are Manalens practice, not
+  standards.
+- AI tagging accuracy (93% and 94% on Steam review sentiment, kappa about 0.55 on aspect-based
+  sentiment, 558 of 558 quotes found): studies listed in the sources, read by Manalens
+  26 Nov 2026. Sources: [references/sources.md](references/sources.md).
 
 Last verified 2026-11-26.

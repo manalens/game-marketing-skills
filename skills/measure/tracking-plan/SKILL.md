@@ -54,7 +54,9 @@ Look in the repo first. Ask only for what is missing.
    no clear hook gets a TODO in the plan, not a guess.
 
 3. **Propose the plan.** Start from `assets/tracking-plan.csv` (18 events) and cut or rename to
-   fit. Keep 10 to 20 events. The funnel steps, in order:
+   fit. Keep 10 to 20 events. Mixpanel warns that tracking every action a user can take leads to
+   wasted development work and unused data, so add an event later, when a question needs it. The
+   funnel steps, in order:
 
    | Step | Events (defaults) | Sent by |
    |---|---|---|
@@ -81,6 +83,15 @@ Look in the repo first. Ask only for what is missing.
    - One event, many values: `level_complete` with `level: 3`, never `level_3_complete`.
    - Two to five properties per event. Numbers as numbers. The same property name means the same
      thing on every event.
+   - Flat properties only: strings, numbers, booleans or null. The Manalens SDKs drop lists and
+     nested objects and cut strings at 1,024 characters.
+   - No `build`, `platform`, `storefront` or `app_version` property. The game SDKs put them in the
+     context of every event from `init()`; a hand-set copy can disagree with the real build after
+     a patch.
+   - Check names against Google's 11 recommended events for games in GA4 (`tutorial_begin`,
+     `tutorial_complete`, `level_start`, `level_end`, `level_up`, `post_score`, `unlock_achievement`,
+     `earn_virtual_currency`, `spend_virtual_currency`, `join_group`, `select_content`). Use them as
+     a naming reference, not a plan: a premium game with no currency needs no currency events.
    - No personal data and no free text (`references/privacy.md`).
    - Use the same name on the site and in the game (`wishlist_clicked` in both, with `placement`).
    - Manalens reads the standard names (`game_open`, `level_*`, `purchase`, `error`) in its game
@@ -156,6 +167,9 @@ Look in the repo first. Ask only for what is missing.
   `attribution-report` (`wishlist_clicked` and installs by `utm_campaign`) and `marketing-retro`.
 - The number to watch first: share of `game_open` with `is_first_open` that reach
   `tutorial_complete`.
+- With Manalens, add each event and what it means to Ask AI's project memory (an item holds up
+  to 280 characters, a project up to 80 items), so AI questions use the plan's names. Keep the
+  same text next to the plan, so both change when an event is renamed.
 
 ## Gotchas
 
@@ -171,7 +185,7 @@ Look in the repo first. Ask only for what is missing.
 - **`tutorial_step` that fires twice:** a replayed tutorial or a reloaded scene double counts. Send
   on the step's first completion per save, or add `attempt`.
 - **Too many events:** a `button_clicked` on every button floods the queue and answers nothing. Track
-  completed actions.
+  completed actions. Never send an event every frame or every second (such as player position).
 - **UTM on Steam is a floor:** many players search Steam later. `store_page_visit` numbers come from
   Steam UTM Analytics, not from game code.
 - **Consent hides people:** with consent mode, players who decline are not counted at all.
@@ -185,7 +199,9 @@ Look in the repo first. Ask only for what is missing.
   `app_unclean_exit`), Unity (`Init`, `Track`, `LinkUrl`), Unreal (settings, `Track` with three
   maps, `LinkUrl`), web SDK (`track`, automatic page views and UTM, `identity_handoff`). Handoff
   links expire after 10 minutes. Event limits: names 1 to 128 characters, at most 50 properties and
-  8 KB. Events older than 7 days are refused.
+  8 KB, string values cut at 1,024 characters. Events older than 7 days are refused. Platform,
+  storefront, app version, build and engine travel in each event's context.
+- Google GA4 recommended events for games: 11 names (Google Analytics Help, read 2026-11-26).
 - Manalens MCP: `get_analytics` reports `kpis`, `event_timeseries`, `top_pages`, `top_sources`,
   `top_events`; filter fields include `event`, `app_build` and `properties.<key>`.
 - Platform rules in `references/privacy.md` change. Re-read Apple, Google and console rules before a

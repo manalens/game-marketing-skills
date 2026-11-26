@@ -56,8 +56,17 @@ $17.99. Range: $14.99 to $19.99.
 
 ## 4. Reading comps and reviews
 
-- Use games released in the last 5 years. Older prices may reflect another market.
+- Use games released in the last 5 years (ours). Older prices may reflect another market.
+  HTMAG is stricter: comps "released in the last 3 years", in the same genre and scale, with
+  failures and hidden gems, not only hits; after about 10 games you know what such games sell
+  for (Source, 23 Aug 2022). Prefer the last 3 years when you have enough comps.
+- Open every comp on Steam yourself, and copy its price and review count from the store page.
+  An AI tool asked for comps tends to list famous hits and can name games that do not exist;
+  asked for sales, it may state a figure it invented (OpenAI, 5 Sep 2025: models produce
+  "plausible but false statements", most often on rare facts such as a small game's sales).
 - Leave out free games and games with no US price.
+- Valve's GetAppReviews web method works for any app, needs no key and returns up to 100
+  reviews per page (Valve, IUserReviewsService). Use it, or the store page, to pull reviews.
 - Read the newest 100 English reviews of each comp for price sentences. Sort them into "too
   expensive", "good value" and "wait for a sale". The Steam price picker does this with
   keyword rules.
@@ -65,6 +74,25 @@ $17.99. Range: $14.99 to $19.99.
   "wait for a sale" reviews is at the edge of what players accept.
 - Review count tells you how many people bought at that price. A comp with 200 reviews at
   $24.99 is weaker evidence than one with 5,000 at $19.99.
+
+Sales range per comp (Boxleiter method, Source: How To Market A Game, Benchmarks, read
+26 Nov 2026). Multiply the review count by sales per review for the comp's release year:
+
+| Release year | Sales per review |
+|---|---|
+| 2013 to 2017 | 79 down to 43 |
+| 2018 | 38 |
+| 2019 | 36 |
+| 2020 | 31 |
+| 2021 | 20 to 55, median 31 |
+
+- Write a low and a high, never one number: one review count can mean sales that differ by more
+  than double.
+- Valve: only users with recorded playtime can review, and only purchases count toward the review
+  score. Key activations are partly missing from the shown totals.
+- An AI tool can do the arithmetic once you paste the counts. Start the prompt with "Use only the
+  data below. If a value is missing, write unknown." (ours, after OpenAI's note that a model
+  allowed to say it does not know guesses less).
 
 ## 5. What the price says
 

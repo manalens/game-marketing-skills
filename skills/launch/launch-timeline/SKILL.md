@@ -86,6 +86,10 @@ https://docs.manalens.dev/mcp/overview
    With the MCP, call `plan_marketing_timeline` now and merge it (With the Manalens MCP).
 4. **Edit for this game.** Read `launch/timeline.md` and:
    - Mark tasks already done (Coming Soon live, fee paid) as done; do not delete the hard rows.
+   - If players will see AI content (art, text, translations, voices), add a task with the store
+     page work: describe it in Steam's Content Survey. It covers content that ships with the game
+     and that players consume, and Game Developer reported it also covers marketing assets and
+     the store page. Valve reviews that content like any other.
    - Put real names in the owner column if you know them.
    - Keep the `hard_deadline` column as the script wrote it. Only Valve rules and Valve dates are
      `yes`. Our practice dates (announce 26 weeks out, press keys 4 weeks out) can move.
@@ -97,7 +101,10 @@ https://docs.manalens.dev/mcp/overview
    embargo, creator keys. Each link carries UTM tags per [docs/LINKS.md](../../../docs/LINKS.md):
    `utm_source` = the platform (`press` for outlets), `utm_campaign` = the beat (`announce`,
    `demo`, `nextfest`, `launch`), `utm_content` = the contact or post ID. Drafting the emails is a separate job; this
-   skill only dates them.
+   skill only dates them. If the team drafts posts, emails or store text with AI, add one task
+   early in the plan: a fact sheet (genre, what the player does, the hook, comparable games, real
+   feature counts) that every draft starts from. Give AI-assisted posts their own `utm_content`,
+   so the retro can compare them with posts written by hand (Manalens practice).
 6. **Launch day.** Keep the checklist at the end of `timeline.md`. It includes one studio's
    advice that many developers share: line up people who will buy at launch and leave an honest
    review. Valve counts only reviews from Steam purchases in the score, not key activations, and a
@@ -141,6 +148,12 @@ https://docs.manalens.dev/mcp/overview
   are no exception to that cooldown. The game can sit in the sale at full price.
 - **Next Fest once:** one edition per game, ever, and the game must not release before it ends.
   Registration needs the base game page public, so Coming Soon comes first.
+- **Next Fest trailer:** Valve picks games for its fest trailer from a publicly visible trailer on
+  the base game page and accepts no other video. Keep a public trailer of real footage you are
+  proud of on that page for the fest.
+- **Old announcements on the page:** the last two announcements show below the DLC section of
+  the store page, and all followers get them in their activity feed. Date each announcement in
+  the plan, and check its facts against the build.
 - **Approved is not released:** Valve does not release the game for you. Someone presses Release.
 - **Weekend dates:** the script moves practice dates back to Friday, never Valve dates.
 - **Keys for first-time developers** arrive about 3 weeks after the app ID exists; plan press keys
@@ -156,6 +169,8 @@ https://docs.manalens.dev/mcp/overview
 - Build review backlog of up to 12 business days: Valve announcement, 3 November 2026. Queue
   claims (47 days for a new account, 15 for a build): How To Market A Game, 19 November 2026.
 - Personal Calendar (60 days, 3 weeks, 24-hour rule): live since June 2026.
+- Next Fest trailer rule, announcements on the store page and the AI Content Survey: Steamworks
+  Next Fest, Events and Announcements Tools and Content Survey docs, read 26 November 2026.
 - Manalens MCP `plan_marketing_timeline`, checked 2026-11-26: new, so its name and fields can
   still change. Match on the tool list.
 
