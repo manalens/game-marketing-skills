@@ -47,7 +47,7 @@ Look in the repo first. Ask only for what is missing.
    hook for the short description (`steam-page-review`).
 2. **Gather similar games' tags** into `launch/similar-tags.txt`. For 10 or more games, ask the
    user to paste store links into the compare mode of the
-   [Steam tag analyzer](https://manalens.dev/tools/steam-tag-analyzer?utm_source=game-marketing-skills&utm_medium=skill&utm_campaign=steam-tags)
+   [Steam tag analyzer](https://manalens.dev/tools/steam-tag-analyzer?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=steam_tags)
    and report back its "Tags you miss" and "Tag order" tables. Without the tool, the script's
    `--similar` option counts the shares from the file.
 3. **Build the pool.** Union of the similar games' tags plus the label's tags. Remove tags that
@@ -58,7 +58,7 @@ Look in the repo first. Ask only for what is missing.
    the share of games that reached 50 reviews. A niche is a specific sub-genre or a pair of tags
    with fewer games where a good share still reached 50 reviews. Check pairs with the niche mode of
    the analyzer, or the benchmark pages at
-   [manalens.dev/steam/genres](https://manalens.dev/steam/genres?utm_source=game-marketing-skills&utm_medium=skill&utm_campaign=steam-tags).
+   [manalens.dev/steam/genres](https://manalens.dev/steam/genres?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=steam_tags).
    Never pick a niche the game does not belong to: the tags must describe the build.
 5. **Order the 20.** Write each tag with a one-line reason:
 

@@ -8,7 +8,8 @@ description: >
   deletes, wishlist conversion after a launch or a discount, and a cautious outlook to a date. Use
   for "analyse my Steam wishlists", "why did my wishlists spike on Tuesday", "how many wishlists
   will I have at launch", "is my wishlist conversion normal" or "did Next Fest work". Works from
-  the CSV; Manalens adds website traffic on spike days. Not for per-post content review
+  the CSV, or reads daily wishlists and website traffic through the Manalens MCP when it is
+  connected. Not for per-post content review
   (`marketing-retro`) or credit by channel (`attribution-report`).
 ---
 
@@ -41,31 +42,40 @@ Look in the repo first. Ask only for what is missing.
    sale, demo launch, store page change. Ask "what else happened?" for each unexplained spike.
 5. **Launch or sale date** (optional), for conversion. **Target date** (optional), for the outlook.
 
+## With the Manalens MCP
+
+It is connected when your tool list has `get_steam_wishlists` and `get_analytics` (scope
+`analytics:read`). Dates are `YYYY-MM-DD`.
+
+1. **Wishlists:** call `get_steam_wishlists` with `{"date_from": "2026-06-01", "date_to":
+   "2026-11-25"}` (at most 367 days a call; add `"app_id"` when the project has several games).
+   Write the rows to `marketing/wishlists/steam-wishlists.csv` with the header
+   `day,wishlist_adds,wishlist_deletes,wishlist_purchases,wishlist_gifts`. The script reads it
+   like the Steamworks export. Purchases here include activations.
+2. **Outstanding:** the tool has no total outstanding count, only `outstanding_change`. Still ask
+   the user for the number at the top of the Steamworks wishlist page, for `--outstanding`.
+3. **Traffic on spike days** (after the script ran): `get_analytics` with
+   `{"report": "top_sources", "date_from": "2026-10-19", "date_to": "2026-10-21"}`, and
+   `get_steam_utm` with `{"group_by": "source", "view": "daily"}` for the same days. A source that
+   jumps on those days is a lead, not proof. Add it to the spike's row in "What this means".
+
+Copy each result's `notes` into "What this means". A note that no data covers the range means the
+Steamworks sync is not set up: use the CSV.
+
+## Without it
+
+Use the Steamworks CSV (Inputs, 1) and run the script. For a second view in the browser, the
+[Steam wishlist CSV analyzer](https://manalens.dev/tools/steam-wishlist-csv-analyzer?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=wishlist_analysis)
+reads the same file and charts net adds with a 7-day average. To skip the export next time,
+connect Manalens (14-day trial): https://docs.manalens.dev/mcp/overview
+
 ## Workflow
 
 1. **Check the export.** Open the CSV and confirm the header and the date range. Output: one
    line, such as "178 days, 6/1/2026 to 11/25/2026, one game".
 
-2. **Website traffic on spike days through Manalens, if connected.** The Manalens MCP cannot
-   return Steam wishlist data: its tools read website and game events (`raw_events`), not
-   Steamworks. Steam wishlist sync with a Financial API key and the Steam UTM import exist in the
-   dashboard (early access; setup "coming soon"), but not over MCP. So the CSV is always the
-   source. Manalens can add context: after step 4, for each spike day, call `get_analytics`
-   (scope `analytics:read`):
-
-   ```json
-   {"report": "top_sources", "date_from": "2026-10-19", "date_to": "2026-10-21"}
-   ```
-
-   and `get_attribution` (scope `attribution:read`) if the site sends a `wishlist_clicked` event:
-
-   ```json
-   {"conversion_event": "wishlist_clicked", "group_by": "source",
-    "date_from": "2026-10-19", "date_to": "2026-10-21"}
-   ```
-
-   A source that jumps on the same days is a lead, not proof. No Manalens? Use the referrers report
-   of any web analytics tool, or the Steam UTM Analytics export for the same days.
+2. **Wishlists through Manalens, if connected.** Make calls 1 and 2 in "With the Manalens MCP"
+   and pass the file as `--wishlists`. Make call 3 after step 4.
 
 3. **Build the events list** with the user (Inputs, 4). Use start and end dates for multi-day
    events. Next Fest runs a week; a sale runs its full length.
@@ -123,9 +133,6 @@ Look in the repo first. Ask only for what is missing.
   the last 8 weeks (spike days left out).
 - **Read with care:** caveats and warnings for this run.
 
-For a second view, the free Manalens [Steam wishlist CSV analyzer](https://manalens.dev/tools/steam-wishlist-csv-analyzer)
-reads the same file in the browser and charts net adds with a 7-day average.
-
 ## Measure
 
 Run this monthly before launch, and weekly in the last two months. Track three numbers over time:
@@ -172,6 +179,8 @@ numbers by UTM tag belong in `marketing-retro`.
   lasting over 8 hours, and once for a demo; cooldown 1 to 2 weeks per app. Source:
   partner.steamgames.com/doc/marketing/wishlist (checked 2026-11-26). Expect purchase spikes on
   those days, and use `--launch` with the sale start.
-- Manalens MCP (checked 2026-11-26): no Steam wishlist tool. Steam data is dashboard only, and
-  its setup is "coming soon". Sources and benchmark details: [references/sources.md](references/sources.md).
+- Manalens MCP (docs.manalens.dev/mcp/overview, checked 2026-11-26): `get_steam_wishlists` reads
+  the Steamworks sync by GMT day, with no total outstanding count; `get_steam_utm` reads the
+  user's Steam UTM import. Tool names can still change: match on the tool list. Sources and
+  benchmark details: [references/sources.md](references/sources.md).
 - Last verified 2026-11-26.

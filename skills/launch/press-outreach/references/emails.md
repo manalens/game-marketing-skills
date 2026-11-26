@@ -45,7 +45,7 @@ market by lantern light. It comes out on Steam on 12 March.
 Here is a Steam key for review: <key>
 Embargo: 10 March, 17:00 UTC, the same for everyone.
 
-Steam: <tagged link for cozyweekly-sam>
+Steam: <tagged link for cozy_weekly_sam>
 Press kit: <press kit URL>
 Trailer: <YouTube URL>
 
@@ -136,10 +136,10 @@ accept it there; a scammer cannot resell it.
 ```markdown
 # Cozy Weekly, Sam Writer
 
-- utm_content: cozyweekly-sam
+- utm_content: cozy_weekly_sam
 - Type: press
 - Why them: reviewed Ooblets (link), Moonstone Island (link)
-- Link: https://store.steampowered.com/app/480/?utm_source=press&utm_medium=email&utm_campaign=launch&utm_content=cozyweekly-sam
+- Link: https://store.steampowered.com/app/480/?utm_source=press&utm_medium=email&utm_campaign=launch&utm_content=cozy_weekly_sam
 - Send on: 2027-02-17 (3 weeks before the embargo)
 - Follow-up on: 2027-02-24
 

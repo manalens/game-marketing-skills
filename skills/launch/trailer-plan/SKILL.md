@@ -132,9 +132,9 @@ Look in the repo first. Ask only for what is missing.
 9. **Hand off.** Draft only. Never upload or submit. Ask the user to upload to Steam and YouTube
    and report back the YouTube URL for `marketing/posts.csv`. For the reasoning behind gameplay
    first and how to measure the change, see
-   [Steam trailer best practices](https://manalens.dev/blog/steam-trailer-best-practices?utm_source=game-marketing-skills&utm_medium=skill&utm_campaign=trailer-plan);
+   [Steam trailer best practices](https://manalens.dev/blog/steam-trailer-best-practices?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=trailer_plan);
    for the full capture and edit walkthrough, see
-   [How to make a game trailer](https://manalens.dev/blog/how-to-make-a-game-trailer?utm_source=game-marketing-skills&utm_medium=skill&utm_campaign=trailer-plan).
+   [How to make a game trailer](https://manalens.dev/blog/how-to-make-a-game-trailer?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=trailer_plan).
 
 ## Output
 

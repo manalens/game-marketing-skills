@@ -34,6 +34,24 @@ Look in the repo first: README, `press/` (from `press-kit`), `marketing/`, the S
 6. **The beat** for `utm_campaign` (`demo`, `nextfest`, `launch`), from
    [docs/LINKS.md](../../../docs/LINKS.md).
 
+## With the Manalens MCP
+
+It is connected when your tool list has `build_steam_utm_link` and `check_utm_url`. Any Manalens
+API key or OAuth connection can call them.
+
+- **Steam links:** call `build_steam_utm_link` with
+  `{"app": "<App ID>", "utm_source": "press", "utm_medium": "email", "utm_campaign": "launch", "utm_content": "<contact slug>"}`.
+  Write the returned `url` in the `link` column of `contacts.csv`.
+- **Other links** (itch.io, your site): call `check_utm_url` with `{"url": "..."}`. Fix each
+  `warning` in `issues`, and use `clean_url` when it is given.
+
+## Without it
+
+Write each link by hand from [docs/LINKS.md](../../../docs/LINKS.md), then run the check script
+(Workflow step 9). For many links at once, use the bulk creator link and QR generator in step 4.
+To build the links from this skill next time, connect Manalens (14-day trial):
+https://docs.manalens.dev/mcp/overview
+
 ## Workflow
 
 1. **Plan the dates** in `marketing/outreach/plan.md`, counted back from the embargo or launch:
@@ -49,20 +67,20 @@ Look in the repo first: README, `press/` (from `press-kit`), `marketing/`, the S
 
    Ask the user to request keys in Steamworks early enough (one batch per beat and audience, for
    example `press-launch-1`, `creators-launch-1`) and report back the batch names. If the
-   [Manalens press email generator](https://manalens.dev/tools/game-press-email-generator?utm_source=game-marketing-skills&utm_medium=skill&utm_campaign=press-outreach)
+   [Manalens press email generator](https://manalens.dev/tools/game-press-email-generator?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=press_outreach)
    is easier for the user, it dates this send plan from the embargo and writes subject lines too.
 2. **Find the people.** Follow [references/finding-contacts.md](references/finding-contacts.md):
    writers who covered the similar games (the writer, not a tips@ inbox), small and mid YouTube
    creators found by searching each similar game, Twitch streamers from SullyGnome game pages,
    curators by tag fit, and aggregator accounts. The
-   [Manalens Steam marketing snapshot](https://manalens.dev/tools/steam-marketing-snapshot?utm_source=game-marketing-skills&utm_medium=skill&utm_campaign=press-outreach)
+   [Manalens Steam marketing snapshot](https://manalens.dev/tools/steam-marketing-snapshot?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=press_outreach)
    lists creators who covered similar games. The agent cannot browse YouTube or Twitch for the
    user: ask the user to run the searches (or the snapshot) and paste the results, then sort them.
 3. **Write `marketing/outreach/contacts.csv`** (columns in finding-contacts.md, section 7). One
    row per person. Record `audience` with its unit and `similar_games` with what they covered.
    Write `contact_source` (where the business email is published) for every row that may get a key.
 4. **Give each contact a tagged link.** `utm_content` is a unique contact slug
-   (`cozyweekly-sam`, `pipplays`), lower case with hyphens:
+   (`cozy_weekly_sam`, `pipplays`), lower case with underscores (docs/LINKS.md):
 
    | Type | utm_source | utm_medium |
    |---|---|---|
@@ -72,9 +90,9 @@ Look in the repo first: README, `press/` (from `press-kit`), `marketing/`, the S
    | Aggregator on X or Bluesky | `x` or `bluesky` | `social` |
 
    `utm_campaign` is the beat. Put the full Steam link in the `link` column. Steam hides UTM rows
-   with very few visits, so for very small creators you may share one value, `creators-small`
+   with very few visits, so for very small creators you may share one value, `creators_small`
    (pass it to the check with `--shared`). For many creator links and QR codes at once, the
-   [Manalens bulk creator link and QR generator](https://manalens.dev/tools/bulk-steam-link-qr-generator?utm_source=game-marketing-skills&utm_medium=skill&utm_campaign=press-outreach)
+   [Manalens bulk creator link and QR generator](https://manalens.dev/tools/bulk-steam-link-qr-generator?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=press_outreach)
    takes one name per line; paste the slugs, not display names, so the tags match the tracker.
 5. **Draft one email per contact** in `marketing/outreach/emails/<utm_content>.md`, from the
    templates in [references/emails.md](references/emails.md): short subject with the game's name,
@@ -148,7 +166,7 @@ first.
 - **Paying for UTM sales:** Valve advises against paying creators by UTM purchases; the count
   undercounts. Judge by lift and coverage.
 - **Small rows disappear:** Steam hides UTM combinations with very few visits. Use the shared
-  `creators-small` value for tiny creators, and keep the beat list short.
+  `creators_small` value for tiny creators, and keep the beat list short.
 
 ## Version notes
 
@@ -157,9 +175,9 @@ first.
 - Timing (press 3 weeks or more, creators 4 to 6 weeks, one follow-up, reminder 2 days before
   the embargo): IMPRESS, the 2024 Big Games Machine survey (claim), Blitz and Rigney via Manalens,
   IndieGamesPlus. See [references/sources.md](references/sources.md).
-- `utm_source` values follow docs/LINKS.md; the Manalens press email generator uses
-  `utm_source=press, utm_medium=email` too. Manalens examples use underscores in values; we use
-  hyphens.
+- UTM values follow docs/LINKS.md, the same convention as manalens.dev: `utm_source=press` and
+  `utm_medium=email` for press emails, names with underscores. The check fails on hyphens in a
+  contact slug and on a `utm_medium` outside `social`, `video`, `email`, `paid`.
 - Bite Me Games' advice on fake curator emails was not re-checked for this version.
 
 Last verified 2026-11-26.

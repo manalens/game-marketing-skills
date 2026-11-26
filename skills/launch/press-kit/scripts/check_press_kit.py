@@ -7,8 +7,9 @@ Fails (exit 1) when:
   - a description is outside its word limit, or there are not 4 to 6 features;
   - an award line has no link (awards must be verifiable), unless the section says "None yet";
   - placeholder text is left (TODO, TBD, FIXME, XXX, lorem ipsum, [Your name], <appid>, Your Game);
-  - a link to the Steam page, itch.io or the game's website has no utm_source, utm_medium and
-    utm_campaign;
+  - a link to the Steam page, itch.io or the game's website does not carry utm_source=press and a
+    lower-case utm_campaign, or carries a utm_medium (a kit link is a plain referral link,
+    docs/LINKS.md);
   - an asset in assets.csv is missing, is below its minimum size (read with ffprobe), or the set is
     incomplete: 6 to 12 screenshots without baked text, key art with and without logo, a logo with a
     transparent background, a GIF, an MP4 trailer, and a trailer embed link;
@@ -150,10 +151,23 @@ def check_links(path, text, website_host, errors):
             or (website_host and host == website_host)
         if not own:
             continue
-        q = parse_qs(u.query)
-        missing = [k for k in ("utm_source", "utm_medium", "utm_campaign") if not q.get(k)]
-        if missing:
-            errors.append(f"{path.name}: link without {', '.join(missing)}: {url}")
+        for problem in link_problems(parse_qs(u.query)):
+            errors.append(f"{path.name}: {problem}: {url}")
+
+
+def link_problems(q):
+    """UTM problems of one press kit link (docs/LINKS.md): source press, a beat, no medium."""
+    problems = []
+    source, campaign = q.get("utm_source", [""])[0], q.get("utm_campaign", [""])[0]
+    if source != "press":
+        problems.append(f"link has utm_source '{source}', use press" if source else "link without utm_source")
+    if not campaign:
+        problems.append("link without utm_campaign")
+    elif campaign != campaign.lower():
+        problems.append("utm_campaign must be lower case")
+    if "utm_medium" in q:
+        problems.append("link has a utm_medium; a press kit link has none")
+    return problems
 
 
 def probe(path):

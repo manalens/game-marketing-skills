@@ -8,12 +8,14 @@ Fails (exit 1) when:
     sent_date, follow_up_date, key_sent, coverage_url, utm_content;
   - a contact is not a valid email address or an https link (a contact form or Twitch page);
   - the same contact, or the same name at the same outlet, appears twice;
-  - utm_content is empty, not lower-case-with-hyphens, or used twice (except --shared values);
+  - utm_content is empty, not a lower-case name with underscores (or a YYYY-MM-DD-... post ID),
+    or used twice (except --shared values);
   - a status is unknown, a date is not YYYY-MM-DD, a sent row has no sent_date, or the follow-up
     is not after the sent date;
   - a key went to a contact with no contact_source (where the business email was verified), or a
     real-looking Steam key is pasted into the sheet;
-  - a link column value does not carry its own utm_content, utm_source and utm_campaign;
+  - a link column value does not carry its own utm_content, utm_source and utm_campaign, has a
+    tag value that is not lower case, or a utm_medium other than social, video, email or paid;
   - with --coverage: a coverage row names a utm_content not in the tracker, or has no URL.
 
 Prints, without failing (unless --strict):
@@ -35,7 +37,9 @@ STATUSES = {"todo", "drafted", "sent", "followed-up", "replied", "declined", "co
 SENT = {"sent", "followed-up", "replied", "declined", "covered", "no-reply"}
 DONE = {"replied", "declined", "covered"}
 EMAIL = re.compile(r"^[A-Za-z0-9._%+'-]+@[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)*\.[A-Za-z]{2,}$")
-SLUG = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
+# docs/LINKS.md: names use underscores; a post ID keeps its hyphens.
+SLUG = re.compile(r"^[a-z0-9]+(_[a-z0-9]+)*$|^\d{4}-\d{2}-\d{2}-[a-z0-9]+(-[a-z0-9]+)*$")
+MEDIUMS = {"social", "video", "email", "paid"}
 STEAM_KEY = re.compile(r"\b[A-Z0-9]{5}-[A-Z0-9]{5}-[A-Z0-9]{5}\b")
 FREE_MAIL = {"gmail.com", "googlemail.com", "outlook.com", "hotmail.com", "yahoo.com", "icloud.com",
              "proton.me", "protonmail.com", "mail.ru", "yandex.ru", "aol.com", "gmx.com"}
@@ -54,8 +58,8 @@ def main():
     p.add_argument("--today", help="YYYY-MM-DD, default: today")
     p.add_argument("--key-days", type=int, default=14,
                    help="days after a key with no coverage before it is listed (default 14)")
-    p.add_argument("--shared", default="creators-small",
-                   help="comma-separated utm_content values allowed on several rows (default creators-small)")
+    p.add_argument("--shared", default="creators_small",
+                   help="comma-separated utm_content values allowed on several rows (default creators_small)")
     p.add_argument("--coverage", type=Path, help="coverage log CSV to check against the tracker")
     p.add_argument("--strict", action="store_true", help="also fail when follow-ups or key checks are due")
     args = p.parse_args()
@@ -105,7 +109,7 @@ def main():
         if not utm:
             errors.append(f"{where}: no utm_content")
         elif not SLUG.match(utm):
-            errors.append(f"{where}: utm_content '{utm}' must be lower case letters, digits and hyphens")
+            errors.append(f"{where}: utm_content '{utm}' must be lower case with underscores, such as cozy_weekly_sam")
         elif utm in seen_utm and utm not in shared:
             errors.append(f"{where}: utm_content '{utm}' already used on row {seen_utm[utm]}")
         seen_utm.setdefault(utm, n)
@@ -155,6 +159,13 @@ def main():
             for k in ("utm_source", "utm_campaign"):
                 if not q.get(k):
                     errors.append(f"{where}: link has no {k}")
+            for k in ("utm_source", "utm_medium", "utm_campaign", "utm_content"):
+                v = q.get(k, [""])[0]
+                if v != v.lower():
+                    errors.append(f"{where}: link {k} '{v}' must be lower case")
+            medium = q.get("utm_medium", [""])[0]
+            if "utm_medium" in q and medium not in MEDIUMS:
+                errors.append(f"{where}: link utm_medium '{medium}' must be one of {', '.join(sorted(MEDIUMS))}")
 
     if args.coverage:
         if not args.coverage.exists():

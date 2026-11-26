@@ -15,8 +15,8 @@ Two different ratios are in circulation. Check which one you compare with.
 
 Wishlists from different sources buy at different rates: in the Danchi Days data, reveal-period
 fans bought best, then creators, then calendar and organic, then showcases, and paid ads least.
-To turn your mix into an expected range, the free Manalens
-[wishlist quality forecaster](https://manalens.dev/tools/wishlist-quality-forecaster) uses those
+To turn your mix into an expected range, the Manalens
+[wishlist quality forecaster](https://manalens.dev/tools/wishlist-quality-forecaster?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=wishlist_analysis) uses those
 weights.
 
 ## Growth and festivals

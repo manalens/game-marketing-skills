@@ -167,6 +167,15 @@
     "notes": "Manalens MCP path"
   },
   {
+    "id": "marketing-retro.s4",
+    "prompt": "manalens is connected. which of my devlog posts last week brought steam visits and wishlists?",
+    "expected": [
+      "marketing-retro"
+    ],
+    "kind": "should",
+    "notes": "Steam UTM rows through get_steam_utm, no CSV export"
+  },
+  {
     "id": "marketing-retro.nm",
     "prompt": "write three tiktok hooks for my cozy fishing game",
     "expected": [
@@ -354,6 +363,17 @@
     ],
     "kind": "should",
     "notes": "Event lift plus conversion context."
+  },
+  {
+    "id": "wishlist-analysis.s4",
+    "prompt": "Manalens is connected to my Steamworks. How are my wishlists growing this month, and which days spiked?",
+    "expected": [
+      "calls get_steam_wishlists and writes the rows as a CSV for scripts/wishlists.py",
+      "asks for the outstanding total from Steamworks",
+      "says a date match is not proof of cause"
+    ],
+    "kind": "should",
+    "notes": "Daily wishlists through the Manalens MCP."
   },
   {
     "id": "wishlist-analysis.nm",

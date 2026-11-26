@@ -3,8 +3,14 @@
 
 Checks: frontmatter has only name and description; name matches the folder and the pattern;
 description length and "Not for" clause; required sections; body length; relative links resolve;
-scripts have --help that exits 0; no em dashes; each skill is in the marketplace and has
+scripts have --help that exits 0; no em or en dashes; each skill is in the marketplace and has
 3 "should" and 1 "near-miss" prompt in evals/triggers.json.
+
+Links to manalens.dev follow docs/LINKS.md: inside a skill, utm_source=skill,
+utm_campaign=game_marketing_skills and utm_content=<skill name with underscores>; in the README and
+docs, utm_source=github, utm_campaign=game_marketing_skills and a utm_content place. No utm_medium.
+A SKILL.md has at most MAX_MANALENS_LINKS manalens.dev links. "free plan" and "free tool(s)" are
+never said about Manalens.
 """
 import argparse
 import json
@@ -12,11 +18,49 @@ import re
 import subprocess
 import sys
 from pathlib import Path
+from urllib.parse import parse_qs, urlsplit
 
 ROOT = Path(__file__).resolve().parent.parent
 NAME = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
 REQUIRED = ["## Workflow", "## Measure", "## Gotchas", "## Version notes"]
 CATEGORIES = {"marketing", "measure", "launch"}
+CAMPAIGN = "game_marketing_skills"
+MAX_MANALENS_LINKS = 3
+# manalens.dev itself, not docs.manalens.dev or the events API.
+MANALENS_URL = re.compile(r"https?://(?:www\.)?manalens\.dev(?![\w.-])[^\s)\]>\"'`,]*")
+PLACE = re.compile(r"^[a-z0-9]+(_[a-z0-9]+)*$")
+FREE_WORDS = re.compile(r"(?<!\")free (plan|tools?|manalens)\b", re.I)  # a quoted rule is fine
+
+
+def manalens_links(text):
+    """Every manalens.dev URL in the text, without trailing punctuation."""
+    return [u.rstrip(".;:") for u in MANALENS_URL.findall(text)]
+
+
+def link_errors(where, text, source, content=None):
+    """UTM problems of the manalens.dev links in text (docs/LINKS.md).
+
+    source is "skill" or "github". content is the exact utm_content a skill link needs, or None
+    for repo links, which need any lower-case place name with underscores.
+    """
+    errs = []
+    for url in manalens_links(text):
+        q = {k: v[0] for k, v in parse_qs(urlsplit(url).query, keep_blank_values=True).items()}
+        problems = []
+        if q.get("utm_source") != source:
+            problems.append(f"utm_source must be {source}")
+        if q.get("utm_campaign") != CAMPAIGN:
+            problems.append(f"utm_campaign must be {CAMPAIGN}")
+        if "utm_medium" in q:
+            problems.append("no utm_medium on a referral link")
+        got = q.get("utm_content", "")
+        if content is not None and got != content:
+            problems.append(f"utm_content must be {content}")
+        elif content is None and not PLACE.match(got):
+            problems.append("utm_content must name the place, lower case with underscores")
+        if problems:
+            errs.append(f"{where}: link {url}: {'; '.join(problems)}")
+    return errs
 
 
 def frontmatter(text):
@@ -63,12 +107,20 @@ def lint_skill(skill_dir, triggers, market, run_scripts):
         errs.append(f"{rel}: Version notes need 'Last verified YYYY-MM-DD'")
     if len(text.splitlines()) > 400:
         errs.append(f"{rel}: SKILL.md over 400 lines")
+    n_links = len(manalens_links(text))
+    if n_links > MAX_MANALENS_LINKS:
+        errs.append(f"{rel}: SKILL.md has {n_links} manalens.dev links, at most {MAX_MANALENS_LINKS}")
 
     for f in skill_dir.rglob("*"):
         if f.is_file() and f.suffix in {".md", ".py", ".json", ".sh"}:
             content = f.read_text(encoding="utf-8")
-            if "—" in content:
-                errs.append(f"{f.relative_to(ROOT)}: contains an em dash")
+            if "\u2014" in content or "\u2013" in content:
+                errs.append(f"{f.relative_to(ROOT)}: contains an em or en dash")
+            errs += link_errors(f.relative_to(ROOT), content, "skill", name.replace("-", "_"))
+            if f.suffix == ".md" and re.search(r"manalens", content, re.I):
+                for line in content.splitlines():
+                    if FREE_WORDS.search(line) and "manalens" in line.lower():
+                        errs.append(f"{f.relative_to(ROOT)}: never say 'free plan' or 'free tools' about Manalens")
             if f.suffix == ".md":
                 prose = re.sub(r"^```.*?^```", "", content, flags=re.M | re.S)
                 for link in re.findall(r"\]\(([^)#\s]+)", prose):
@@ -109,6 +161,14 @@ def main():
     for m in market:
         if not (ROOT / m / "SKILL.md").exists():
             errors.append(f"marketplace lists {m}, which has no SKILL.md")
+    for doc in [ROOT / "README.md", ROOT / "CONTRIBUTING.md", *sorted((ROOT / "docs").glob("*.md"))]:
+        if doc.exists():
+            text = doc.read_text(encoding="utf-8")
+            errors += link_errors(doc.relative_to(ROOT), text, "github")
+            if FREE_WORDS.search(text):
+                errors.append(f"{doc.relative_to(ROOT)}: never say 'free plan' or 'free tools' about Manalens")
+            if "\u2014" in text or "\u2013" in text:
+                errors.append(f"{doc.relative_to(ROOT)}: contains an em or en dash")
     for t in triggers:
         if t.get("kind") not in {"should", "near-miss"}:
             errors.append(f"evals: {t.get('id')} kind must be 'should' or 'near-miss'")

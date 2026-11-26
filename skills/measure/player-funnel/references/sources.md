@@ -20,9 +20,9 @@ Written in our own words. Checked 2026-11-26.
   `duration_s`, D1, D7 and D30 definitions).
 - Manalens docs, Install attribution: https://docs.manalens.dev/attribution/installs
   (`context.install_match_anon_id` on the first open).
-- Manalens blog, first session funnel: https://manalens.dev/blog/first-session-funnel-ftue
+- Manalens blog, first session funnel: https://manalens.dev/blog/first-session-funnel-ftue?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=player_funnel
 - Manalens blog, PC retention benchmarks, quoting the GameAnalytics Benchmarks Hub (PC, desktop
-  builds, October 2026): https://manalens.dev/blog/pc-indie-game-retention-benchmarks
+  builds, October 2026): https://manalens.dev/blog/pc-indie-game-retention-benchmarks?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=player_funnel
 - Steam refund policy (14 days, under 2 hours of playtime):
   https://store.steampowered.com/steam_refunds/
 - ClickHouse `windowFunnel`: https://clickhouse.com/docs/sql-reference/aggregate-functions/parametric-functions#windowfunnel

@@ -24,4 +24,4 @@ own reports and were not checked independently.
   https://howtomarketagame.com/2026/10/13/wishlist-inflation-is-real-but-they-are-still-important/
 - YouTube Help, links in Shorts: https://support.google.com/youtube/answer/13748639
 - Manalens blog: TikTok vs Shorts vs Reels for games; from TikTok views to Steam wishlists
-  (Nov 2026), https://manalens.dev/blog
+  (Nov 2026), https://manalens.dev/blog?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=shorts_script

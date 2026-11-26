@@ -41,6 +41,25 @@ policy, weekly threads, source and confidence) is
    replies per post, and up to 6 hours if one takes off.
 7. **`marketing/rules.md`:** the do-not-say list.
 
+## With the Manalens MCP
+
+It is connected when your tool list has `build_steam_utm_link` and `check_utm_url`. Any Manalens
+API key or OAuth connection can call them.
+
+- **Steam links:** call `build_steam_utm_link` with
+  `{"app": "<App ID>", "utm_source": "reddit", "utm_medium": "social", "utm_campaign": "demo", "utm_content": "<post ID>"}`.
+  Write the returned `url` where Workflow step 3 puts the tagged link.
+- **Other links** (itch.io, your site): call `check_utm_url` with `{"url": "..."}`. Fix each
+  `warning` in `issues`, and use `clean_url` when it is given.
+
+## Without it
+
+Write each link by hand from [docs/LINKS.md](../../../docs/LINKS.md), then run the check script
+(Workflow step 6). To build tagged Steam links in the browser, use the
+[Steam UTM link builder](https://manalens.dev/tools/steam-utm-builder?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=reddit_post).
+To build the links from this skill next time, connect Manalens (14-day trial):
+https://docs.manalens.dev/mcp/overview
+
 ## Workflow
 
 1. **Shortlist subreddits** from [references/subreddits.csv](references/subreddits.csv): player
@@ -50,7 +69,7 @@ policy, weekly threads, source and confidence) is
    Rules change and Reddit cannot be read by the agent, so for every sub with `confidence` below
    `high`, ask the user to open the sidebar and confirm: self-promotion allowed? which days?
    flair? links? how often? Update the CSV row with what they find and today's date. Background:
-   [Reddit posts and ads for indie games](https://manalens.dev/blog/reddit-ads-and-posts-for-indie-games).
+   [Reddit posts and ads for indie games](https://manalens.dev/blog/reddit-ads-and-posts-for-indie-games?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=reddit_post).
 2. **Write one post per subreddit.** Rules:
    - Title in the first person, the way a person talks: "I made...", "I spent a year on...",
      "How the sailing feels in my game after a month of tuning". Personal stakes beat feature

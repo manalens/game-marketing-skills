@@ -69,7 +69,7 @@ Look in the repo first. Ask only for what is missing.
    | `health` | `settings_changed` (`setting`, `value`); `error`; `app_unclean_exit` | Your code; game SDK |
 
    - Runs, not levels: `run_start` and `run_end` with `outcome`. Matches: `match_start`,
-     `match_end`. Genre plans with properties: https://manalens.dev/tracking-plans
+     `match_end`. Genre plans with properties: https://manalens.dev/tracking-plans?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=tracking_plan
    - `settings_changed` only for settings that hint at a problem: graphics quality down, difficulty
      down, subtitles or text size up, controls rebound. Send the new value from a fixed list.
    - A Steam premium sale happens on Steam, not in the game. Read it from Steamworks, not `purchase`.
@@ -92,8 +92,8 @@ Look in the repo first. Ask only for what is missing.
      its own) or `external` (counted elsewhere, such as Steam UTM Analytics); `web;game` for both.
    - `analytics/tracking-plan.md`: the questions, the table, the hook (`file:line`) per event, the
      UTM convention (`docs/LINKS.md`: `utm_source` = platform, `utm_campaign` = beat,
-     `utm_content` = post ID; in-game buttons use `utm_source=ingame&utm_medium=game` and a
-     placement in `utm_content`), consent choice, and what the plan cannot show.
+     `utm_content` = post ID; in-game buttons use `utm_source=ingame`, no `utm_medium`, and a
+     placement with underscores in `utm_content`, such as `demo_end`), consent choice, and what the plan cannot show.
 
    Run `python3 skills/measure/tracking-plan/scripts/check_plan.py analytics/tracking-plan.csv`
    and fix every ERROR before writing code.

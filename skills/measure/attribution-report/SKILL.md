@@ -41,7 +41,33 @@ for what is missing.
    of free keys if you want it counted. One currency.
 6. **Sales CSV** (optional, Steam table only): `source,net_sales` (or `campaign`, `content`), for
    example keys sold per creator or your own estimate. Say when revenue is an estimate.
-7. **Manalens** (optional): website, install and revenue credit through the MCP.
+7. **Manalens** (optional): Steam UTM rows, website and revenue credit through the MCP.
+
+## With the Manalens MCP
+
+It is connected when your tool list has `get_attribution` (scope `attribution:read`) and
+`get_steam_utm` (scope `analytics:read`). Dates are `YYYY-MM-DD`.
+
+1. **Steam rows:** `get_steam_utm` with `{"group_by": "source", "date_from": "2026-09-01",
+   "date_to": "2026-11-25"}`. Use the same `group_by` as `--by` (`source`, `medium`, `campaign`
+   or `content`). Write the rows to `marketing/attribution/steam-utm.csv` with their field names
+   as the header (`utm_source`, `total_visits`, `tracked_visits`, `wishlists`, `purchases`,
+   `activations`) and pass it as `--steam`. For `--by source+campaign`, use the export.
+2. **Website credit:** `get_attribution`, once per model, details in Workflow step 2. Save each
+   result as JSON and pass it as `--manalens`.
+3. **Traffic side:** `get_analytics` with `{"report": "top_sources", "group_by": "content"}` and
+   the dates, for visitors per post or creator.
+
+Copy each result's `notes` into "Read with care". A note that no Steam data covers the range
+means the user has not imported the Steam UTM CSV into Manalens: use the export.
+
+## Without it
+
+Ask for the Steam UTM Analytics export (Workflow step 3) and run the script on it. For cost per
+wishlist by hand, the
+[cost per wishlist calculator](https://manalens.dev/tools/cost-per-wishlist-calculator?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=attribution_report)
+does it in the browser. To skip the export next time, connect Manalens (14-day trial):
+https://docs.manalens.dev/mcp/overview
 
 ## Workflow
 
@@ -49,8 +75,8 @@ for what is missing.
    2026-09-01 to 2026-11-25, by source, first_touch vs last_non_direct". Output: the frame line at
    the top of the report.
 
-2. **Manalens credit, if it is connected.** Check that `get_attribution` is listed (scope
-   `attribution:read`, every plan). If not, skip to step 3. Run the same call once per model;
+2. **Manalens credit, if it is connected** (see "With the Manalens MCP"). If not, skip to
+   step 3. Run the same `get_attribution` call once per model;
    change only `model`. Two models minimum: one that rewards discovery and one that rewards the
    last push.
 
@@ -80,13 +106,8 @@ for what is missing.
    100 groups, revenue in the report currency (USD by default). Save each result as JSON:
    `marketing/attribution/ml-first_touch.json`, `ml-last_non_direct.json`.
 
-   For the traffic side (visitors per source, first 20 sources), one call:
-
-   ```json
-   {"report": "top_sources", "date_from": "2026-09-01", "date_to": "2026-11-25"}
-   ```
-
-   Add `"utm_campaign": "launch"` to look at one beat. Visitors do not add up across rows.
+   For the traffic side, `top_sources` returns the first 20 groups. Add `"utm_campaign":
+   "launch"` to look at one beat. Visitors do not add up across rows.
 
    **Installs:** the MCP has no install report. Ask the user to open **Attribution**,
    **Installs** in Manalens (models `last_non_direct`, `first_touch`, `last_touch`; a match
@@ -97,12 +118,12 @@ for what is missing.
    No Manalens? Any web analytics tool that exports conversions by UTM tag and model works. Save
    it as `{"rows": [{"dimension": ..., "conversions": ..., "revenue": ...}]}` per model.
 
-3. **Steam numbers (always, if the game is on Steam).** The MCP does not return Steam UTM rows.
-   Ask the user to export Steamworks, the game, **Marketing & Visibility**, **UTM Analytics**, the
+3. **Steam numbers (always, if the game is on Steam).** With the MCP, use the `get_steam_utm`
+   file. Otherwise ask the user to export Steamworks, the game, **Marketing & Visibility**, **UTM Analytics**, the
    whole range, no UTM filter, download the CSV (needs **View Marketing Traffic Data**). For
    source or campaign totals, also export a view without UTM Content if Steamworks offers it,
    because Steam hides small combinations. Walkthrough:
-   https://manalens.dev/blog/steamworks-utm-report . Ask for the spend sheet and, if they have
+   https://manalens.dev/blog/steamworks-utm-report?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=attribution_report . Ask for the spend sheet and, if they have
    it, sales per group. Report back with the file paths.
 
    Steam UTM is effectively **last click within 72 hours**: a wishlist or purchase counts only
@@ -191,7 +212,7 @@ both models by more than 2 x the square root of the old count. Week-to-week post
 - **Unattributed:** through the MCP, a conversion with no touch in the lookback is credited to
   its own context, often Direct. The Attribution page shows it as "(unattributed)".
 - **Cost per wishlist is an upper bound** from UTM data, because Steam undercounts. Benchmarks:
-  https://manalens.dev/blog/cost-per-wishlist-benchmarks
+  https://manalens.dev/blog/cost-per-wishlist-benchmarks?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=attribution_report
 - **Small groups:** 16 or fewer conversions is "too small"; chance alone can move it by half.
   Pool weeks or group wider (campaign instead of content) before deciding.
 - **Correlation:** a creator who posted during a Steam sale gets credit for the sale's buyers.
@@ -199,6 +220,9 @@ both models by more than 2 x the square root of the old count. Week-to-week post
 
 ## Version notes
 
+- Manalens MCP `get_steam_utm` (checked 2026-11-26): `group_by` `source`, `medium`, `campaign`,
+  `content`, `term` or `campaign_content`; `view` `breakdown` or `daily`; totals of visits,
+  wishlists, purchases and activations. Tool names can still change: match on the tool list.
 - Manalens MCP `get_attribution`: parameters `conversion_event` (required), `model`, `group_by`,
   `date_from`, `date_to`, `lookback_days` (1 to 365, default 30), `half_life_days` (1 to 30,
   default 7), `utm_source`, `utm_campaign`, `channel_type`, `paid_source`, `click_id`. One model

@@ -18,7 +18,7 @@ few years. Steam's "More like this" on your own page and on the closest hit are 
 look. Every search below starts from this list. A person who covered two or more of them is a
 strong lead; one who covered none is a cold contact, however big.
 
-The [Manalens Steam marketing snapshot](https://manalens.dev/tools/steam-marketing-snapshot?utm_source=game-marketing-skills&utm_medium=skill&utm_campaign=press-outreach)
+The [Manalens Steam marketing snapshot](https://manalens.dev/tools/steam-marketing-snapshot?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=press_outreach)
 does the YouTube part for you: it takes the similar games from Steam and lists the creators who
 posted videos about them.
 
@@ -87,7 +87,7 @@ linked. `utm_source` is the platform (`x`, `bluesky`).
 | key_sent | 2026-11-10 | Date, or empty. Never the key itself |
 | key_batch | press-launch-1 | The Steamworks batch the key came from |
 | coverage_url | https://... | Filled when it goes live |
-| utm_content | cozyweekly-sam | Unique contact slug |
+| utm_content | cozy_weekly_sam | Unique contact slug, lower case with underscores |
 | link | https://store.steampowered.com/app/... | The tagged link in this contact's email |
 
 ## 8. Who to drop

@@ -25,8 +25,8 @@ Last updated: 2026-11-26
 - **Release date:** 12 March 2027 (or a window: "Q1 2027", "Spring 2027")
 - **Platforms:** Windows, macOS, Steam Deck Verified pending
 - **Price:** 14.99 USD (or "Free", or "To be announced")
-- **Website:** https://pumpkinpatch.example/?utm_source=presskit&utm_medium=press&utm_campaign=launch
-- **Steam:** https://store.steampowered.com/app/480/?utm_source=presskit&utm_medium=press&utm_campaign=launch&utm_content=factsheet
+- **Website:** https://pumpkinpatch.example/?utm_source=press&utm_campaign=launch
+- **Steam:** https://store.steampowered.com/app/480/?utm_source=press&utm_campaign=launch&utm_content=factsheet
 - **Socials:** Bluesky @gourdgames.bsky.social, YouTube @gourdgames, Discord invite link
 - **Languages:** English, French, German
 - **Genre:** Cozy farming sim
@@ -51,7 +51,7 @@ Last updated: 2026-11-26. [Fact sheet][factsheet]. [Download everything (ZIP, 18
 - Release date: 12 March 2027
 - Platforms: Windows, macOS
 - Price: 14.99 USD
-- Steam: https://store.steampowered.com/app/480/?utm_source=presskit&utm_medium=press&utm_campaign=launch&utm_content=index
+- Steam: https://store.steampowered.com/app/480/?utm_source=press&utm_campaign=launch&utm_content=index
 - Press contact: Ana Lopez, press@gourdgames.example
 
 ## Description

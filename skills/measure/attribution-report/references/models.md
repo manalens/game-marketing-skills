@@ -88,7 +88,7 @@ What it misses:
 So Steam UTM numbers favor channels where people click and act at once (email, Discord) and
 undercount discovery channels (Shorts, TikTok, streams). Compare groups with each other, and
 read the numbers as a floor. More on blind spots:
-https://manalens.dev/blog/game-attribution-blind-spots
+https://manalens.dev/blog/game-attribution-blind-spots?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=attribution_report
 
 ## Installs
 

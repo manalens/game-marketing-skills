@@ -10,11 +10,11 @@ Read 2026-11-26. Written in our own words. A number marked "claim" is one source
   screenshots with no baked text, key art with and without logo, transparent logo, team,
   verifiable awards, key request route, embargo details, one ZIP.
 - reviewpulse.games on the presskit() format (7 Nov 2026).
-- Manalens press kit builder, https://manalens.dev/tools/press-kit-builder : the 9-item checklist
+- Manalens press kit builder, https://manalens.dev/tools/press-kit-builder?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=press_kit : the 9-item checklist
   (transparent logo, at least 6 screenshots, trailer, one-sentence description of at most 240
   characters, release date, price, press contact, key request line, streaming permission) and
   the default streaming line. Source code read 2026-11-26.
-- Manalens, "Indie game press kit mistakes", https://manalens.dev/blog/indie-game-press-kit-mistakes :
+- Manalens, "Indie game press kit mistakes", https://manalens.dev/blog/indie-game-press-kit-mistakes?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=press_kit :
   1920x1080 screenshots without watermark, light and dark transparent logos, key art with and
   without logo (Kate Gray crops logos off key art), a dated Last updated line, a streaming line
   that covers music, no sign-up walls. Cites the 2024 Big Games Machine survey of 150+ journalists

@@ -30,7 +30,8 @@ Written in our own words. Checked 2026-11-26. "Claim" marks one source's number.
 - Manalens docs, Steam integration: https://docs.manalens.dev/integrations/steam (Steam UTM import
   and Steamworks Financial API wishlist sync with adds, deletes, purchases and gifts per day in
   GMT; dashboard setup "coming soon"; early access).
-- Manalens docs, MCP server: https://docs.manalens.dev/mcp/overview (`get_analytics` reports,
-  `get_attribution` groups; tools read `raw_events`, no Steam tables).
+- Manalens docs, MCP server: https://docs.manalens.dev/mcp/overview (`get_steam_wishlists` daily
+  adds, deletes, purchases, gifts, net and outstanding change; `get_steam_utm`; `get_analytics`
+  reports; `get_attribution` groups; checked 2026-11-26).
 - Manalens tools: Steam wishlist CSV analyzer (header `DateLocal,Game,Adds,Deletes,
   PurchasesAndActivations,Gifts`; lines above the header skipped) and wishlist quality forecaster.

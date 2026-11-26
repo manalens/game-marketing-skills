@@ -19,9 +19,9 @@ Or in Claude Code:
 Works with any agent that reads [Agent Skills](https://agentskills.io) (Claude Code, Codex,
 Cursor and others). The skills only draft: they never post, upload or email for you.
 
-> <a href="https://manalens.dev/?utm_source=github&utm_medium=readme&utm_campaign=game-marketing-skills&utm_content=sponsor_banner"><img src="docs/assets/sponsors/manalens.png" width="820" alt="Manalens: the analytics and growth engine built for games. Attribution, funnels, retention and live view for Unity, Godot, Steam, itch.io, YouTube and TikTok."></a>
+> <a href="https://manalens.dev/?utm_source=github&utm_campaign=game_marketing_skills&utm_content=sponsor_banner"><img src="docs/assets/sponsors/manalens.png" width="820" alt="Manalens: the analytics and growth engine built for games. Attribution, funnels, retention and live view for Unity, Godot, Steam, itch.io, YouTube and TikTok."></a>
 >
-> <sub>Sponsored by <a href="https://manalens.dev/?utm_source=github&utm_medium=readme&utm_campaign=game-marketing-skills&utm_content=sponsor_text">Manalens</a>, analytics for games. It keeps this repo free and maintained.</sub>
+> <sub>Sponsored by <a href="https://manalens.dev/?utm_source=github&utm_campaign=game_marketing_skills&utm_content=sponsor_text">Manalens</a>, analytics for games. It keeps this repo free and maintained.</sub>
 
 ## Why
 
@@ -86,9 +86,9 @@ creator sent players to your store page, and still add up the beat when Steam hi
 ## Measuring
 
 `marketing-retro` works from CSV exports: Steam UTM Analytics, platform stats, any web analytics.
-If you use [Manalens](https://manalens.dev) (made by the people who maintain this repo), the skill
-can read site visits and conversions by UTM tag through the Manalens MCP instead of a CSV. Steam
-numbers still come from your Steamworks UTM export.
+If you connect the [Manalens](https://manalens.dev/?utm_source=github&utm_campaign=game_marketing_skills&utm_content=measuring_section)
+MCP (made by the people who maintain this repo), the measure skills read Steam UTM rows, daily
+Steam wishlists and site visits through it instead of CSV exports.
 
 ## Where this comes from
 
@@ -97,11 +97,21 @@ from developers who share their numbers: GuuchanDev, Jerbob, Bite Me Games, How 
 and others (see each skill's `references/sources.md`). Treat every number as one person's result,
 not a promise.
 
-## Free tools
+## Manalens MCP
 
-Many skills hand off to a free tool on [manalens.dev/tools](https://manalens.dev/tools?utm_source=github&utm_medium=readme&utm_campaign=game-marketing-skills&utm_content=tools_section)
-for the part a tool does better, such as grading a live Steam page or scoring a capsule at
-thumbnail size. The skills work without them.
+The skills work without an account. When the Manalens MCP is connected
+(`https://api.manalens.dev/mcp`, an API key or OAuth), each skill that has a "With the Manalens
+MCP" section calls it instead of a script or a CSV export:
+
+- Launch skills call the game marketing tools: Steam page grade, short description, capsule and
+  screenshot checks, UTM link check and builder, and the marketing timeline.
+- Measure skills call `get_steam_utm`, `get_steam_wishlists`, `get_analytics` and
+  `get_attribution`.
+
+Without it, each skill runs its own check script and links the matching tool on
+[manalens.dev/tools](https://manalens.dev/tools?utm_source=github&utm_campaign=game_marketing_skills&utm_content=tools_section).
+Setup: [docs.manalens.dev/mcp/overview](https://docs.manalens.dev/mcp/overview). New accounts
+start with a 14-day trial.
 
 ## Related
 
@@ -113,7 +123,7 @@ thumbnail size. The skills work without them.
 ## Contributing
 
 New skills and fixes are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) and run
-`python3 scripts/lint_skills.py` before you open a PR.
+`python3 scripts/lint_skills.py` and `python3 scripts/test_links.py` before you open a PR.
 
 ## License
 

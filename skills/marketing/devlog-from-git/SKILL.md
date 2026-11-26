@@ -82,7 +82,7 @@ Writes `marketing/devlog/<YYYY-MM-DD>.md`. Hand each chosen brief to `shorts-scr
 7. **Hand off:** the user picks 2 to 7 briefs for the week; run `shorts-script` on each, and
    `social-post` or `reddit-post` for the glow-ups. A longer written devlog belongs on the Steam
    page as a news event, not as patch notes. See
-   [where to post devlogs](https://manalens.dev/blog/where-to-post-devlogs).
+   [where to post devlogs](https://manalens.dev/blog/where-to-post-devlogs?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=devlog_from_git).
 
    You cannot over-show your game: post from the build early and often. Old ideas can be
    recycled too; a joke that flopped on one platform has gone viral on another.

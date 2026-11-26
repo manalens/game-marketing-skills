@@ -252,7 +252,7 @@ def build(args, R, C, events, editions, announced_until):
     P.add(add_bd(cs, -num(R, "page_review_business_days")), "Submit the store page for review (Valve: 7 business days before you want it live)", "you", "no", src("page_review_business_days"), "Store page")
     P.add(cs, f"Announce and click Post as Coming Soon ({cs_basis}); announcement trailer, press kit, owned channels", "you", "no", R["announce_weeks"]["source"], "Announce")
     P.add(cs, "Wave 1: announcement to press and creators, one tagged Steam link per outlet", "marketing", "no", R["announce_weeks"]["source"], "Press and creators")
-    P.add(cs, "Email your own list: the Steam page is live", "marketing", "no", "https://manalens.dev/tools/game-launch-email-templates", "Wishlist emails")
+    P.add(cs, "Email your own list: the Steam page is live", "marketing", "no", "https://manalens.dev/tools/game-launch-email-templates?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=launch_timeline", "Wishlist emails")
     P.add(add_bd(launch - days(cs_min), -num(R, "page_review_business_days")), "Latest page submission that can still meet the 2-week Coming Soon rule", "you", "yes", src("page_review_business_days"), "Store page")
     P.add(launch - days(cs_min), "Latest day the Coming Soon page can go public (2 weeks before release)", "you", "yes", src("coming_soon_min_days"), "Store page")
     cal = launch - days(num(R, "calendar_page_days"))
@@ -260,7 +260,7 @@ def build(args, R, C, events, editions, announced_until):
     P.add(launch - days(num(R, "calendar_front_days")), "Exact date public by today for the Personal Calendar on the front page", "you", "yes", src("calendar_front_days"), "Store page")
     if (launch - cs).days >= 56:
         P.add(friday_or_before(cs + days((launch - cs).days // 2)), "Second beat: date reveal, new trailer or devlog, with tagged links", "marketing", "no", R["announce_weeks"]["source"], "Announce")
-    P.add(launch - days(60), "Email your own list: release date reveal", "marketing", "no", "https://manalens.dev/tools/game-launch-email-templates", "Wishlist emails")
+    P.add(launch - days(60), "Email your own list: release date reveal", "marketing", "no", "https://manalens.dev/tools/game-launch-email-templates?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=launch_timeline", "Wishlist emails")
 
     # --- Demo and Next Fest ---
     demo_live = None
@@ -308,12 +308,12 @@ def build(args, R, C, events, editions, announced_until):
     lock = launch - days(num(R, "date_lock_days"))
     P.add(lock, f"Release date locks. From now a delay of more than {num(R, 'late_delay_hours')} hours drops the game off the Personal Calendar until release", "Valve", "yes", src("date_lock_days"), "Build")
     P.add(lock, f"Set the launch discount if you want one: up to {num(R, 'launch_discount_max_pct')}%, {num(R, 'launch_discount_min_days')} to {num(R, 'launch_discount_max_days')} days, only before release", "you", "yes", src("launch_discount_max_pct"), "Launch")
-    P.add(launch - days(30), "Email your own list: one month to go", "marketing", "no", "https://manalens.dev/tools/game-launch-email-templates", "Wishlist emails")
-    P.add(launch - days(7), "Email your own list: one week to go", "marketing", "no", "https://manalens.dev/tools/game-launch-email-templates", "Wishlist emails")
+    P.add(launch - days(30), "Email your own list: one month to go", "marketing", "no", "https://manalens.dev/tools/game-launch-email-templates?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=launch_timeline", "Wishlist emails")
+    P.add(launch - days(7), "Email your own list: one week to go", "marketing", "no", "https://manalens.dev/tools/game-launch-email-templates?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=launch_timeline", "Wishlist emails")
 
     # --- Launch ---
     P.add(launch, "Launch: press Release yourself (approved games do not release themselves); Steam emails every wishlister", "you", "yes", "https://partner.steamgames.com/doc/store/releasing", "Launch")
-    P.add(launch, "Launch day checklist: launch trailer and tagged posts, press release, own list email, watch crashes and refunds (see timeline.md)", "you", "no", "https://manalens.dev/tools/game-marketing-timeline", "Launch")
+    P.add(launch, "Launch day checklist: launch trailer and tagged posts, press release, own list email, watch crashes and refunds (see timeline.md)", "you", "no", "https://manalens.dev/tools/game-marketing-timeline?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=launch_timeline", "Launch")
     P.add(launch + days(num(R, "review_request_days")), "Email your own list: ask for an honest review, nothing offered in return", "marketing", "no", src("review_request_days"), "After launch")
     P.add(launch + days(cooldown), "First day you can discount (30-day release cooldown ends)", "Valve", "yes", src("release_cooldown_days"), "After launch")
 

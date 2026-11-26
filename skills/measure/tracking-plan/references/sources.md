@@ -10,7 +10,7 @@ Written in our own words. Checked 2026-11-26.
   "Install attribution" (same docs site): fewer than 15 events, naming rules, the dev build
   filter, how web visitors and game installs join.
 - Manalens MCP server docs and `apps/api/src/mcp.ts`: `get_analytics` reports and filter fields.
-- Manalens genre tracking plans: https://manalens.dev/tracking-plans (per genre events,
+- Manalens genre tracking plans: https://manalens.dev/tracking-plans?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=tracking_plan (per genre events,
   properties and KPIs).
 - Steamworks, UTM Analytics: https://partner.steamgames.com/doc/marketing/utm_analytics (which
   links count).

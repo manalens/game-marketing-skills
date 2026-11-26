@@ -21,7 +21,7 @@ Written in our own words. Valve pages are the primary source for sizes and rules
   `capsule-readability.ts`, `capsule-placements.ts`), read 26 November 2026. Logo layout defaults,
   the 5% inset, the 231 x 87 store list size and the 70% small capsule fill hint are Manalens
   practice, not Valve rules.
-- Manalens, Steam capsule art guide (19 November 2026): https://manalens.dev/blog/steam-capsule-art-guide
+- Manalens, Steam capsule art guide (19 November 2026): https://manalens.dev/blog/steam-capsule-art-guide?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=steam_capsules
 - Chris Zukowski, How To Market A Game, "Five trends in Steam capsule art" (27 July 2020): genre
   symbols, catch the eye of people who like your genre.
   https://howtomarketagame.com/2020/07/27/five-trends-in-steam-capsule-art/

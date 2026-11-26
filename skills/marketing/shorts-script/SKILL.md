@@ -51,6 +51,25 @@ A viewer who likes one finds the next.
 
 Read [references/hooks.md](references/hooks.md) for hook templates by format.
 
+## With the Manalens MCP
+
+It is connected when your tool list has `build_steam_utm_link` and `check_utm_url`. Any Manalens
+API key or OAuth connection can call them.
+
+- **Steam links:** call `build_steam_utm_link` with
+  `{"app": "<App ID>", "utm_source": "youtube", "utm_medium": "social", "utm_campaign": "devlog", "utm_content": "<post ID>"}`.
+  Write the returned `url` in the `link` column of `marketing/posts.csv`.
+- **Other links** (itch.io, your site): call `check_utm_url` with `{"url": "..."}`. Fix each
+  `warning` in `issues`, and use `clean_url` when it is given.
+
+## Without it
+
+Write each link by hand from [docs/LINKS.md](../../../docs/LINKS.md), then run the check script
+(Workflow step 9). To build tagged Steam links in the browser, use the
+[Steam UTM link builder](https://manalens.dev/tools/steam-utm-builder?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=shorts_script).
+To build the links from this skill next time, connect Manalens (14-day trial):
+https://docs.manalens.dev/mcp/overview
+
 ## Workflow
 
 1. **Collect inputs** (above). Write the one-line pitch and the 1 to 3 differences at the top of
@@ -89,7 +108,7 @@ Read [references/hooks.md](references/hooks.md) for hook templates by format.
      links.
    - **TikTok and Reels:** the bio link is the only link. TikTok bio links need 1,000 followers or
      a business account.
-   See [TikTok vs Shorts vs Reels for games](https://manalens.dev/blog/tiktok-vs-youtube-shorts-vs-reels-for-games)
+   See [TikTok vs Shorts vs Reels for games](https://manalens.dev/blog/tiktok-vs-youtube-shorts-vs-reels-for-games?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=shorts_script)
    for how each platform handles links.
 6. **Check against `marketing/rules.md`:** no banned words, no spoilers, nothing that is not in
    the build the viewer can play.
@@ -145,7 +164,7 @@ the days after a post spikes. A week later, run `marketing-retro` to compare for
 view duration and by visits and wishlists per 1,000 views. Expect a wide range: reported cases
 run from under 1 to about 18 wishlists per 1,000 views. After 5 or more posts per format, keep
 the best two formats. A clip that holds viewers but does not spread is worth one faster re-cut
-before you drop it. Method: [from TikTok views to Steam wishlists](https://manalens.dev/blog/tiktok-short-form-video-to-steam-wishlists).
+before you drop it. Method: [from TikTok views to Steam wishlists](https://manalens.dev/blog/tiktok-short-form-video-to-steam-wishlists?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=shorts_script).
 
 ## Gotchas
 

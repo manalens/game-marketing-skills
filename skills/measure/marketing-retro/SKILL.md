@@ -7,8 +7,8 @@ description: >
   campaign and per format, the wishlist lift on post days, which formats to keep or drop, links to
   fix and next week's mix. Use for "which of my Shorts drove wishlists", "weekly marketing retro",
   "compare my TikTok formats", "Steam UTM report", "what should I post more of" or "did my Reddit
-  post bring visits". Works with any CSV; Manalens is the documented default for website numbers.
-  Not for writing posts (`shorts-script`, `reddit-post`).
+  post bring visits". Works from CSV exports, or reads Steam and website numbers through the
+  Manalens MCP when it is connected. Not for writing posts (`shorts-script`, `reddit-post`).
 ---
 
 # Marketing retro
@@ -28,8 +28,8 @@ From `docs/LINKS.md`. The script joins on `utm_content`.
 | Tag | Value | Example |
 |---|---|---|
 | `utm_source` | the platform | `youtube`, `tiktok`, `reddit` |
-| `utm_medium` | `social`, `video` or `email` | `social` |
-| `utm_campaign` | the marketing beat | `devlog`, `demo`, `launch`, `nextfest`, `screenshotsaturday` |
+| `utm_medium` | `social`, `video`, `email` or `paid` | `social` |
+| `utm_campaign` | the marketing beat | `devlog`, `demo`, `launch`, `nextfest`, `screenshot_saturday` |
 | `utm_content` | the post ID | `2026-11-26-yt-conflict-pumpkins` |
 
 Steam hides UTM combinations with few visits. A few beats keep campaign rows big enough to show,
@@ -53,45 +53,51 @@ Look in the repo first. Ask only for what is missing.
 4. **Steam UTM Analytics CSV** (store visits and wishlists per tag).
 5. **Steam daily wishlist CSV** (optional): a date column and a wishlist adds column.
 6. **Web analytics CSV** (optional): `utm_content,visits,signups` from your site or itch.io page.
-   Any tool works. Manalens can fill it (step 2).
+   Any tool works.
+
+Items 4 to 6 come from the Manalens MCP when it is connected (next section).
+
+## With the Manalens MCP
+
+It is connected when your tool list has `get_steam_utm`, `get_steam_wishlists` and
+`get_analytics` (scope `analytics:read`) and `get_attribution` (scope `attribution:read`). Dates
+are `YYYY-MM-DD`. Each call replaces one export. Save each result as a CSV in
+`marketing/retro/mcp/` (no date in the file name: a date there marks a one-day export).
+
+| Call | Arguments | Save as |
+|---|---|---|
+| `get_steam_utm`, once per beat | `{"group_by": "content", "utm_campaign": "devlog", "date_from": "2026-11-12", "date_to": "2026-11-25"}` | `steam-content.csv`: `utm_campaign` (the beat) plus each row's `utm_content`, `total_visits`, `tracked_visits`, `wishlists`, `purchases`, `activations` |
+| `get_steam_utm` | `{"group_by": "campaign", ...dates}` | `steam-campaign.csv`: the rows as they are |
+| `get_steam_wishlists` | the range plus the 7 days before | `wishlists.csv`: `day,wishlist_adds` |
+| `get_analytics` | `{"report": "top_sources", "group_by": "content", ...dates}` | `web.csv`: `utm_content` (from `source`), `visits` (from `visitors`) |
+| `get_attribution` | `{"conversion_event": "wishlist_clicked", "model": "last_non_direct", "group_by": "content", ...dates}` | add `signups` (from `conversions`) to `web.csv` |
+
+Pass the files to the script as `--steam`, `--wishlists` and `--web` (Workflow step 4). Copy each
+result's `notes` into "What we change". A note that no Steam data covers the range means the user
+has not imported it into Manalens: use the exports instead. `top_sources` returns the first 20
+groups; with more posts, call it once per beat with `"utm_campaign"`.
+
+## Without it
+
+Ask for the Steamworks exports (Workflow step 3) and run the script on them. To build next week's
+tagged Steam links in the browser, use the
+[Steam UTM link builder](https://manalens.dev/tools/steam-utm-builder?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=marketing_retro).
+To skip the exports next time, connect Manalens (14-day trial):
+https://docs.manalens.dev/mcp/overview
 
 ## Workflow
 
 1. **Find the tracker.** Read `marketing/posts.csv`. Count the posts in the range per format and
    per beat. Output: a one-line summary, such as "14 posts: 5 conflict, 5 mechanic, 4 caption".
 
-2. **Website numbers through Manalens, if it is connected.** Check that the MCP tools
-   `get_analytics` or `get_attribution` are listed. If not, skip to step 3. They need the scopes
-   `analytics:read` and `attribution:read`. Dates are `YYYY-MM-DD`.
-
-   `get_analytics` has a named `utm_campaign` filter but no named `utm_content` filter. Filter by
-   post ID with an operator filter (`utm_content` is an allowed field). One `kpis` call per post
-   returns one row with `visitors`:
-
-   ```json
-   {"report": "kpis", "date_from": "2026-11-19", "date_to": "2026-11-26",
-    "filters": [{"field": "utm_content", "op": "eq", "value": "2026-11-20-yt-band-runs"}]}
-   ```
-
-   Visitors per beat: the same call with `"utm_campaign": "devlog"` instead of `filters`.
-
-   Conversions for all posts in one call. `get_attribution` groups by `content`, which is
-   `utm_content`:
-
-   ```json
-   {"conversion_event": "wishlist_clicked", "model": "last_non_direct",
-    "group_by": "content", "date_from": "2026-11-19", "date_to": "2026-11-26"}
-   ```
-
-   `get_analytics` cannot group by `utm_content` (`top_sources` groups by source). Write the
-   results to `marketing/retro/web-YYYY-MM-DD.csv` as `utm_content,visits,signups`. Manalens MCP
-   does not return Steam UTM rows, so Steam numbers come from step 3.
+2. **Numbers through Manalens, if it is connected.** Make the calls in "With the Manalens MCP"
+   and save the files. Then skip step 3, unless a note says the Steam data is missing.
 
 3. **Ask for the exports the agent cannot read.** Ask the user to:
    - Export Steam UTM Analytics: Steamworks, the game, **Marketing & Visibility**,
      **UTM Analytics**, choose the dates, do not filter by UTM values, download the CSV. They need
      the **View Marketing Traffic Data** permission. Walkthrough:
-     https://manalens.dev/blog/steamworks-utm-report
+     https://manalens.dev/blog/steamworks-utm-report?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=marketing_retro
    - If Steamworks can show the report without UTM Content, export that view too. Its campaign
      rows can count visits that the per-post rows hide.
    - Export the daily wishlist report for the range plus the 7 days before it.
@@ -175,7 +181,7 @@ Each week, read **wishlists per beat** (By campaign), then **wishlists per forma
 - **Small samples:** with fewer than 5 posts per format the report says "too early". On
   wishlists, a format wins only if its count is over the other's plus 2 x sqrt(the other's count)
   (a Poisson rule of thumb: 18 vs 12 is not a win, 18 vs 8 is). Otherwise it says "not different
-  yet". Why: https://manalens.dev/blog/small-budget-game-marketing-measurement
+  yet". Why: https://manalens.dev/blog/small-budget-game-marketing-measurement?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=marketing_retro
 - **Cross-posted Shorts share a slug:** the same clip on YouTube, TikTok and Reels has three post
   IDs and needs three links. If all three use one link, the numbers land on one post and the
   report warns. The per clip table adds the three up.
@@ -190,8 +196,11 @@ Each week, read **wishlists per beat** (By campaign), then **wishlists per forma
   Manalens does.
 - Steam daily wishlist CSV: the script looks for a date column (`Date`, `DateLocal`, `Day`) and
   an adds column (`Adds`, `Wishlist Adds`). Check the header of your export.
-- Manalens MCP: `get_analytics` (reports `kpis`, `event_timeseries`, `top_pages`, `top_sources`,
-  `top_events`; named filters `utm_source`, `utm_medium`, `utm_campaign`; `utm_content` through
-  `filters`) and `get_attribution` (`group_by` `campaign` or `content`). Indie has 60 requests
-  per minute per key. The Steam CSV import in the Manalens dashboard is "coming soon".
+- Manalens MCP (docs.manalens.dev/mcp/overview, checked 2026-11-26): `get_steam_utm` (`group_by`
+  `source`, `medium`, `campaign`, `content`, `term` or `campaign_content`; `view` `breakdown` or
+  `daily`; totals and rows of visits, wishlists, purchases and activations; data from the user's
+  Steam UTM import), `get_steam_wishlists` (daily adds, deletes, purchases, gifts, net and
+  outstanding change, GMT days; no total outstanding count), `get_analytics` (`top_sources` takes
+  `group_by` `content` or `campaign`, and `utm_content` and `utm_term` filters) and
+  `get_attribution` (`group_by` `content`). Tool names can still change: match on the tool list.
 - Last verified 2026-11-26.

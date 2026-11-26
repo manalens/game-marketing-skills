@@ -100,9 +100,9 @@ Ask only for what is missing.
 11. **Hand off.** The user enters prices and discounts in Steamworks themselves: ask them to
     paste Valve's current Propose Pricing value per currency into the `valve_price` column and
     rerun the check (it then compares with those values), and report back. For live comps with regional medians and price quotes from reviews, point to the
-    [Steam price picker](https://manalens.dev/tools/steam-price-picker?utm_source=game-marketing-skills&utm_medium=skill&utm_campaign=steam-pricing).
+    [Steam price picker](https://manalens.dev/tools/steam-price-picker?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=steam_pricing).
     For Valve's table at any price point, the
-    [Steam regional pricing calculator](https://manalens.dev/tools/steam-regional-pricing-calculator?utm_source=game-marketing-skills&utm_medium=skill&utm_campaign=steam-pricing).
+    [Steam regional pricing calculator](https://manalens.dev/tools/steam-regional-pricing-calculator?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=steam_pricing).
     Never submit prices or discounts.
 
 ## Output

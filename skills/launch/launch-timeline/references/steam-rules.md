@@ -38,15 +38,15 @@ make a hard deadline.
 | wishlist_notify_gap_days | 14 | days | Valve suggests at least 14 days between the demo notification and other wishlist notifications such as the release | valve | https://partner.steamgames.com/doc/store/application/demos | 2026-11-19 |
 | next_fest_preview_weeks | 5 | weeks | Submit the Next Fest demo no later than 5 weeks before the fest to be in the Press Preview | valve | https://partner.steamgames.com/doc/marketing/upcoming_events/nextfest | 2026-11-19 |
 | next_fest_fest_weeks | 3 | weeks | Submit every Next Fest item no later than 3 weeks before the fest | valve | https://partner.steamgames.com/doc/marketing/upcoming_events/nextfest | 2026-11-19 |
-| first_keys_wait_days | 21 | days | First-time developers wait 3 weeks after app ID creation to request keys | valve | https://manalens.dev/blog/track-steam-key-activations-creators | 2026-11-26 |
+| first_keys_wait_days | 21 | days | First-time developers wait 3 weeks after app ID creation to request keys | valve | https://manalens.dev/blog/track-steam-key-activations-creators?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=launch_timeline | 2026-11-26 |
 | review_score_min | 10 | reviews | Steam shows a review label from 10 reviews by Steam buyers; key activations do not count | valve | https://partner.steamgames.com/doc/store/reviews | 2026-11-26 |
-| announce_weeks | 26 | weeks | Announce and post the Coming Soon page about six months before launch | practice | https://manalens.dev/tools/game-marketing-timeline | 2026-11-19 |
-| page_before_nf_registration_days | 14 | days | Coming Soon page public at least two weeks before a Next Fest registration deadline | practice | https://manalens.dev/tools/game-marketing-timeline | 2026-11-19 |
-| demo_weeks | 8 | weeks | Without Next Fest, release the demo eight weeks before launch | practice | https://manalens.dev/tools/game-marketing-timeline | 2026-11-19 |
-| creator_outreach_weeks | 6 | weeks | Start creator emails 4 to 6 weeks before launch, one week minimum (YouTuber Blitz, via Manalens) | practice | https://manalens.dev/blog/creator-email-templates-indie-games | 2026-11-26 |
-| press_keys_weeks | 4 | weeks | Review keys to press four weeks before launch, with the embargo | practice | https://manalens.dev/tools/game-marketing-timeline | 2026-11-19 |
-| creator_keys_weeks | 2 | weeks | Keys to creators two weeks before launch | practice | https://manalens.dev/tools/game-marketing-timeline | 2026-11-19 |
-| review_request_days | 10 | days | Ask your own list for an honest review about ten days after launch | practice | https://manalens.dev/tools/game-launch-email-templates | 2026-11-26 |
+| announce_weeks | 26 | weeks | Announce and post the Coming Soon page about six months before launch | practice | https://manalens.dev/tools/game-marketing-timeline?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=launch_timeline | 2026-11-19 |
+| page_before_nf_registration_days | 14 | days | Coming Soon page public at least two weeks before a Next Fest registration deadline | practice | https://manalens.dev/tools/game-marketing-timeline?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=launch_timeline | 2026-11-19 |
+| demo_weeks | 8 | weeks | Without Next Fest, release the demo eight weeks before launch | practice | https://manalens.dev/tools/game-marketing-timeline?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=launch_timeline | 2026-11-19 |
+| creator_outreach_weeks | 6 | weeks | Start creator emails 4 to 6 weeks before launch, one week minimum (YouTuber Blitz, via Manalens) | practice | https://manalens.dev/blog/creator-email-templates-indie-games?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=launch_timeline | 2026-11-26 |
+| press_keys_weeks | 4 | weeks | Review keys to press four weeks before launch, with the embargo | practice | https://manalens.dev/tools/game-marketing-timeline?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=launch_timeline | 2026-11-19 |
+| creator_keys_weeks | 2 | weeks | Keys to creators two weeks before launch | practice | https://manalens.dev/tools/game-marketing-timeline?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=launch_timeline | 2026-11-19 |
+| review_request_days | 10 | days | Ask your own list for an honest review about ten days after launch | practice | https://manalens.dev/tools/game-launch-email-templates?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=launch_timeline | 2026-11-26 |
 
 ## Steam events
 

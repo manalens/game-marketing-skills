@@ -80,9 +80,9 @@ Find these in the repo first (string files, README, store page text in `launch/`
    tags that must stay, length limits, context screenshots, tone, and the deadline.
 8. **Write `launch/localization.md`** (shape below).
 9. **Hand off.** For live review-language shares of comps, point to
-   [Steam reviews by language](https://manalens.dev/tools/steam-review-languages?utm_source=game-marketing-skills&utm_medium=skill&utm_campaign=localization-plan).
+   [Steam reviews by language](https://manalens.dev/tools/steam-review-languages?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=localization_plan).
    For cost and payback with charts, the
-   [Steam localization planner](https://manalens.dev/tools/steam-localization-planner?utm_source=game-marketing-skills&utm_medium=skill&utm_campaign=localization-plan).
+   [Steam localization planner](https://manalens.dev/tools/steam-localization-planner?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=localization_plan).
    Never send files to a vendor or buy anything: ask the user to send the brief and report back.
 10. **Check returned translations:** `python3 <skill>/scripts/count_words.py check .` (or
     `--targets fr,de`). It fails on missing keys, empty strings and placeholder mismatches, and

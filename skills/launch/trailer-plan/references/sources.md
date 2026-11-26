@@ -33,4 +33,4 @@ Written in our own words.
 - How To Market A Game, IndieGameJoe tips (7 May 2026): post clips of trailers, not trailers;
   aggregators skip games that are hard to understand from the trailer.
 - Manalens blog: Steam trailer best practices (18 November 2026), How to make a game trailer
-  (24 November 2026), Game ad creative from your trailer and gameplay. https://manalens.dev/blog
+  (24 November 2026), Game ad creative from your trailer and gameplay. https://manalens.dev/blog?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=trailer_plan

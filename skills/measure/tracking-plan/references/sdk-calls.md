@@ -193,7 +193,7 @@ A demo's wishlist button opens the store page with tags, and sends `wishlist_cli
 ```gdscript
 func _on_wishlist_pressed() -> void:
     Manalens.track("wishlist_clicked", {"store": "steam", "placement": "demo_end"})
-    OS.shell_open("https://store.steampowered.com/app/<appid>/?utm_source=ingame&utm_medium=game&utm_campaign=demo&utm_content=demo-end")
+    OS.shell_open("https://store.steampowered.com/app/<appid>/?utm_source=ingame&utm_campaign=demo&utm_content=demo_end")
 ```
 
 Steam UTM Analytics counts links to the app page or a sale page. Whether a link opened in the Steam

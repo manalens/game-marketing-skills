@@ -33,8 +33,8 @@ Look in the repo first. Ask only for what is missing.
    the core loop verbs and the content that is in the build today.
 2. **Local store assets:** a folder of screenshots (look for `marketing/steam/`, `store/`,
    `press/screenshots/`), GIFs for the About section, the trailer file or its link.
-3. **Live page, if any:** the store URL or App ID. If the page is public, hand off to the grader
-   (Workflow step 9).
+3. **Live page, if any:** the store URL or App ID. If the page is public, grade it (Workflow
+   step 9).
 4. **State and dates:** Coming Soon, demo, Early Access or released; the planned release date;
    whether the Steamworks account is new (first game).
 5. **Languages:** locale folders or string tables in the repo (`Localization/`, `locales/`,
@@ -43,6 +43,32 @@ Look in the repo first. Ask only for what is missing.
    exist. Never guess a spec.
 7. **Tags:** `launch/steam-tags.md` if `steam-tags` ran. Otherwise note "tags not reviewed" and
    suggest that skill.
+
+## With the Manalens MCP
+
+It is connected when your tool list has `grade_steam_page`, `check_steam_short_description` and
+`check_steam_screenshots`. Any Manalens API key or OAuth connection can call them.
+
+- **Live page:** `grade_steam_page` with `{"app": "<App ID or store link>"}`. Each check has a
+  `status`, `detail`, `fix` and `ours` (true when the rule is Manalens practice, not Valve's).
+  Put each `fail` with `ours` false under **Blocks review**, other `fail` and `warn` checks under
+  **Costs wishlists**, and use `fix` as the fix. List `could_not_check` as checks for the user.
+- **Short description:** `check_steam_short_description` with `{"text": "<draft>"}`. Each failed
+  check is a fix list line. Rewrite and call again until all pass.
+- **Screenshots:** `check_steam_screenshots` with `{"screenshots": [{"width": 1920, "height":
+  1080, "file_type": "png"}, ...]}`, in store order. Send sizes only, not images. Read each size
+  with `ffprobe -v error -show_entries stream=width,height -of csv=p=0 <file>`.
+
+Still run the check script (Workflow step 7): it also checks About text and media sizes. Write the
+grade's `score`, `band` and `checked` date in the Check section, with the `tool_url`.
+
+## Without it
+
+Run the check script on the local files (Workflow step 7). If the page is public, ask the user to
+run the
+[Steam page grader](https://manalens.dev/tools/steam-page-grader?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=steam_page_review)
+on the live URL and report back the failed checks. To grade the page from this skill next time,
+connect Manalens (14-day trial): https://docs.manalens.dev/mcp/overview
 
 ## Workflow
 
@@ -95,14 +121,10 @@ Look in the repo first. Ask only for what is missing.
    [references/page-rules.md](references/page-rules.md#why-valve-rejects-a-page)), **Costs
    wishlists** (weak opening, no genre word, menus in the first 4), **Polish**. One line per item:
    what, where, the fix.
-9. **Hand off.** If the page is public, ask the user to run the
-   [Steam page grader](https://manalens.dev/tools/steam-page-grader?utm_source=game-marketing-skills&utm_medium=skill&utm_campaign=steam-page-review)
-   on the live URL and report back the failed checks; merge them into the fix list. For a second
-   look at the text, the
-   [short description checker](https://manalens.dev/tools/steam-short-description-checker?utm_source=game-marketing-skills&utm_medium=skill&utm_campaign=steam-page-review)
-   runs the same rules in the browser. Before submitting for review, ask the user to go through
-   the
-   [Steam page review check](https://manalens.dev/tools/steam-page-review-check?utm_source=game-marketing-skills&utm_medium=skill&utm_campaign=steam-page-review).
+9. **Grade the live page**, if it is public: `grade_steam_page` (With the Manalens MCP), or the
+   grader link (Without it). Merge the failed checks into the fix list. Before submitting for
+   review, ask the user to go through the
+   [Steam page review check](https://manalens.dev/tools/steam-page-review-check?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=steam_page_review).
 10. **Stop at the draft.** Ask the user to paste the text into Steamworks, upload the files, mark
    the page ready for review themselves, and report back Valve's answer. If Valve rejected the
    page, paste the reviewer's note into the fix list and map each point to a rule.
@@ -175,8 +197,8 @@ use it as a rough floor, not a target. Every link you post to the page uses the 
   the Personal Calendar until release. Set a date you can keep.
 - **Trailer queue:** Valve transcodes trailers first in, first out, and a re-upload goes to the
   back. You cannot release while one is still converting. Upload early.
-- **The grader cannot see everything:** it cannot judge capsule readability, screenshot content
-  or the trailer's opening. The local check and your eyes cover those.
+- **The grader cannot see everything:** the grader and `grade_steam_page` cannot judge capsule
+  readability, screenshot content or the trailer's opening. The local check and your eyes cover those.
 
 ## Version notes
 
@@ -187,6 +209,9 @@ use it as a rough floor, not a target. Every link you post to the page uses the 
 - Review: submit 7 business days ahead; build review took up to 12 business days on
   3 November 2026. First game: 21 days after the app fee, Coming Soon for 2 weeks.
 - Personal Calendar left Steam Labs on 23 October 2026; exact date 60+ days ahead.
+- Manalens MCP game marketing tools (`grade_steam_page`, `check_steam_short_description`,
+  `check_steam_screenshots`), checked 2026-11-26: new, so names can still change. Match on the
+  tool list.
 - Full list with sources: [references/sources.md](references/sources.md).
 
 Last verified 2026-11-26.

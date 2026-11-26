@@ -27,6 +27,25 @@ Writes `marketing/social/<YYYY-MM-DD>.md` (the week's posts) and appends to `mar
 4. **Link target:** Steam page, demo or site.
 5. **`marketing/rules.md`:** the do-not-say list.
 
+## With the Manalens MCP
+
+It is connected when your tool list has `build_steam_utm_link` and `check_utm_url`. Any Manalens
+API key or OAuth connection can call them.
+
+- **Steam links:** call `build_steam_utm_link` with
+  `{"app": "<App ID>", "utm_source": "bluesky", "utm_medium": "social", "utm_campaign": "screenshot_saturday", "utm_content": "<post ID>"}`.
+  Write the returned `url` in the post and in the `link` column of `marketing/posts.csv`.
+- **Other links** (itch.io, your site): call `check_utm_url` with `{"url": "..."}`. Fix each
+  `warning` in `issues`, and use `clean_url` when it is given.
+
+## Without it
+
+Write each link by hand from [docs/LINKS.md](../../../docs/LINKS.md), then run the check script
+(Workflow step 6). To build tagged Steam links in the browser, use the
+[Steam UTM link builder](https://manalens.dev/tools/steam-utm-builder?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=social_post).
+To build the links from this skill next time, connect Manalens (14-day trial):
+https://docs.manalens.dev/mcp/overview
+
 ## Workflow
 
 1. **Pick the week's ideas.** One idea per post: a mechanic, a before and after, a bug, a piece of
@@ -64,7 +83,7 @@ Writes `marketing/social/<YYYY-MM-DD>.md` (the week's posts) and appends to `mar
    It fails on a post over the platform limit, a missing alt text, a missing post ID, or more
    than 2 hashtags. It notes X posts with the link in the main post (fine for the link test).
 7. **Hand off.** The user posts by hand or with a scheduler, and replies in the first hour. For
-   tools and timing, see [scheduling social posts for games](https://manalens.dev/blog/schedule-social-posts-for-games).
+   tools and timing, see [scheduling social posts for games](https://manalens.dev/blog/schedule-social-posts-for-games?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=social_post).
 
 ## Output
 
@@ -93,7 +112,7 @@ Each post ID is the `utm_content` of its link (docs/LINKS.md). `marketing-retro`
 platforms and post types by visits and wishlists. Expect small numbers: in one informal survey X
 sent well under 2% of a game's traffic, and a reported median was about 7 wishlists per 1,000
 video views on X (one creator's posts). Judge over 4 weeks, by wishlists, not likes. More:
-[social posts that bring wishlists](https://manalens.dev/blog/social-posts-that-bring-wishlists).
+[social posts that bring wishlists](https://manalens.dev/blog/social-posts-that-bring-wishlists?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=social_post).
 
 ## Gotchas
 

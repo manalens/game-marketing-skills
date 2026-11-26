@@ -100,7 +100,7 @@ Look in the repo first. Ask only for what is missing.
    - **Retention:** D1, D7, D30 for all players, then per source. Compare to the user's own
      earlier weeks first. Public PC medians (GameAnalytics, desktop builds, October 2026) are
      about 6.5% D1, 1.4% D7, 0.2% D30, for free-to-play-heavy samples; a premium or demo build
-     differs. More: https://manalens.dev/blog/pc-indie-game-retention-benchmarks
+     differs. More: https://manalens.dev/blog/pc-indie-game-retention-benchmarks?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=player_funnel
    - **Playtime:** the share under 5 minutes, the median, and for a paid game on Steam the share
      over 2 hours (the refund line).
    - **Quits:** the top 3 last events with their level or step.
@@ -112,7 +112,7 @@ Look in the repo first. Ask only for what is missing.
 
    | Finding | Next step |
    |---|---|
-   | One step loses far more than its neighbours (such as 40% at tutorial step 3) | Watch 3 to 5 players at that step (a playtest or a recording). Open a User paths chart backward from the next step. Fix that one step: shorter, skippable, a clearer prompt. Compare the step on the new build. Guide: https://manalens.dev/blog/first-session-funnel-ftue |
+   | One step loses far more than its neighbours (such as 40% at tutorial step 3) | Watch 3 to 5 players at that step (a playtest or a recording). Open a User paths chart backward from the next step. Fix that one step: shorter, skippable, a clearer prompt. Compare the step on the new build. Guide: https://manalens.dev/blog/first-session-funnel-ftue?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=player_funnel |
    | Big drop between store visit and download or first open | The store page, the demo button or the download, not the game. Check that the demo is on the page and the link goes to the app page. |
    | Many players whose last event is `game_open`, or 0 to 5 minute playtime | Check crashes and load errors first (Manalens Game health template, or the tool's crash report), then the first minute. |
    | Fine tutorial, low D1 | The first session ends with no reason to return. Test a clear goal or unlock at the end of session 1. |

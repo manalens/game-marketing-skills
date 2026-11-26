@@ -79,23 +79,24 @@ Look in the repo first: `README.md`, design docs, `marketing/`, store page text,
    [references/templates.md](references/templates.md)). For a web page, write `index.html` with
    the same `<h2>` headings instead.
 10. **Tag every link to the game.** Steam, itch.io and website links get
-    `utm_source=presskit&utm_medium=press&utm_campaign=<beat>&utm_content=<page>` (for example
-    `index` or `factsheet`). Social links and the trailer embed need no tags.
+    `utm_source=press&utm_campaign=<beat>&utm_content=<page>` (for example `index` or
+    `factsheet`). No `utm_medium`: a link in the kit is a plain referral link (docs/LINKS.md).
+    Social links and the trailer embed need no tags.
 11. **Build the ZIP and check:**
     ```
     python3 scripts/check_press_kit.py press --zip <game>-press-kit
     ```
     It builds the ZIP from every file in `press/`, then fails on a missing section or fact,
     descriptions outside their limits, not 4 to 6 features, awards without links, leftover
-    placeholders (TODO, TBD, `[Your name]`), untagged game links, missing or small assets
+    placeholders (TODO, TBD, `[Your name]`), game links without `utm_source=press` and a beat, missing or small assets
     (ffprobe), no transparent logo, no clean key art, no MP4, or no ZIP link. Fix and rerun until it
     prints `ok`. It needs ffmpeg; `--no-assets` checks only the text.
 12. **Hand off.** Ask the user to host the folder (their site, itch.io HTML project, GitHub Pages,
     Netlify) and report back the URL. If they want a styled page fast, they can paste the fact
     sheet and text into the
-    [Manalens press kit builder](https://manalens.dev/tools/press-kit-builder?utm_source=game-marketing-skills&utm_medium=skill&utm_campaign=press-kit),
+    [Manalens press kit builder](https://manalens.dev/tools/press-kit-builder?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=press_kit),
     which imports the Steam page and exports one HTML page plus image ZIPs. Read the
-    [press kit mistakes list](https://manalens.dev/blog/indie-game-press-kit-mistakes) once as a
+    [press kit mistakes list](https://manalens.dev/blog/indie-game-press-kit-mistakes?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=press_kit) once as a
     last pass. For pitching the kit, use `press-outreach`.
 
 ## Output
@@ -114,8 +115,8 @@ step.
 
 ## Measure
 
-Each link to the game in the kit carries `utm_source=presskit` and the beat in `utm_campaign`
-(docs/LINKS.md). In Steamworks UTM Analytics, the `presskit` rows show visits and wishlists from
+Each link to the game in the kit carries `utm_source=press` and the beat in `utm_campaign`
+(docs/LINKS.md). In Steamworks UTM Analytics, the `press` rows with no medium show visits and wishlists from
 people who opened the kit and clicked through. Expect small numbers: most coverage traffic comes
 through the article's own link, which `press-outreach` tags per contact. Also count ZIP and
 trailer downloads in the host's analytics if it has any. `marketing-retro` reads the UTM rows a
@@ -139,8 +140,8 @@ week after each beat.
   at 1080p and screenshots as PNG at 1920x1080 to 2560x1440.
 - **Placeholders that look real:** an embargo line with no time zone or a price of "TBD" gets
   printed as is. The check fails both.
-- **Mismatched tags:** Manalens tools use other `utm_source` values for press (`press`, or
-  `presskit`). Pick one for the whole kit and keep it.
+- **Old tags:** older kits used `utm_source=presskit`. The convention is now `press` for every
+  press link, so kit rows and email rows add up under one source. Re-tag old kits.
 
 ## Version notes
 

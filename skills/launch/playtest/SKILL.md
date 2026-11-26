@@ -60,7 +60,7 @@ Look in the repo first, then ask only for what is missing.
    one thing to change, the wishlist question as a fact ("Is it on your wishlist now?"), and
    would-you-recommend. Keep scales the same between builds so rounds compare. Rewrite any
    leading question with the table in the reference. Hand off: the
-   [Manalens playtest survey builder](https://manalens.dev/tools/playtest-survey-builder?utm_source=game-marketing-skills&utm_medium=skill&utm_campaign=playtest)
+   [Manalens playtest survey builder](https://manalens.dev/tools/playtest-survey-builder?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=playtest)
    builds the same kind of survey from playtest type, genre, length and goals and exports CSV,
    with steps for Google Forms and Tally.
 6. **Pair with event data.** Put the tester ID in the survey (a Google Forms pre-filled link or a

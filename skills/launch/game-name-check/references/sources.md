@@ -16,4 +16,4 @@ Written in our own words. Dates are when the fact was read.
 - Platform handle pages (TikTok Support, YouTube Help, Bluesky Support, Reddit Help, Discord
   Support), read 2026-11-26. Details in [handles.md](handles.md).
 - Manalens game name checker and clone risk check rules (`game-name-checker.ts`, `clone-risk.ts`),
-  and the guide "How to name your game" (18 Nov 2026). https://manalens.dev/blog/how-to-name-your-game?utm_source=game-marketing-skills&utm_medium=skill&utm_campaign=game-name-check
+  and the guide "How to name your game" (18 Nov 2026). https://manalens.dev/blog/how-to-name-your-game?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=game_name_check

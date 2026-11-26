@@ -32,7 +32,7 @@ Never spend a fresh tester on a guided task: a person can be new to the game onl
   search engines. Good before a Steam page exists.
 - **Local events:** meetups and IGDA chapters. You see people play in person.
 
-More, with paid services and prices: [How to find playtesters](https://manalens.dev/blog/how-to-find-playtesters?utm_source=game-marketing-skills&utm_medium=skill&utm_campaign=playtest).
+More, with paid services and prices: [How to find playtesters](https://manalens.dev/blog/how-to-find-playtesters?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=playtest).
 
 Signup form questions: which games like this they played recently, platform and input device,
 how to contact them, and consent to be contacted about this test only.

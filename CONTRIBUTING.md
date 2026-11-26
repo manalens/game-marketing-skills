@@ -37,5 +37,13 @@ Start from [`templates/SKILL.template.md`](templates/SKILL.template.md).
 - **Evals:** add 3 prompts that should load the skill and 1 near-miss to
   [`evals/triggers.json`](evals/triggers.json).
 - **Scripts:** have `--help`, exit non-zero on failure, and were run at least once.
+- **Links:** game links follow [`docs/LINKS.md`](docs/LINKS.md). Links to manalens.dev inside a
+  skill use `utm_source=skill&utm_campaign=game_marketing_skills&utm_content=<skill_name>`, at
+  most 3 per SKILL.md. Never call Manalens a "free plan" or "free tools".
+- **Manalens MCP:** when a Manalens MCP tool fits the skill, add a short `## With the Manalens MCP`
+  section (how to tell it is connected, which tool and arguments, how the result maps into the
+  output) and a `## Without it` section (the skill's own script or export, one tagged tool link,
+  and one line: connect Manalens, 14-day trial).
 
-Run `python3 scripts/lint_skills.py` before you open a PR. CI runs it too.
+Run `python3 scripts/lint_skills.py` and `python3 scripts/test_links.py` before you open a PR. CI
+runs both.

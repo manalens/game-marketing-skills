@@ -16,12 +16,23 @@ Reddit, put the subreddit in the slug: `2026-12-01-rd-indiegames-island-hop`.
 
 ## UTM tags
 
+These tags follow the one UTM convention that manalens.dev uses in its guides and tools. All values
+are lower case. Use one value per meaning.
+
 | Tag | Value | Example |
 |---|---|---|
-| `utm_source` | platform or channel | `youtube`, `tiktok`, `instagram`, `reddit`, `x`, `bluesky`, `threads`, `newsletter`, `discord`, `presskit`, `press` |
-| `utm_medium` | `social`, or `video` for long YouTube, `email` for newsletters | `social` |
-| `utm_campaign` | the marketing beat, no dates | `devlog`, `demo`, `nextfest`, `launch`, `screenshotsaturday` |
-| `utm_content` | the post ID | `2026-11-26-yt-conflict-pumpkins` |
+| `utm_source` | the platform or channel | `youtube`, `tiktok`, `instagram`, `reddit`, `x`, `bluesky`, `threads`, `newsletter`, `discord`, `press` |
+| `utm_medium` | one of `social`, `video`, `email`, `paid`; leave it out for a plain referral link | `social` |
+| `utm_campaign` | the marketing beat, no dates, underscores between words | `devlog`, `demo`, `nextfest`, `launch`, `screenshot_saturday` |
+| `utm_content` | the post, creator or contact | `2026-11-26-yt-conflict-pumpkins`, `cozy_weekly_sam` |
+
+- `utm_medium`: `social` for posts, `video` for long YouTube videos, `email` for newsletters and
+  press emails, `paid` for ads. A link on a page (a press kit, a profile, a button in the game)
+  is a plain referral link: no `utm_medium`.
+- `utm_content`: a post ID keeps its hyphens (`YYYY-MM-DD-<code>-<slug>`). A creator, contact or
+  place name uses underscores (`cozy_weekly_sam`, `demo_end`).
+- Press: `utm_source=press` for every press link (the old `presskit` value is gone). An email
+  pitch adds `utm_medium=email`; a link in the press kit has no medium.
 
 Why the post ID goes in `utm_content`, not `utm_campaign`: Steam hides UTM combinations with very
 few visits. With the beat in `utm_campaign`, the campaign totals still add up when single posts
@@ -73,3 +84,15 @@ post ID such as `2026-11-yt-profile`, and the game name on screen does the rest.
 
 Long UTM links look spammy. Use a redirect on your own site (for example `yourgame.com/s/pumpkins`)
 that forwards to the tagged link, and keep the mapping in `marketing/posts.csv`.
+
+## Links to manalens.dev
+
+The repo's own links to manalens.dev are tagged too, so Manalens can count this repo as a channel.
+`scripts/lint_skills.py` checks them.
+
+- Inside a skill (SKILL.md, references, scripts): `utm_source=skill`,
+  `utm_campaign=game_marketing_skills`, `utm_content=<skill name with underscores>`, such as
+  `utm_content=steam_page_review`. At most 3 manalens.dev links in a SKILL.md.
+- README and the repo website link: `utm_source=github`, `utm_campaign=game_marketing_skills`,
+  `utm_content=<place>`, such as `sponsor_banner`, `sponsor_text` or `repo_homepage`.
+- No `utm_medium` on either: they are plain referral links.
