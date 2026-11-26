@@ -178,6 +178,5 @@ first.
 - UTM values follow docs/LINKS.md, the same convention as manalens.dev: `utm_source=press` and
   `utm_medium=email` for press emails, names with underscores. The check fails on hyphens in a
   contact slug and on a `utm_medium` outside `social`, `video`, `email`, `paid`.
-- Bite Me Games' advice on fake curator emails was not re-checked for this version.
 
 Last verified 2026-11-26.

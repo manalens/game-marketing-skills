@@ -31,9 +31,6 @@ Read 2026-11-26. Written in our own words. A number marked "claim" is one source
   reply only to the email on the channel's About page; Whisper on Twitch; one key per person from a
   tagged batch; Steam Key Stats shows only totals, so keep your own log. Cites bit-tech (2 Oct 2014:
   a fake YouTuber email got 16 keys from 46 developers) and Game Developer (2018).
-- Bite Me Games (YouTube, @BiteMeGames) has advised developers on fake curator key emails: use
-  Curator Connect, not email keys. We did not re-check the exact video for this skill; confirm
-  before you quote it.
 - Game influencer marketing guide (Manalens): creators must disclose free keys (FTC, UK CMA).
 
 ## Finding people

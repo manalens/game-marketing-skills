@@ -1,0 +1,31 @@
+date,task,owner,hard_deadline,source
+2026-11-26,"Pay the Steam Direct fee (100 USD, paid back after 1,000 USD adjusted gross revenue), finish identity and bank checks, send tax info (up to 30 days)",you,no,https://partner.steamgames.com/doc/gettingstarted/appfee
+2026-11-26,Submit the store page for review (Valve: 7 business days before you want it live),you,no,https://partner.steamgames.com/doc/store/review_process
+2026-12-07,"Announce and click Post as Coming Soon (as soon as review allows); announcement trailer, press kit, owned channels",you,no,https://manalens.dev/tools/game-marketing-timeline?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=launch_timeline
+2026-12-07,"Wave 1: announcement to press and creators, one tagged Steam link per outlet",marketing,no,https://manalens.dev/tools/game-marketing-timeline?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=launch_timeline
+2026-12-07,Email your own list: the Steam page is live,marketing,no,https://manalens.dev/tools/game-launch-email-templates?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=launch_timeline
+2026-12-17,Steam Winter Sale 2026 (before launch): keep big announcements out of it,Valve,no,https://partner.steamgames.com/doc/marketing/upcoming_events
+2027-02-22,Steam Next Fest: February 2027 (not joined): avoid launching or announcing during it,Valve,no,https://partner.steamgames.com/doc/marketing/upcoming_events/nextfest/feb_2027
+2027-03-05,"Second beat: date reveal, new trailer or devlog, with tagged links",marketing,no,https://manalens.dev/tools/game-marketing-timeline?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=launch_timeline
+2027-03-18,Steam Spring Sale 2027 (before launch): keep big announcements out of it,Valve,no,https://partner.steamgames.com/doc/marketing/upcoming_events
+2027-04-02,"Show the exact release date (day, not month) by this day for the Personal Calendar page",you,yes,https://partner.steamgames.com/doc/marketing/visibility/personalcalendar
+2027-04-02,Email your own list: release date reveal,marketing,no,https://manalens.dev/tools/game-launch-email-templates?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=launch_timeline
+2027-04-20,Start creator emails (4 to 6 weeks ahead); one tagged link per creator,marketing,no,https://manalens.dev/blog/creator-email-templates-indie-games?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=launch_timeline
+2027-05-02,Email your own list: one month to go,marketing,no,https://manalens.dev/tools/game-launch-email-templates?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=launch_timeline
+2027-05-04,Wave 3: review keys to press with the embargo date and time,marketing,no,https://manalens.dev/tools/game-marketing-timeline?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=launch_timeline
+2027-05-07,Latest page submission that can still meet the 2-week Coming Soon rule,you,yes,https://partner.steamgames.com/doc/store/review_process
+2027-05-11,Last day to have paid the app fee (21-day wait before release),you,yes,https://partner.steamgames.com/doc/gettingstarted/onboarding
+2027-05-11,Exact date public by this day for the Personal Calendar on the front page,you,yes,https://partner.steamgames.com/doc/marketing/visibility/personalcalendar
+2027-05-14,Submit the launch build for review (Valve said up to 12 business days on 3 Nov 2026),you,no,https://steamcommunity.com/groups/steamworks/announcements/detail/696528162820984746
+2027-05-18,Release date locks. From now a delay of more than 24 hours drops the game off the Personal Calendar until release,Valve,yes,https://partner.steamgames.com/doc/store/release_dates
+2027-05-18,"Set the launch discount if you want one: up to 40%, 7 to 14 days, only before release",you,yes,https://partner.steamgames.com/doc/marketing/discounts
+2027-05-18,Wave 4: keys to creators; ask when they will stream,marketing,no,https://manalens.dev/tools/game-marketing-timeline?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=launch_timeline
+2027-05-18,Latest day the Coming Soon page can go public (2 weeks before release),you,yes,https://partner.steamgames.com/doc/store/coming_soon
+2027-05-21,Latest build submission at Valve's 7 business days,you,yes,https://partner.steamgames.com/doc/store/review_process
+2027-05-25,Email your own list: one week to go,marketing,no,https://manalens.dev/tools/game-launch-email-templates?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=launch_timeline
+2027-06-01,Launch: press Release yourself (approved games do not release themselves); Steam emails every wishlister,you,yes,https://partner.steamgames.com/doc/store/releasing
+2027-06-01,"Launch day checklist: launch trailer and tagged posts, press release, own list email, watch crashes and refunds (see timeline.md)",you,no,https://manalens.dev/tools/game-marketing-timeline?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=launch_timeline
+2027-06-11,"Email your own list: ask for an honest review, nothing offered in return",marketing,no,https://manalens.dev/tools/game-launch-email-templates?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=launch_timeline
+2027-06-14,Steam Next Fest: June 2027 (not joined): avoid launching or announcing during it,Valve,no,https://partner.steamgames.com/doc/marketing/upcoming_events/nextfest/june_2027
+2027-06-24,"Steam Summer Sale 2027 starts: inside the 30-day cooldown, full price only",Valve,no,https://partner.steamgames.com/doc/marketing/upcoming_events
+2027-07-01,First day you can discount (30-day release cooldown ends),Valve,yes,https://partner.steamgames.com/doc/marketing/discounts

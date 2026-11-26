@@ -21,7 +21,7 @@ Early Access, Pricing), read 18 November 2026. Rules marked **ours** are rules o
 | Depth | 10% to 95% |
 | Length of a custom discount | 1 to 14 days |
 | Weeklong Deal | Starts Monday 10am Pacific, runs 7 days, self-serve |
-| Overlap | One discount per package at a time |
+| Overlap | No new discount within 30 days of the last one, so in practice one at a time; Valve's seasonal sales are the exception (Valve, Discounting) |
 | Price changes | Wait 30 days after release; cannot be scheduled; reviewed in 1 to 2 business days |
 
 ## 2. Cooldowns

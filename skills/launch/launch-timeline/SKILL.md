@@ -99,9 +99,10 @@ https://docs.manalens.dev/mcp/overview
    `demo`, `nextfest`, `launch`), `utm_content` = the contact or post ID. Drafting the emails is a separate job; this
    skill only dates them.
 6. **Launch day.** Keep the checklist at the end of `timeline.md`. It includes one studio's
-   advice (Bite Me Games): line up about 10 people who will buy at launch and leave an honest
-   review, because Steam shows a score only from 10 reviews by buyers and key activations do not
-   count. Label it as one studio's advice. Never suggest paying for, rewarding or requiring a
+   advice that many developers share: line up people who will buy at launch and leave an honest
+   review. Valve counts only reviews from Steam purchases in the score, not key activations, and a
+   score appears only after a minimum number of reviews (10 is the number developers cite; Valve
+   does not publish it). Label it as common advice. Never suggest paying for, rewarding or requiring a
    review: Valve forbids incentives.
 7. **Hand off.** Draft only. Ask the user to pay the fee, submit the page and build, set the
    date, set the discount and press Release in Steamworks themselves, and report back. For open
