@@ -6,7 +6,8 @@ event,description,properties,trigger,funnel_step,owner
 
 Checks on the plan:
   - event names are snake_case object_action (such as level_complete), or one of the reserved
-    single words purchase, resource, error;
+    single words purchase, resource, error; with --names title, Title Case Object Action
+    (such as Level Completed) for a game that already sends those names;
   - no duplicate events (also not by case);
   - property names are snake_case, at most 8 per event (warning), at most 50 (error);
   - no property names that look like personal data (email, name, ip, phone, address ...);
@@ -39,6 +40,8 @@ CODE_OWNERS = {"game", "web", "server"}
 RESERVED_SINGLE = {"purchase", "resource", "error"}
 
 EVENT_RE = re.compile(r"^[a-z][a-z0-9]*(_[a-z0-9]+)+$")
+# "Object Action" in Title Case (Segment style), for a game that already uses it: --names title.
+TITLE_EVENT_RE = re.compile(r"^[A-Z][A-Za-z0-9]*( [A-Z0-9][A-Za-z0-9]*)+$")
 PROP_RE = re.compile(r"^[a-z][a-z0-9]*(_[a-z0-9]+)*$")
 NUMBERED_RE = re.compile(r"(^|_)\d+(_|$)")
 
@@ -63,6 +66,9 @@ SKIP_DIRS = {".git", ".godot", ".import", "node_modules", "Library", "Temp", "Ob
 # Analytics SDK sources: their own internal track calls are not the game's events.
 SKIP_SDK_PATHS = ["addons/manalens", "Plugins/Manalens", "Packages/dev.manalens.sdk",
                   "node_modules/@manalens"]
+
+# A comment line: its words are not calls.
+COMMENT_RE = re.compile(r"^\s*(//|/\*|\*|#|--)")
 
 # A function declaration such as "func track(event", not a call.
 DECL_RE = re.compile(r"\b(func|def|function|void|public|private|static|fn)\b")
@@ -123,7 +129,7 @@ def read_plan(path):
     return rows
 
 
-def check_plan(rows, required):
+def check_plan(rows, required, names="snake"):
     errors, warnings = [], []
     seen = {}
     steps = set()
@@ -135,8 +141,14 @@ def check_plan(rows, required):
             continue
         if ev in RESERVED_SINGLE:
             pass
+        elif names == "title":
+            # An SDK or another system names its own events (page_view, a Steam row): skip those.
+            if not TITLE_EVENT_RE.match(ev) and not (
+                    {o.lower() for o in split_list(row["owner"])} <= {"sdk", "external"}):
+                errors.append(f"{where}: name must be Title Case Object Action, such as Level Completed")
         elif not EVENT_RE.match(ev):
-            errors.append(f"{where}: name must be snake_case object_action, such as level_complete")
+            errors.append(f"{where}: name must be snake_case object_action, such as level_complete"
+                          " (or pass --names title for Title Case names)")
         if len(ev) > 40:
             warnings.append(f"{where}: name over 40 characters; keep names short")
         if NUMBERED_RE.search(ev):
@@ -205,7 +217,7 @@ def iter_code_files(root, extra_skip):
 def scan_code(roots, calls, extra_skip):
     call_re = re.compile(
         r"(?<![A-Za-z0-9_])(?:" + calls + r")\s*\(\s*(?:TEXT\s*\(\s*)?(?:(?P<q>[\"'`])(?P<name>[^\"'`\n]+)(?P=q)|(?P<dyn>[A-Za-z_][\w.]*))")
-    lit_re = re.compile(r"[\"'`]([a-z][a-z0-9_]*)[\"'`]")
+    lit_re = re.compile(r"[\"'`]([A-Za-z][A-Za-z0-9_ ]{0,63})[\"'`]")
     key_res = [re.compile(r"[\"']([A-Za-z_]\w*)[\"']\s*\]?\s*[:=]"),
                re.compile(r"[{,]\s*([A-Za-z_]\w*)\s*:")]
     sent = {}       # name -> list of (file, line, keys)
@@ -224,6 +236,8 @@ def scan_code(roots, calls, extra_skip):
                 raise InputError(f"{path}: {e}")
             for n, text in enumerate(lines, start=1):
                 place = f"{os.path.relpath(path, root)}:{n}"
+                if COMMENT_RE.match(text):
+                    continue
                 for lit in lit_re.findall(text):
                     literals.setdefault(lit, place)
                 for m in call_re.finditer(text):
@@ -233,6 +247,8 @@ def scan_code(roots, calls, extra_skip):
                         for kr in key_res:
                             keys.update(kr.findall(rest))
                         sent.setdefault(m.group("name"), []).append((place, keys))
+                    elif re.search(r"\bnew\s+$", text[:m.start()]):
+                        continue  # a constructor such as "new Track(", not a call
                     elif not DECL_RE.search(text[:m.start()]):
                         dynamic.append(f"{place}: {text.strip()[:100]}")
     return sent, literals, dynamic, files
@@ -286,6 +302,9 @@ def main():
                          f"(default: {','.join(DEFAULT_REQUIRED)}; empty string for none)")
     ap.add_argument("--calls", default=DEFAULT_CALLS,
                     help="regex of function names that send an event (default: %(default)s)")
+    ap.add_argument("--names", choices=["snake", "title"], default="snake",
+                    help="event name style: snake (level_complete, the default) or title "
+                         "(Level Completed, for a game that already sends Title Case names)")
     ap.add_argument("--skip", action="append", default=[], metavar="DIRNAME",
                     help="another folder name to skip in --code; repeatable")
     args = ap.parse_args()
@@ -297,7 +316,7 @@ def main():
         return 2
     try:
         rows = read_plan(args.plan)
-        errors, warnings = check_plan(rows, required)
+        errors, warnings = check_plan(rows, required, args.names)
         print(f"plan: {args.plan}, {len(rows)} events")
         if args.code:
             sent, literals, dynamic, files = scan_code(args.code, args.calls, set(args.skip))

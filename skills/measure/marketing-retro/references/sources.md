@@ -7,8 +7,8 @@ Written in our own words. Checked 2026-11-26.
 - Manalens docs, Steam integration: https://docs.manalens.dev/integrations/steam: column names
   matched by name, Total row skipped, conversions final after about 4 days, one-day exports when a
   file has no date column, dashboard import "coming soon".
-- Manalens docs, MCP server: https://docs.manalens.dev/mcp/overview: `get_steam_utm` groups and
-  views, `get_steam_wishlists`, `get_analytics` reports and UTM filters, `get_attribution`
+- Manalens docs, MCP server: https://docs.manalens.dev/mcp/overview: `get_steam_stats` (`report` `utm`: groups and
+  views; `report` `wishlists`), `get_analytics` reports and UTM filters, `get_attribution`
   grouping, scopes and plan limits (checked 2026-11-26).
 - "How to Get Ahead of 96% of Game Devs (Using Shorts)", GuuchanDev:
   https://www.youtube.com/watch?v=20TQ7-q2x04 (three Shorts formats; post often, keep what holds

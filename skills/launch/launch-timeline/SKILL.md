@@ -40,7 +40,7 @@ what is missing.
 
 ## With the Manalens MCP
 
-It is connected when your tool list has `build_marketing_timeline`. Any Manalens API key or OAuth
+It is connected when your tool list has `plan_marketing_timeline`. Any Manalens API key or OAuth
 connection can call it. Call it with the same answers you give the script:
 
 ```json
@@ -83,7 +83,7 @@ https://docs.manalens.dev/mcp/overview
 3. **Generate the plan.** Run
    `python3 scripts/timeline.py plan <date> --today <today> [--demo] [--next-fest <id or date>] [--coming-soon <date>] [--not-first-game] --out-dir launch [--ics]`.
    Run it from the repo root with the script's full path, so `launch/` lands in the game repo.
-   With the MCP, call `build_marketing_timeline` now and merge it (With the Manalens MCP).
+   With the MCP, call `plan_marketing_timeline` now and merge it (With the Manalens MCP).
 4. **Edit for this game.** Read `launch/timeline.md` and:
    - Mark tasks already done (Coming Soon live, fee paid) as done; do not delete the hard rows.
    - Put real names in the owner column if you know them.
@@ -155,7 +155,7 @@ https://docs.manalens.dev/mcp/overview
 - Build review backlog of up to 12 business days: Valve announcement, 3 November 2026. Queue
   claims (47 days for a new account, 15 for a build): How To Market A Game, 19 November 2026.
 - Personal Calendar (60 days, 3 weeks, 24-hour rule): live since June 2026.
-- Manalens MCP `build_marketing_timeline`, checked 2026-11-26: new, so its name and fields can
+- Manalens MCP `plan_marketing_timeline`, checked 2026-11-26: new, so its name and fields can
   still change. Match on the tool list.
 
 Last verified 2026-11-26.

@@ -21,7 +21,7 @@ from urllib.parse import parse_qs, urlparse
 
 POST_ID_RE = re.compile(r"^(\d{4}-\d{2}-\d{2})-([a-z]+)-([a-z0-9-]+)$")
 TOTAL_RE = re.compile(r"^(grand )?totals?:?$", re.I)
-FORMATS = ["caption", "mechanic", "conflict", "update", "series", "trailer", "reddit", "other"]
+FORMATS = ["caption", "mechanic", "conflict", "update", "series", "trailer", "reddit", "social", "other"]
 
 
 class InputError(Exception):
@@ -354,8 +354,6 @@ def load_wishlists(path):
         if not d:
             raise InputError(f"{path} line {n}: date '{raw}' is not a date like 2026-11-20")
         days[d] = days.get(d, 0.0) + (to_num(row.get(mp["adds"]), path, n, mp["adds"], count=True) or 0)
-    if not days:
-        raise InputError(f"{path}: no daily rows")
     return days
 
 
@@ -767,6 +765,11 @@ def main(argv=None):
         steam = load_steam(args.steam, args.key, warnings)
         web = load_web(args.web, args.key)
         wish = load_wishlists(args.wishlists) if args.wishlists else None
+        if wish == {}:
+            # A header with no rows: what get_steam_stats (report wishlists) gives before any Steam data exists.
+            warnings.append(f"{args.wishlists}: no daily rows (no Steam wishlist data yet), so "
+                            "there is no wishlist lift section.")
+            wish = None
     except InputError as err:
         print(f"error: {err}", file=sys.stderr)
         return 2

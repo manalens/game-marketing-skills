@@ -53,13 +53,13 @@ Read [references/hooks.md](references/hooks.md) for hook templates by format.
 
 ## With the Manalens MCP
 
-It is connected when your tool list has `build_steam_utm_link` and `check_utm_url`. Any Manalens
+It is connected when your tool list has `campaign_link`. Any Manalens
 API key or OAuth connection can call them.
 
-- **Steam links:** call `build_steam_utm_link` with
+- **Steam links:** call `campaign_link` with
   `{"app": "<App ID>", "utm_source": "youtube", "utm_medium": "social", "utm_campaign": "devlog", "utm_content": "<post ID>"}`.
   Write the returned `url` in the `link` column of `marketing/posts.csv`.
-- **Other links** (itch.io, your site): call `check_utm_url` with `{"url": "..."}`. Fix each
+- **Other links** (itch.io, your site): call `campaign_link` with `{"url": "..."}`. Fix each
   `warning` in `issues`, and use `clean_url` when it is given.
 
 ## Without it

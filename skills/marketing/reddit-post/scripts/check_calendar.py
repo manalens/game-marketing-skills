@@ -11,7 +11,9 @@ Fails (exit 1) when:
   - one clip is used in two subreddits on the same day
   - a day has more than --max-per-day posts (default 2)
   - an A or B row has no post_id, or its post_id is not a Reddit post ID (YYYY-MM-DD-rd-slug)
-Rows with status "skipped" or "removed" are ignored for spacing.
+Rows with status "skipped" or "removed" are ignored for spacing. Rows with status "posted" are
+history: they count for spacing, but a problem among posted rows alone is printed as a note, not
+an error, since it cannot be changed any more.
 """
 import argparse
 import csv
@@ -69,6 +71,7 @@ def main():
     gaps.update(dict(args.gap))
 
     errors = []
+    notes = []
     posts = []
     with args.tracker.open(newline="", encoding="utf-8") as f:
         reader = csv.DictReader(f)
@@ -89,6 +92,10 @@ def main():
             if not sub.startswith("r/"):
                 sub = "r/" + sub
             pid = row["post_id"].strip()
+            done = row["status"].strip().lower() == "posted"
+            if done:
+                posts.append((d, sub, row["clip"].strip(), n, done))
+                continue
             if not POST_ID.match(pid):
                 errors.append(f"line {n}: post_id '{pid}' is not YYYY-MM-DD-rd-slug (docs/LINKS.md)")
             info = subs.get(sub, {})
@@ -98,32 +105,36 @@ def main():
             allowed = weekdays(info.get("allowed_days"))
             if allowed is not None and d.weekday() not in allowed:
                 errors.append(f"line {n}: {sub} allows posts on {info['allowed_days']} only, not {DAYS[d.weekday()].title()}")
-            posts.append((d, sub, row["clip"].strip(), n))
+            posts.append((d, sub, row["clip"].strip(), n, done))
 
     by_sub = defaultdict(list)
     by_day = defaultdict(list)
-    for d, sub, clip, n in posts:
-        by_sub[sub].append((d, n))
-        by_day[d].append((sub, clip, n))
+    for d, sub, clip, n, done in posts:
+        by_sub[sub].append((d, n, done))
+        by_day[d].append((sub, clip, n, done))
 
     for sub, items in by_sub.items():
         items.sort()
         gap = gaps.get(sub, args.default_gap)
-        for (d1, n1), (d2, n2) in zip(items, items[1:]):
+        for (d1, n1, done1), (d2, n2, done2) in zip(items, items[1:]):
             if (d2 - d1).days < gap:
-                errors.append(f"{sub}: lines {n1} and {n2} are {(d2 - d1).days} days apart, gap is {gap}")
+                (notes if done1 and done2 else errors).append(
+                    f"{sub}: lines {n1} and {n2} are {(d2 - d1).days} days apart, gap is {gap}")
 
     for d, items in sorted(by_day.items()):
+        history = all(done for *_, done in items)
         if len(items) > args.max_per_day:
-            errors.append(f"{d}: {len(items)} posts, max {args.max_per_day}")
+            (notes if history else errors).append(f"{d}: {len(items)} posts, max {args.max_per_day}")
         clips = defaultdict(set)
-        for sub, clip, n in items:
+        for sub, clip, n, done in items:
             if clip:
                 clips[clip].add(sub)
         for clip, subs in clips.items():
             if len(subs) > 1:
-                errors.append(f"{d}: clip {clip} in {len(subs)} subreddits ({', '.join(sorted(subs))})")
+                (notes if history else errors).append(f"{d}: clip {clip} in {len(subs)} subreddits ({', '.join(sorted(subs))})")
 
+    for e in notes:
+        print(f"{args.tracker}: note (posted already): {e}")
     for e in errors:
         print(f"{args.tracker}: {e}")
     if errors:

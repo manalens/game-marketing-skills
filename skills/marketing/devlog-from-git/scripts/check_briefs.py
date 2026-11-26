@@ -28,6 +28,17 @@ def banned_words(path):
     return out
 
 
+def word_pattern(word):
+    """Match a do-not-say entry as a whole word or phrase, not inside a longer word.
+
+    `ai` must not match "sail", and `gus` must not match "gust". An entry that starts or ends
+    with a symbol (such as `$`) has no word edge on that side.
+    """
+    start = r"(?<!\w)" if re.match(r"\w", word) else ""
+    end = r"(?!\w)" if re.search(r"\w$", word) else ""
+    return re.compile(start + re.escape(word) + end)
+
+
 def main():
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument("file", type=Path, help="marketing/devlog/<date>.md")
@@ -38,7 +49,8 @@ def main():
     if not args.file.exists():
         sys.exit(f"{args.file}: not found")
     text = args.file.read_text(encoding="utf-8")
-    briefs = re.split(r"^## ", text, flags=re.M)[1:]
+    # Only numbered headings ("## 1. ...") are briefs; other sections (notes, "Not picked") are free.
+    briefs = [b for b in re.split(r"^## ", text, flags=re.M)[1:] if re.match(r"\d+\.", b)]
     errors = []
     if not briefs:
         errors.append("no briefs (expected '## N. ...' headings)")
@@ -64,7 +76,7 @@ def main():
 
     lower = text.lower()
     for w in banned_words(args.rules):
-        if w in lower:
+        if word_pattern(w).search(lower):
             errors.append(f"uses a word from {args.rules}: '{w}'")
 
     for e in errors:

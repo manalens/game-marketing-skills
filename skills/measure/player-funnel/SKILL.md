@@ -121,8 +121,8 @@ Look in the repo first. Ask only for what is missing.
 
 7. **Dashboard, only if the user asked.** Never create or change a dashboard on your own. If the
    user asked for a dashboard, follow [references/queries.md](references/queries.md) section 8:
-   `list_dashboards`, then `create_dashboard` (name "Game health", or another board if the
-   built-in Game health crash board exists and the user prefers), then `create_chart` for the
+   `get_dashboards`, then `save_dashboard` (name "Game health", or another board if the
+   built-in Game health crash board exists and the user prefers), then `save_chart` for the
    funnel, retention and paths charts (every plan) and the SQL charts (Studio, after
    `preview_chart`). Funnel, retention and paths charts cannot be previewed; tell the user to open
    the board. List every chart you added.

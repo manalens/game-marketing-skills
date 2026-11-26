@@ -123,6 +123,9 @@ story types (bug, cut, glow-up) hold viewers, and mine those first next time.
   that commit. If it still fails, use stored screenshots or drop the pick.
 - **Shallow clones:** CI or cloud checkouts may have only recent history. Run
   `git fetch --depth=500` (or `--unshallow`) first if the date range looks empty.
+- **Renamed game folder:** `git log -- <folder>` does not follow a folder that was renamed in
+  the range, so `--path game/` misses every commit made under the old name. If the range looks
+  thin, check `git log --stat` for a rename and pass the old path too (`--path game/ --path old/`).
 - **Spoilers in the diff:** late-game content shows up in commits. Check `marketing/rules.md`
   before suggesting it.
 - **Private repo details:** do not show code, file names, secrets or internal tools on screen

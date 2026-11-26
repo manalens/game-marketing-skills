@@ -29,6 +29,17 @@ def banned_words(rules_path):
     return words
 
 
+def word_pattern(word):
+    """Match a do-not-say entry as a whole word or phrase, not inside a longer word.
+
+    `ai` must not match "sail", and `gus` must not match "gust". An entry that starts or ends
+    with a symbol (such as `$`) has no word edge on that side.
+    """
+    start = r"(?<!\w)" if re.match(r"\w", word) else ""
+    end = r"(?!\w)" if re.search(r"\w$", word) else ""
+    return re.compile(start + re.escape(word) + end)
+
+
 def check(path, rules_path, max_hook_words, max_seconds):
     text = path.read_text(encoding="utf-8")
     errors = []
@@ -62,7 +73,7 @@ def check(path, rules_path, max_hook_words, max_seconds):
 
     lower = text.lower()
     for word in banned_words(rules_path):
-        if word in lower:
+        if word_pattern(word).search(lower):
             errors.append(f"uses a word from {rules_path}: '{word}'")
     return errors
 

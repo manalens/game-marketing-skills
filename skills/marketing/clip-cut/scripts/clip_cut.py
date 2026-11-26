@@ -5,8 +5,9 @@ Shapes: 9x16 (1080x1920), 4x5 (1080x1350), 16x9 (1920x1080) and gif (looping,
 size-capped). Optional hook text for the first seconds, an end card for the last
 seconds, a speed factor, loudness normalisation to about -14 LUFS, and mute.
 
-Python 3 standard library only. Needs ffmpeg and ffprobe on PATH (ffmpeg built
-with libfreetype for drawtext, which most builds are).
+Python 3 standard library only. Needs ffmpeg and ffprobe on PATH. Hook and end card
+text need ffmpeg's drawtext filter (built with libfreetype). Some builds leave it out,
+such as the default Homebrew ffmpeg on macOS; the script says so before it starts.
 
 Examples:
   clip_cut.py footage.mp4 --start 12.5 --end 27 --shape 9x16 4x5 \\
@@ -103,6 +104,11 @@ def need_tools():
             "(macOS: brew install ffmpeg; Debian/Ubuntu: sudo apt install ffmpeg; "
             "Windows: winget install ffmpeg) and try again."
         )
+
+
+def has_drawtext():
+    res = subprocess.run(["ffmpeg", "-hide_banner", "-filters"], capture_output=True, text=True)
+    return re.search(r"^\s*\S*\s+drawtext\s", res.stdout, re.M) is not None
 
 
 def probe(path):
@@ -459,7 +465,13 @@ def main(argv=None):
     if not src["audio"] and not args.mute:
         warn("source has no audio stream; output will be silent")
 
-    font = find_font(args.font) if (args.hook or args.end_text or args.end_url) else None
+    wants_text = bool(args.hook or args.end_text or args.end_url)
+    if wants_text and not args.dry_run and not has_drawtext():
+        die("this ffmpeg has no drawtext filter (it was built without libfreetype), so it "
+            "cannot draw --hook, --end-text or --end-url. Install a build with it (macOS: "
+            "brew install ffmpeg-full, or the homebrew-ffmpeg tap; Linux: the distro ffmpeg "
+            "package), or run without text and use --end-card with an image.")
+    font = find_font(args.font) if wants_text else None
     name = args.name or f"{os.path.splitext(os.path.basename(args.input))[0]}-{args.start:g}s"
     if not args.dry_run:
         os.makedirs(args.out_dir, exist_ok=True)

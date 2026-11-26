@@ -6,7 +6,8 @@ Reads marketing/outreach/contacts.csv (or the path you give). Never sends anythi
 Fails (exit 1) when:
   - a required column is missing: name, outlet, contact, audience, similar_games, status,
     sent_date, follow_up_date, key_sent, coverage_url, utm_content;
-  - a contact is not a valid email address or an https link (a contact form or Twitch page);
+  - a contact is not a valid email address or an https link (a contact form or Twitch page),
+    or is empty on a row that is not todo or skipped;
   - the same contact, or the same name at the same outlet, appears twice;
   - utm_content is empty, not a lower-case name with underscores (or a YYYY-MM-DD-... post ID),
     or used twice (except --shared values);
@@ -33,7 +34,10 @@ from urllib.parse import parse_qs, urlparse
 REQUIRED = ["name", "outlet", "contact", "audience", "similar_games", "status", "sent_date",
             "follow_up_date", "key_sent", "coverage_url", "utm_content"]
 RECOMMENDED = ["type", "contact_source", "key_batch", "link"]
-STATUSES = {"todo", "drafted", "sent", "followed-up", "replied", "declined", "covered", "no-reply"}
+STATUSES = {"todo", "drafted", "sent", "followed-up", "replied", "declined", "covered", "no-reply", "skipped"}
+# todo and skipped rows may have no contact yet (a channel whose email is still unknown, or one
+# we chose not to pitch); every other status needs one.
+NO_CONTACT_OK = {"todo", "skipped"}
 SENT = {"sent", "followed-up", "replied", "declined", "covered", "no-reply"}
 DONE = {"replied", "declined", "covered"}
 EMAIL = re.compile(r"^[A-Za-z0-9._%+'-]+@[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)*\.[A-Za-z]{2,}$")
@@ -90,7 +94,8 @@ def main():
         contact = r["contact"]
         is_email = "@" in contact and not contact.startswith("http")
         if not contact:
-            errors.append(f"{where}: no contact")
+            if r["status"].lower() not in NO_CONTACT_OK:
+                errors.append(f"{where}: no contact")
         elif is_email and not EMAIL.match(contact):
             errors.append(f"{where}: '{contact}' does not look like an email address")
         elif not is_email and not contact.startswith("https://"):

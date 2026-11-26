@@ -125,6 +125,8 @@ Look in the repo first. Ask only for what is missing.
    It exits 0 when every `game`, `web` and `server` event is sent and every sent event is planned.
    Use `--owner game` to check only the game when the site lives elsewhere, and `--require` to change
    the required funnel steps (a game with no store page yet: `--require install,tutorial,play`).
+   A game that already sends Title Case names (`Level Completed`, Segment style) keeps them:
+   pass `--names title` rather than renaming events that have history.
    Fix each ERROR and run again. Read each WARN and say in the plan why it stays.
 
 8. **Ask the user to play a dev build and report back.** Then confirm events arrive (Measure).

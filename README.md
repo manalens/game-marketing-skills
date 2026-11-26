@@ -105,7 +105,7 @@ MCP" section calls it instead of a script or a CSV export:
 
 - Launch skills call the game marketing tools: Steam page grade, short description, capsule and
   screenshot checks, UTM link check and builder, and the marketing timeline.
-- Measure skills call `get_steam_utm`, `get_steam_wishlists`, `get_analytics` and
+- Measure skills call `get_steam_stats`, `get_analytics` and
   `get_attribution`.
 
 Without it, each skill runs its own check script and links the matching tool on

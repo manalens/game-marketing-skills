@@ -348,12 +348,12 @@ LIMIT 30
 
 Never create or change a dashboard unless the user asked. Then:
 
-1. `list_dashboards` (needs `dashboards:read`). Manalens has a built-in **Game health** template
+1. `get_dashboards` (needs `dashboards:read`). Manalens has a built-in **Game health** template
    for crash charts. If a "Game health" board exists, ask whether to add the player charts to it
    or to make a new board. A board holds up to 24 charts.
-2. `create_dashboard` with `{"name": "Game health", "description": "Player funnel, retention and playtime"}`
+2. `save_dashboard` with `{"name": "Game health", "description": "Player funnel, retention and playtime"}`
    (needs `dashboards:write`). Use the returned id as `boardId`.
-3. Preview each SQL chart with `preview_chart`, then save it with `create_chart`. A chart's SQL
+3. Preview each SQL chart with `preview_chart`, then save it with `save_chart`. A chart's SQL
    must use `received_at >= toDateTime({{date_from}}) AND received_at < toDateTime({{date_to}}) + INTERVAL 1 DAY`
    or the same on `original_timestamp`, so it follows the dashboard range. Funnel, retention and
    paths charts have no SQL: `preview_chart` refuses them; save them and open the board.

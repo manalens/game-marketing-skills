@@ -46,16 +46,17 @@ Look in the repo first. Ask only for what is missing.
 
 ## With the Manalens MCP
 
-It is connected when your tool list has `grade_steam_page`, `check_steam_short_description` and
-`check_steam_screenshots`. Any Manalens API key or OAuth connection can call them.
+It is connected when your tool list has `review_steam_page`. Any Manalens API key or OAuth
+connection can call it. One call can send any mix of the inputs below; the result has a section
+for each.
 
-- **Live page:** `grade_steam_page` with `{"app": "<App ID or store link>"}`. Each check has a
+- **Live page:** `review_steam_page` with `{"app": "<App ID or store link>"}`. Each check has a
   `status`, `detail`, `fix` and `ours` (true when the rule is Manalens practice, not Valve's).
   Put each `fail` with `ours` false under **Blocks review**, other `fail` and `warn` checks under
   **Costs wishlists**, and use `fix` as the fix. List `could_not_check` as checks for the user.
-- **Short description:** `check_steam_short_description` with `{"text": "<draft>"}`. Each failed
+- **Short description:** `review_steam_page` with `{"short_description": "<draft>"}`. Each failed
   check is a fix list line. Rewrite and call again until all pass.
-- **Screenshots:** `check_steam_screenshots` with `{"screenshots": [{"width": 1920, "height":
+- **Screenshots:** `review_steam_page` with `{"screenshots": [{"width": 1920, "height":
   1080, "file_type": "png"}, ...]}`, in store order. Send sizes only, not images. Read each size
   with `ffprobe -v error -show_entries stream=width,height -of csv=p=0 <file>`.
 
@@ -121,7 +122,7 @@ connect Manalens (14-day trial): https://docs.manalens.dev/mcp/overview
    [references/page-rules.md](references/page-rules.md#why-valve-rejects-a-page)), **Costs
    wishlists** (weak opening, no genre word, menus in the first 4), **Polish**. One line per item:
    what, where, the fix.
-9. **Grade the live page**, if it is public: `grade_steam_page` (With the Manalens MCP), or the
+9. **Grade the live page**, if it is public: `review_steam_page` with `app` (With the Manalens MCP), or the
    grader link (Without it). Merge the failed checks into the fix list. Before submitting for
    review, ask the user to go through the
    [Steam page review check](https://manalens.dev/tools/steam-page-review-check?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=steam_page_review).
@@ -197,7 +198,7 @@ use it as a rough floor, not a target. Every link you post to the page uses the 
   the Personal Calendar until release. Set a date you can keep.
 - **Trailer queue:** Valve transcodes trailers first in, first out, and a re-upload goes to the
   back. You cannot release while one is still converting. Upload early.
-- **The grader cannot see everything:** the grader and `grade_steam_page` cannot judge capsule
+- **The grader cannot see everything:** the grader and `review_steam_page` cannot judge capsule
   readability, screenshot content or the trailer's opening. The local check and your eyes cover those.
 
 ## Version notes
@@ -209,8 +210,7 @@ use it as a rough floor, not a target. Every link you post to the page uses the 
 - Review: submit 7 business days ahead; build review took up to 12 business days on
   3 November 2026. First game: 21 days after the app fee, Coming Soon for 2 weeks.
 - Personal Calendar left Steam Labs on 23 October 2026; exact date 60+ days ahead.
-- Manalens MCP game marketing tools (`grade_steam_page`, `check_steam_short_description`,
-  `check_steam_screenshots`), checked 2026-11-26: new, so names can still change. Match on the
+- Manalens MCP game marketing tools (`review_steam_page`), checked 2026-11-26: new, so names can still change. Match on the
   tool list.
 - Full list with sources: [references/sources.md](references/sources.md).
 
