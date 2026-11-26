@@ -9,7 +9,8 @@ Reads blocks like:
   - Text: ...
   - Reply: ...    (optional)
 
-Fails (exit 1) when text is over the platform limit (x 280, bluesky 300, threads 500), media has
+Fails (exit 1) when text or the reply is over the platform limit (x 280, bluesky 300,
+threads 500), media has
 no alt text, the post ID is missing or malformed, a post
 has more than --max-hashtags hashtags, or a word from marketing/rules.md appears.
 """
@@ -42,6 +43,17 @@ def banned(path):
         return []
     return [m.group(1).lower() for line in path.read_text(encoding="utf-8").splitlines()
             if (m := re.match(r"^\s*-\s*`([^`]+)`", line))]
+
+
+def word_pattern(word):
+    """Match a do-not-say entry as a whole word or phrase, not inside a longer word.
+
+    `ai` must not match "sail", and `gus` must not match "gust". An entry that starts or ends
+    with a symbol (such as `$`) has no word edge on that side.
+    """
+    start = r"(?<!\w)" if re.match(r"\w", word) else ""
+    end = r"(?!\w)" if re.search(r"\w$", word) else ""
+    return re.compile(start + re.escape(word) + end)
 
 
 def main():
@@ -77,6 +89,9 @@ def main():
         n = length(body, platform)
         if n > LIMITS[platform]:
             errors.append(f"{where}: {n} characters, limit {LIMITS[platform]}")
+        reply = field(b, "Reply") or ""
+        if reply and length(reply, platform) > LIMITS[platform]:
+            errors.append(f"{where}: reply has {length(reply, platform)} characters, limit {LIMITS[platform]}")
         if field(b, "Media") and not field(b, "Alt"):
             errors.append(f"{where}: media has no '- Alt:' text")
         if platform == "x" and URL.search(body):
@@ -87,7 +102,7 @@ def main():
             errors.append(f"{where}: {len(tags)} hashtags, max {args.max_hashtags}")
         lower = b.lower()
         for w in words:
-            if w in lower:
+            if word_pattern(w).search(lower):
                 errors.append(f"{where}: uses '{w}' from {args.rules}")
 
     for e in errors:

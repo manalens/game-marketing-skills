@@ -18,7 +18,9 @@ into `marketing/clips/` and prints each path, size and duration.
 
 The script is `scripts/clip_cut.py`. It uses Python 3 (standard library only) and calls `ffmpeg`
 and `ffprobe`. It is tested on Linux; macOS and Windows should work but their font paths are untested
-(pass `--font` if auto-detection fails). Text is drawn with ffmpeg `drawtext`, so no
+(pass `--font` if auto-detection fails). Hook and end card text need ffmpeg's `drawtext` filter.
+Some builds, such as the default Homebrew ffmpeg on macOS, leave it out; the script stops early
+and says so. Then install a build with it or use `--end-card` with an image and no text. Text is drawn with ffmpeg `drawtext`, so no
 image editor is needed.
 
 ## Inputs
