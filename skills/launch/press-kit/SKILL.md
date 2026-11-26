@@ -81,12 +81,14 @@ Look in the repo first: `README.md`, design docs, `marketing/`, store page text,
 10. **Tag every link to the game.** Steam, itch.io and website links get
     `utm_source=press&utm_campaign=<beat>&utm_content=<page>` (for example `index` or
     `factsheet`). No `utm_medium`: a link in the kit is a plain referral link (docs/LINKS.md).
-    Social links and the trailer embed need no tags.
+    Social links, the trailer embed and direct file downloads (the ZIP, MP4s, images) need no
+    tags.
 11. **Build the ZIP and check:**
     ```
     python3 scripts/check_press_kit.py press --zip <game>-press-kit
     ```
-    It builds the ZIP from every file in `press/`, then fails on a missing section or fact,
+    It builds the ZIP from every file in `press/` and every file `assets.csv` lists outside it
+    (so assets can stay where they live in the repo), then fails on a missing section or fact,
     descriptions outside their limits, not 4 to 6 features, awards without links, leftover
     placeholders (TODO, TBD, `[Your name]`), game links without `utm_source=press` and a beat, missing or small assets
     (ffprobe), no transparent logo, no clean key art, no MP4, or no ZIP link. Fix and rerun until it

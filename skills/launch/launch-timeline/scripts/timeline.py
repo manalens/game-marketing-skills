@@ -256,8 +256,12 @@ def build(args, R, C, events, editions, announced_until):
     P.add(add_bd(launch - days(cs_min), -num(R, "page_review_business_days")), "Latest page submission that can still meet the 2-week Coming Soon rule", "you", "yes", src("page_review_business_days"), "Store page")
     P.add(launch - days(cs_min), "Latest day the Coming Soon page can go public (2 weeks before release)", "you", "yes", src("coming_soon_min_days"), "Store page")
     cal = launch - days(num(R, "calendar_page_days"))
-    P.add(max(cal, today), f"Show the exact release date (day, not month) by {fmt(cal)} for the Personal Calendar page", "you", "yes", src("calendar_page_days"), "Store page")
-    P.add(launch - days(num(R, "calendar_front_days")), "Exact date public by today for the Personal Calendar on the front page", "you", "yes", src("calendar_front_days"), "Store page")
+    if cal >= today:
+        P.add(cal, "Show the exact release date (day, not month) by this day for the Personal Calendar page", "you", "yes", src("calendar_page_days"), "Store page")
+    else:
+        # Too late for the 60-day page: a row dated today would read as a task that can still be met.
+        P.notes.append(f"Too late for the Personal Calendar page: the exact date had to be public by {fmt(cal)}.")
+    P.add(launch - days(num(R, "calendar_front_days")), "Exact date public by this day for the Personal Calendar on the front page", "you", "yes", src("calendar_front_days"), "Store page")
     if (launch - cs).days >= 56:
         P.add(friday_or_before(cs + days((launch - cs).days // 2)), "Second beat: date reveal, new trailer or devlog, with tagged links", "marketing", "no", R["announce_weeks"]["source"], "Announce")
     P.add(launch - days(60), "Email your own list: release date reveal", "marketing", "no", "https://manalens.dev/tools/game-launch-email-templates?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=launch_timeline", "Wishlist emails")

@@ -187,6 +187,10 @@ def check_short(path, rep):
         rep.add(area, "warn", "Exclamation mark found. Shoppers skim hype; state the genre and the actions.")
 
 
+BBCODE_TAG = re.compile(r"^/?(h1|h2|h3|b|u|i|strike|spoiler|noparse|hr|list|olist|\*|img|url|quote|code|"
+                        r"table|tr|th|td|previewyoutube|video)\b", re.I)
+
+
 def check_about(path, rep):
     area = "about"
     if not path.is_file():
@@ -200,6 +204,13 @@ def check_about(path, rep):
     rep.add(area, "fail" if link else "pass",
             f"Link to another site found ('{link.group(0)}'). Valve allows no links in descriptions."
             if link else "No links to other sites.")
+    # Square brackets that are not BBCode, such as "[25] islands" or "[N] hours", are draft
+    # placeholders. Valve rejects a page that claims content the build does not have.
+    holes = [m.group(0) for m in re.finditer(r"\[([^\]\n]{1,80})\]", text)
+             if not BBCODE_TAG.match(m.group(1).strip())]
+    if holes:
+        rep.add(area, "warn", f"{len(holes)} placeholder(s) in square brackets, such as {holes[0]}. "
+                              "Fill each from the build or cut it before review.")
     for phrase in ["wishlist now", "buy now", "click here", "add to wishlist"]:
         if phrase in text.lower():
             rep.add(area, "warn", f"'{phrase}': make sure no image or text copies a Steam button.")

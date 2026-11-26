@@ -102,8 +102,13 @@ def evaluate(r, a, today):
         score += 2 * len(matched)
         why.append(f"tags {', '.join(matched)} match the theme ({r['theme'] or r['tags'].replace(';', ', ')})")
     if r["regions"]:
-        score += 2
-        why.append(f"region fits: {r['region_note'] or r['regions']}")
+        if r["region_note"]:
+            # The note names a narrower area than the region code (one country, one sub-region):
+            # an "apac" studio is not always eligible, so no rank boost; ask the user to check.
+            why.append(f"region rule: {r['region_note']} (check that your studio qualifies)")
+        else:
+            score += 2
+            why.append(f"region fits: {r['regions']}")
     if r["identity"]:
         score += 2
         why.append(f"team fits: {r['identity']}-led")

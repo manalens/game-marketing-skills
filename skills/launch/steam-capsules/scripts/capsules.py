@@ -139,9 +139,13 @@ def cmd_check(args):
         asset, size_ok = identify(p, w, h)
         ftype = file_type(p, info.get("codec_name", ""))
         mb = p.stat().st_size / 1024 / 1024
-        rows.append((str(p.relative_to(folder)), f"{w}x{h}", asset or "?", f"{mb:.2f} MB"))
+        # A 16:9 image of 1920x1080 or more is a screenshot, not a capsule: name it, do not warn.
+        shot = asset is None and w >= 1920 and h >= 1080 and abs(w * 9 - h * 16) <= 16
+        rows.append((str(p.relative_to(folder)), f"{w}x{h}", "screenshot" if shot else (asset or "?"),
+                     f"{mb:.2f} MB"))
         if asset is None:
-            warnings.append(f"{p.name}: {w}x{h} matches no Steam asset size")
+            if not shot:
+                warnings.append(f"{p.name}: {w}x{h} matches no Steam asset size")
             continue
         a = ASSETS[asset]
         if not size_ok:

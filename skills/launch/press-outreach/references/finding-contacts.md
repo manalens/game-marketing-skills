@@ -81,7 +81,7 @@ linked. `utm_source` is the platform (`x`, `bluesky`).
 | contact_source | cozyweekly.net/about | Where the email is published; required before a key |
 | audience | 85k subscribers | Subscribers, average viewers or monthly readers, with the unit |
 | similar_games | Ooblets; Moonstone Island | Semicolons inside the field |
-| status | todo | todo, drafted, sent, followed-up, replied, declined, covered, no-reply |
+| status | todo | todo, drafted, sent, followed-up, replied, declined, covered, no-reply, skipped (we chose not to pitch; `declined` means they said no) |
 | sent_date | 2026-11-10 | YYYY-MM-DD |
 | follow_up_date | 2026-11-17 | About a week after sent |
 | key_sent | 2026-11-10 | Date, or empty. Never the key itself |

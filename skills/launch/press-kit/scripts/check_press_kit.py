@@ -59,6 +59,7 @@ PLACEHOLDER = [
     re.compile(r"\bexample\.(com|org)\b", re.I),
 ]
 URL = re.compile(r"https?://[^\s)<>\"']+")
+FILE_LINK = re.compile(r"\.(zip|mp4|mov|webm|png|jpe?g|gif|pdf)$", re.I)
 WORD = re.compile(r"[A-Za-z0-9][A-Za-z0-9'’.-]*")
 
 
@@ -148,9 +149,11 @@ def check_links(path, text, website_host, errors):
         u = urlparse(url)
         host = u.netloc.lower().removeprefix("www.")
         own = (host == "store.steampowered.com" and "/app/" in u.path) or host.endswith("itch.io") \
-            or (website_host and host == website_host)
+            or (website_host and (host == website_host or host.endswith("." + website_host)))
         if not own:
             continue
+        if FILE_LINK.search(u.path):
+            continue  # a direct file download (the ZIP, an MP4, a PNG): no page visit to count
         for problem in link_problems(parse_qs(u.query)):
             errors.append(f"{path.name}: {problem}: {url}")
 
@@ -256,11 +259,27 @@ def check_assets(folder, errors, warnings):
 
 
 def build_zip(folder, name):
+    """Every file in the folder, plus assets.csv files that live outside it (stored by kind)."""
     target = folder / name
+    inside = folder.resolve()
     with zipfile.ZipFile(target, "w", zipfile.ZIP_DEFLATED) as z:
+        names = set()
         for f in sorted(folder.rglob("*")):
             if f.is_file() and f.suffix.lower() != ".zip":
-                z.write(f, f.relative_to(folder))
+                arc = str(f.relative_to(folder))
+                z.write(f, arc)
+                names.add(arc)
+        manifest = folder / "assets.csv"
+        if manifest.exists():
+            with manifest.open(newline="", encoding="utf-8") as fh:
+                for row in csv.DictReader(fh):
+                    f = (folder / (row.get("path") or "").strip()).resolve()
+                    if not f.is_file() or inside in f.parents:
+                        continue
+                    arc = f"{(row.get('kind') or 'files').strip().lower()}/{f.name}"
+                    if arc not in names:
+                        z.write(f, arc)
+                        names.add(arc)
     return target
 
 
