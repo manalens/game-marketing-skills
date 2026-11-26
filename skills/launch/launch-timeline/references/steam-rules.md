@@ -95,6 +95,22 @@ Shown in the plan as context with their date. Not Valve rules.
 - **Next Fest:** one edition per game, ever. The game must not release before the edition ends.
   The base game page must be public to register. A demo must be public when the fest starts.
   Cancelling a registration before the fest frees the game for a later edition.
+- **Next Fest trailer:** Next Fest runs three times a year (February, June and October). Valve
+  picks games for its fest trailer from a publicly visible trailer on the base game page, and
+  accepts no alternative videos. Press Preview starts 11 days before the fest (Steamworks, Steam
+  Next Fest, https://partner.steamgames.com/doc/marketing/upcoming_events/nextfest, read
+  26 Nov 2026).
+- **Announcements:** the last two announcements tied to a product show below its DLC section on
+  the store page; all followers get them in their activity feed. Event text and images can be
+  localized; a missing language falls back to English (Steamworks, Events and Announcements
+  Tools, https://partner.steamgames.com/doc/marketing/event_tools, read 26 Nov 2026).
+- **AI content:** the Content Survey covers AI content that ships with the game and that players
+  consume (artwork, sound, narrative, localization). Efficiency gains from AI tools are not its
+  focus. Valve's review checks AI content like other content, against the Steam Distribution
+  Agreement promise that the game is consistent with its marketing materials (Steamworks,
+  Content Survey, https://partner.steamgames.com/doc/gettingstarted/contentsurvey, read
+  26 Nov 2026). Game Developer reported on 16 Jan 2026 that marketing assets and the store page
+  count too (https://www.gamedeveloper.com/business/valve-tweaks-and-clarifies-ai-disclosure-rules-for-steam).
 - **Weekend releases** show on the Personal Calendar on the next Monday. Valve's date picker hides
   weekends and Valve does not recommend them.
 - **Wishlist emails Steam sends:** at release (and at leaving Early Access), once for the demo

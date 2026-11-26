@@ -58,6 +58,8 @@ It is connected when your tool list has `get_steam_stats` and `get_analytics` (s
    `{"report": "top_sources", "date_from": "2026-10-19", "date_to": "2026-10-21"}`, and
    `get_steam_stats` with `{"report": "utm", "group_by": "source", "view": "daily"}` for the same days. A source that
    jumps on those days is a lead, not proof. Add it to the spike's row in "What this means".
+   Steam credits a wishlist to a tagged visit up to 72 hours later, so read UTM rows for a spike
+   at least 4 days after it.
 
 Copy each result's `notes` into "What this means". A note that no data covers the range means the
 Steamworks sync is not set up: use the CSV. With no rows and no CSV (the store page is not public
@@ -107,6 +109,9 @@ connect Manalens (14-day trial): https://docs.manalens.dev/mcp/overview
      range in Version notes, not with one famous game.
    - **Conversion:** the rate, next to the cited ranges. See [references/benchmarks.md](references/benchmarks.md).
    - **Outlook:** the three cases, with the caveats. Never write one number as the forecast.
+   - **Context and decision** (our practice): one line of context per big change that the user
+     explains, then one decision, such as "post the next creator clip before the sale". The data
+     shows when; only the user knows why.
 
 6. **Check.** Run:
 
@@ -137,7 +142,8 @@ connect Manalens (14-day trial): https://docs.manalens.dev/mcp/overview
 
 ## Measure
 
-Run this monthly before launch, and weekly in the last two months. Track three numbers over time:
+Run this monthly before launch, and weekly in the last two months. A weekly run reads the last
+full week, not yesterday: recent days still change (Gotchas). Track three numbers over time:
 **baseline net adds per day** (is the floor rising?), **extra adds per event** (which beats are
 worth repeating), and **delete rate** (a rising rate after a spike can mean curiosity, not
 interest). After launch or a sale, run it again 7 and 30 days later with `--launch`. Per-post
@@ -161,6 +167,12 @@ numbers by UTM tag belong in `marketing-retro`.
   buyers who never wishlisted. This script counts purchases from the wishlist only.
 - **Small games:** under about 500 adds in the file, single days are noise. Read weeks.
 - **Gifts and activations:** activations (keys) leave the wishlist too. Both lower outstanding.
+- **Early conversion reads run high:** Steam refunds a game on request within 14 days of purchase
+  if it was played for under 2 hours. Call the 7-day conversion provisional; the 30-day run is
+  close to final.
+- **Benchmarks from memory:** compare only with the ranges in `references/benchmarks.md`, each
+  with its date and source. An AI tool that quotes a benchmark from memory may give an old or
+  invented number.
 
 ## Version notes
 

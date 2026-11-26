@@ -26,10 +26,41 @@ sends from their own address.
   Rose, old, claim).
 - Embargo: date, time and time zone, the same for everyone, press and creators alike.
 - Links: the contact's tagged Steam link, the press kit, the trailer. Three links, no more.
-- Short. One studied cold email body was 289 characters (Ryan K. Rigney, via Manalens). Aim for
-  under 150 words.
+- Short. One studied cold email body was 289 characters (Ryan K. Rigney, Push to Talk,
+  11 Jul 2025): one sentence with the genre and the hook, the release date about a month away,
+  the full store.steampowered.com link, and a request to reply for a key, with a 5 second gameplay
+  GIF under the signature. One day later the YouTuber posted a preview with 80,000 views, and
+  the game got 6,000 wishlists. Rigney notes that most pitches overwhelm the reader with detail.
+  Aim for under 150 words for press, and near that 289 character length for creators.
 - Plain text, no attachments over a few MB. Link the press kit instead.
 - Only true claims about the current build.
+- One line asking the creator to mention that the key was free (Manalens practice). Never make a
+  key depend on a positive video.
+
+### AI drafts
+
+An AI tool can draft the hook and the facts from your press kit. You write the first line, from
+a video or article you actually read, and you send each email (Manalens practice). Give it only
+facts and these rules:
+
+```
+Write 3 versions of a cold email to [creator name], who posted a
+video of [comparable game] on [date].
+
+Use only these facts:
+- Game: [name], [genre]
+- Hook: [one sentence]
+- Release date: [date]
+- Steam link: [full store link with utm_content=<contact slug>]
+- What I liked in their video: [your note, one line]
+
+Rules: the body must be under 300 characters. One sentence on the
+game and the hook. Ask them to mention the key was free. No hype
+words, no claims I did not give you, no questions in the opening line.
+```
+
+Then cut the draft, check every claim, date and link, and add the key line from section 2 or 3.
+AI drafts tend to run long, so ask for less than you need.
 
 ## 2. First pitch to a writer (review key)
 
@@ -74,8 +105,12 @@ Thanks,
 Ana
 ```
 
-Creators must disclose free keys in their videos (FTC in the US, CMA in the UK). Do not ask for a
-positive video, a review score or a Steam review in return.
+Creators must disclose free keys in their videos (FTC in the US, CMA in the UK). The FTC's
+guides (16 CFR 255.5) say material connections can include free or discounted products and
+early access, and must be disclosed clearly and conspicuously when the audience would not expect
+them. Valve asks reviewers to disclose a free copy in a Steam review. Valve allows copies for
+previews and reviews, but not rewards for reviews. Do not ask for a positive video, a review
+score or a Steam review in return.
 
 ## 4. The one follow-up
 

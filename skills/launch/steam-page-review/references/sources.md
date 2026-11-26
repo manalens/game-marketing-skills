@@ -29,8 +29,28 @@ tool rules this skill follows, unless noted).
 - Steamworks: Steam Personal Calendar (60 days, 3 weeks, 24-hour delay rule).
   https://partner.steamgames.com/doc/marketing/visibility/personalcalendar (read 18 November 2026)
 - Steam News, "Steam's Personal Calendar Full Release", 23 October 2026.
+- Steamworks: Content Survey (AI content that ships with the game and players consume, including
+  narrative and localization; efficiency tools not the focus; AI content reviewed like other
+  content; game consistent with marketing materials under the Steam Distribution Agreement).
+  https://partner.steamgames.com/doc/gettingstarted/contentsurvey (read 26 November 2026)
+- Steamworks: Store Page Written Description, read again 24 November 2026 (no prices; no implied
+  URLs, even in images or QR codes; no references to other products on Steam; English is the
+  only fallback; "Get to the Point!"; newbie audience; walls of text).
+- Steamworks: Events and Announcements Tools (the last two announcements show below the DLC
+  section of the store page). https://partner.steamgames.com/doc/marketing/event_tools (read
+  26 November 2026)
 
 ## Other
+
+- Game Developer, "Valve tweaks and clarifies AI disclosure rules for Steam" (Danielle Riendeau,
+  16 January 2026): the form counts AI content in marketing assets or the store page.
+  https://www.gamedeveloper.com/business/valve-tweaks-and-clarifies-ai-disclosure-rules-for-steam
+  (read 26 November 2026)
+- U.S. Copyright Office, "Copyright Office Releases Part 2 of Artificial Intelligence Report",
+  29 January 2025. https://www.copyright.gov/newsnet/2025/1060.html (read 24 November 2026)
+- Manalens guides "Using AI to write Steam store copy" (24 November 2026) and "How to market your
+  game on Steam with AI" (26 November 2026): our reading of the disclosure, the faults of AI
+  store copy and the five drafting steps (Manalens practice).
 
 - Manalens tool rules (short description checker, screenshot checker, page grader, review check):
   300-character guide, genre and verb word lists, 150-word About rule of thumb. Read from the

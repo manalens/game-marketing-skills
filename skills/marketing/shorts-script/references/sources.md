@@ -25,3 +25,27 @@ own reports and were not checked independently.
 - YouTube Help, links in Shorts: https://support.google.com/youtube/answer/13748639
 - Manalens blog: TikTok vs Shorts vs Reels for games; from TikTok views to Steam wishlists
   (Nov 2026), https://manalens.dev/blog?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=shorts_script
+
+Platform rules and data added from the manalens.dev AI marketing guides, each source read
+2026-11-26:
+
+- YouTube Help, Disclosing use of GenAI content: what needs a label, where to set it, no reach
+  penalty. https://support.google.com/youtube/answer/14328491?hl=en
+- YouTube Help, Upload YouTube Shorts: square or vertical, up to 3 minutes, up to 15 at once.
+  https://support.google.com/youtube/answer/12779649?hl=en
+- TikTok Support, AI-generated content: when the label is required, automatic labels, no reach
+  penalty. https://www.tiktok.com/support/faq_detail?id=7636670084747893268
+- Meta Transparency Center, Misinformation policy (version of 7 April 2025): disclose
+  photorealistic video and realistic audio made or altered digitally.
+  https://transparency.meta.com/policies/community-standards/misinformation/
+- Meta Transparency Center, Labeling AI Content (updated 19 February 2025): "AI info" labels.
+  https://transparency.meta.com/governance/tracking-impact/labeling-ai-content
+- Colin and Samir, interview with Adam Mosseri (10 June 2024): sends per reach; original
+  creators over reposts. https://www.youtube.com/watch?v=HDzhA_UFrnA
+- GDC, State of the Game Industry, November 2026: opposition to generative AI in player-facing
+  work; 76% negative among QA and community support staff.
+  https://gdconf.com/state-of-the-game-industry-november-2026/
+- Steamworks documentation, Content Survey: the game must match its marketing.
+  https://partner.steamgames.com/doc/gettingstarted/contentsurvey
+- Our practice items (clip count and ranking, two-hook tests, 3 to 5 Shorts per devlog, boost
+  only organic winners) come from the same guides and are marked as practice in SKILL.md.

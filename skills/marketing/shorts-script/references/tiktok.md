@@ -19,6 +19,11 @@ TikTok changes often and publishes few rules. Each line has its source and date.
   nothing new is not eligible for the For You feed. Re-cut each time.
 - **Disclosure:** turn on the "Your brand" commercial content setting for posts about your own
   game. (TikTok help, via zeroraised.com, Nov 2026.)
+- **AI label:** required for realistic AI images, audio, and video; encouraged for other content
+  fully generated or significantly edited with AI. Turn on the AI-generated content setting
+  under More options before posting. TikTok labels its own AI effects and C2PA-tagged files
+  itself, and you cannot remove that label. The setting does not affect distribution for posts
+  that follow the Community Guidelines. (TikTok Support, AI-generated content, read 2026-11-26.)
 - **Length:** short loops still win most of the time, but a 1 minute+ video explaining the core
   mechanic got one studio about 100k views and 2,000 wishlists overnight (acorngames.gg, Aug 2025,
   claim). Test both.

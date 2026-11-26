@@ -62,6 +62,11 @@ So read the side-by-side:
 
 `last_non_direct` is the Manalens default and close to what most ad tools report.
 
+Tools differ. Google Analytics 4 now offers data-driven attribution and two last click models.
+Google says first click, linear, time decay and position-based are no longer available as of
+November 2023. Manalens keeps all six. So a "first touch" number cannot come from GA4: say which
+tool and model each number used.
+
 ## Lookback and half-life
 
 - **Lookback:** how many days before the conversion to look for touches. A touch older than the
@@ -107,3 +112,9 @@ high confidence for budget calls.
 To test cause, change one thing and watch the total: pause one channel for 2 weeks, or run it in
 one period and not another of the same length, and compare daily wishlists or sales. Note sales,
 festivals and press in both periods.
+
+A quick baseline check for one campaign (our practice): compare daily wishlists in the 7 days
+after it with the same weekdays of the week before. List every calendar event in both weeks
+(sales, festivals, updates, posts). Do not call the campaign the cause unless no other event
+explains the change. Attribution shares out credit among the touches you saw; it does not say how
+many wishlists would have come anyway.

@@ -41,8 +41,10 @@ Ask only for what is missing.
 ## Workflow
 
 1. **Collect the comps.** Make a table: name, App ID, US price, release year, reviews, score,
-   hours to finish. Mark comps 5 or more years old: their price may be from another market.
-   With fewer than 5 priced comps, say the evidence is limited.
+   hours to finish, and a sales range (review count x the Boxleiter range for its year, in
+   [references/price-method.md](references/price-method.md)). Mark comps 5 or more years old:
+   their price may be from another market. With fewer than 5 priced comps, say the evidence is
+   limited. Copy every price and review count from the store page, not from an AI answer.
 2. **Pick the base price.** Work through [references/price-method.md](references/price-method.md):
    - Start from length: under 2 hours $4.99, 2 to 5 hours $9.99, 5 to 10 hours $14.99, 10 to
      25 hours $19.99, 25 hours or more $24.99 (a rule of thumb, not a Valve rule).
@@ -156,7 +158,10 @@ sale announcement link with `utm_campaign=sale` and the post ID in `utm_content`
   the USD (LATAM) and USD (CIS) regions and 63.99 BRL in Brazil. A flat $19.99 prices most of
   those players out. Start from Valve's table.
 - **Deep first discount:** 50% in month two teaches players to wait. Raise depth slowly.
-- **Old comps:** a 2018 game at $14.99 is not today's market. Weight recent comps.
+- **Old comps:** a 2018 game at $14.99 is not today's market. Weight recent comps. HTMAG
+  advises comps from the last 3 years.
+- **Sales figures from an AI tool:** a chatbot will often answer "how much did this game sell"
+  with a confident, invented number. Estimate sales yourself from review counts, as a range.
 - **Free on itch.io, paid on Steam:** the same build free elsewhere undercuts the Steam page.
 
 ## Version notes
@@ -167,6 +172,8 @@ sale announcement link with `utm_campaign=sale` and the post ID in `utm_content`
 - Discount rules (10% to 95%, 30-day cooldowns, launch discount 10% to 40% for 7 to 14 days,
   seasonal exemption, wishlist email at 20%+ over 8 hours): Steamworks Discounting docs, read
   2026-11-18. The cooldown was 28 days before 1 January 2023.
+- Boxleiter sales per review (79 to 43 for 2013 to 2017 down to 20 to 55, median 31, for 2021):
+  How To Market A Game Benchmarks, read 2026-11-26.
 - Seasonal sales: Winter 2026 (17 Dec to 4 Jan), Spring 2027 (18 to 25 Mar), Summer 2027
   (24 Jun to 8 Jul). Autumn and Winter 2027 are TBD. Curated Daily, Midweek and Weekend Deals
   were paused on 29 September 2026; Weeklong Deals are still self-serve.

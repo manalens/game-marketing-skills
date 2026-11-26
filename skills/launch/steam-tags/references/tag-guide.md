@@ -104,5 +104,14 @@ Smaller) and 55.1% reached 50+ reviews; Casual had 17,830 games (31.4%, Crowded)
   estimates; context only).
 - Manalens Steam tag benchmark snapshot, 18 November 2026: 56,800 games released 2022 to 2025,
   a tag counted when in a game's top 7, 66 tags. Bundled as `scripts/benchmark_tags.json`.
+- Chris Zukowski, How To Market A Game, "4 tips to help you price your indie game",
+  23 August 2022: comps from the last 3 years, same genre and scale; include failures and hidden
+  gems. https://howtomarketagame.com/2022/08/23/4-tips-to-help-you-price-your-indie-game/
+  (read 26 November 2026)
+- Manalens guides "How to market your game on Steam with AI" and "How to do game market research
+  with AI" (26 November 2026): AI ranks a shortlist from pasted tags of comparable games; copy
+  tags and review counts from store pages; group comps by hook (Manalens practice). Valve quote
+  used there: "take a look at similar games on Steam and note the tags applied to those games"
+  (Steam Tags, read 26 November 2026).
 - Manalens tag guide "Steam tags: how to choose them, with data" and the tag compare tool rules
   (common in set at 50% or more; 10 to 20 games suggested). Read 26 November 2026.

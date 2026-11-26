@@ -55,7 +55,10 @@ https://docs.manalens.dev/mcp/overview
      boat. Today she learned to steer by the wind." Not "Introducing our new wind system!"
    - Say it is your game, and its name, in the text. People often look it up later on a PC.
    - Media in the first post, always. Attach the file natively; do not post a YouTube link.
-   - Alt text on every image and GIF: one sentence describing what moves on screen.
+   - Alt text on every image and GIF: one sentence describing what moves on screen, in the order
+     a player sees it, with no marketing words. Bluesky gives each of up to 4 images its own alt
+     text. If AI drafts it, check it against the clip and delete anything it guessed. Our
+     practice: keep it under 300 characters.
    - **Link placement on X is a test.** X says links are not deboosted, but link posts still
      tend to get fewer reactions, and many devs put the link in the first reply. Alternate and
      compare wishlists in `marketing-retro`. On Bluesky and Threads, a link in the post is fine.
@@ -67,11 +70,16 @@ https://docs.manalens.dev/mcp/overview
    - End with nothing, or a real question. No "please RT".
 3. **Fit each platform's limits** (characters, media, link handling) from `references/platforms.md`.
    Write one version per platform; do not cross-post identical text with `@` handles that only
-   exist on one network.
+   exist on one network. On X, never post the same or "substantially similar" text again, on
+   one account or several: X's automation rules forbid it. Change the first line and the clip.
 4. **Plan the week** around the hashtag days in [references/platforms.md](references/platforms.md)
    (for example a GIF on Saturday). A sustainable default: one post a day on your main platform,
    cross-posted to the others the same day. Bluesky feeds are chronological, so repost your best
-   post a few hours later and again on another day. Pin the best post of the month.
+   post a few hours later and again on another day. Use the repost button, not a new copy, and
+   keep it rare: Bluesky's guidelines ban repeated posts that disrupt normal conversations.
+   Pin the best post of the month. Our practice for hooks: test two first lines on one clip as
+   separate posts on different days, each with its own post ID, and mark AI-drafted versions in
+   `marketing/posts.csv` so `marketing-retro` can compare them.
 5. **Tag links:** each platform gets its own post ID (`x`, `bs`, `th` codes in
    [docs/LINKS.md](../../../docs/LINKS.md)) and `utm_source` (`x`, `bluesky`, `threads`).
 6. **Check:**
@@ -82,7 +90,14 @@ https://docs.manalens.dev/mcp/overview
 
    It fails on a post over the platform limit, a missing alt text, a missing post ID, or more
    than 2 hashtags. It notes X posts with the link in the main post (fine for the link test).
-7. **Hand off.** The user posts by hand or with a scheduler, and replies in the first hour. For
+   Then check by hand: every feature, date, and price is true in the current build. Valve's
+   Content Survey says you promise Steam that the game matches your marketing. Read each post
+   aloud and delete any line you would not say to a player.
+7. **Hand off.** The user posts by hand or with a scheduler, and replies in the first hour. On X,
+   the user is responsible for what any connected tool does. Pick a scheduler that uses X's API:
+   X says scripting the website may mean permanent suspension, and it bans automatic posts about
+   trending topics. The user writes every reply. AI may sort mentions into questions, bug
+   reports, and praise (our practice: answer questions first, log bugs with the post link). For
    tools and timing, see [scheduling social posts for games](https://manalens.dev/blog/schedule-social-posts-for-games?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=social_post).
 
 ## Output
@@ -111,7 +126,10 @@ https://docs.manalens.dev/mcp/overview
 Each post ID is the `utm_content` of its link (docs/LINKS.md). `marketing-retro` compares
 platforms and post types by visits and wishlists. Expect small numbers: in one informal survey X
 sent well under 2% of a game's traffic, and a reported median was about 7 wishlists per 1,000
-video views on X (one creator's posts). Judge over 4 weeks, by wishlists, not likes. More:
+video views on X (one creator's posts). In April 2021, 9 developers posting #ScreenshotSaturday
+to thousands of followers got 5 wishlists in total, and about 90% of the visitors were not
+logged in to Steam (How To Market A Game). Judge over 4 weeks, by wishlists per hour of work,
+not likes, and drop the platform that brings the fewest. More:
 [social posts that bring wishlists](https://manalens.dev/blog/social-posts-that-bring-wishlists?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=social_post).
 
 ## Gotchas
@@ -124,6 +142,16 @@ video views on X (one creator's posts). Judge over 4 weeks, by wishlists, not li
   and conversational than X.
 - **Posting at 3 a.m. for the audience:** post when you can reply in the first hour; replies
   matter more than the minute you post.
+- **AI-sounding copy:** in GDC's November 2026 survey, 55% of game professionals said
+  generative AI hurts the industry, and many of them are on X and Bluesky. Edit every draft into
+  your own voice, and never present generated footage as gameplay (X's manipulated media
+  policy targets deceptive fabricated media).
+- **Paid posts and fake reach:** Bluesky requires paid or sponsored posts to say so. Your own
+  game on your own account is plainly yours; a creator you pay must label it. Bluesky also bans
+  faking engagement, so no bought likes and no bot-run follow trains.
+- **AI video or voice on Threads:** Meta labels AI content it detects on Threads, and its policy
+  requires the AI-disclosure tool for photorealistic video or realistic audio made or altered
+  digitally. Real gameplay with real sound does not match that wording.
 - **Only promotion:** reply to other devs, share their work, join the hashtag threads. An account
   that only posts its own game grows slowly everywhere.
 

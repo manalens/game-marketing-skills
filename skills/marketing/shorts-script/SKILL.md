@@ -30,7 +30,10 @@ what is missing.
 2. **What makes it different:** 1 to 3 things a stranger gets in 3 seconds (a mechanic, an art
    style, an odd premise).
 3. **Footage:** clip paths, or a list of moments the user can record. Ask what is in the current
-   build or demo.
+   build or demo. Our practice: 10 to 20 clips of 5 to 20 seconds each (a big hit, a strange
+   mechanic, a close escape, a funny failure), with one line per clip on what happens and how
+   long it is. Rank them by how fast a stranger gets them with sound off; post the top three
+   first and keep the rest for the next two weeks.
 4. **The link target:** Steam app page, demo, itch.io page or site. Before a store page exists,
    point to the demo.
 5. **Do-not-say list:** dates, prices, spoilers, names, features that changed. Ask the user once
@@ -50,6 +53,31 @@ Series formats sit on top: a numbered "Update #N" (one visible change a day), a 
 A viewer who likes one finds the next.
 
 Read [references/hooks.md](references/hooks.md) for hook templates by format.
+
+## AI help and AI labels
+
+AI may write the words: hooks, captions, titles, scripts, and cut lists. The footage stays real
+gameplay from the build. Each platform's rule, read 2026-11-26 (sources in
+[references/sources.md](references/sources.md)):
+
+| Content | YouTube | TikTok | Instagram Reels (Meta) |
+|---|---|---|---|
+| Real gameplay footage | No label ("gameplay footage from video games") | No label unless AI altered it | No label if footage and audio are real |
+| AI help with script, title, thumbnail, caption | No label | No label for text | No label for text |
+| Realistic AI scene, image, or video | Label required | Label required | Label required (photorealistic video) |
+| Realistic AI voice or audio | Label for a generated voice of a real person saying what they did not say, and for AI music that is the main focus | Label required | Label required (realistic-sounding audio) |
+| Non-realistic AI animation | No label | Label encouraged | Not named in the policy |
+
+- **Where:** YouTube, under AI use in the Attributes section at upload. TikTok, the
+  AI-generated content setting under More options before posting. Instagram, Meta's
+  AI-disclosure tool.
+- **Reach:** YouTube says a disclosure alone does not limit audience or earnings. TikTok says
+  the setting does not affect distribution for posts that follow its Community Guidelines.
+- **Skipping it:** Meta may apply penalties. YouTube may add a label, remove content, or suspend
+  the channel from the Partner Program for creators who keep skipping. TikTok labels its own AI
+  effects and C2PA-tagged files itself, and an automatic label cannot be removed.
+- A voice clone of the developer for dubs needs no YouTube label; a generated voice of someone
+  else saying things they did not say does.
 
 ## With the Manalens MCP
 
@@ -95,6 +123,8 @@ https://docs.manalens.dev/mcp/overview
    - End on a frame that loops back to the start when possible.
    - End with the game name on screen for the last 1 to 2 seconds, and "Wishlist on Steam" or
      "search <name> on Steam". Most wishlists from short video come from people who search later.
+   - Our practice: test two hooks on the same clip on different days, each with its own post
+     ID, and keep the winner. Never use a hook the clip does not prove.
    - A spoken or on-screen call to action in the middle of the clip is a test, not a rule. Some
      makers found clips without one held viewers longer; others credit a clear ending CTA for
      their wishlists. Alternate and compare in `marketing-retro`.
@@ -104,10 +134,10 @@ https://docs.manalens.dev/mcp/overview
    with [docs/LINKS.md](../../../docs/LINKS.md). Links are not clickable in Shorts descriptions
    or comments, so also:
    - **YouTube:** set the Short's "related video" to a long video (a trailer or devlog) whose
-     description has the tagged link, and keep the tagged link first in the channel's profile
-     links.
+     description has the tagged link at the top, and keep the tagged link first in the channel's
+     profile links. Our practice: cut 3 to 5 Shorts from each devlog, each pointing to it.
    - **TikTok and Reels:** the bio link is the only link. TikTok bio links need 1,000 followers or
-     a business account.
+     a business account. Put the game name in the caption, so people can search for it on a PC.
    See [TikTok vs Shorts vs Reels for games](https://manalens.dev/blog/tiktok-vs-youtube-shorts-vs-reels-for-games?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=shorts_script)
    for how each platform handles links.
 6. **Check against `marketing/rules.md`:** no banned words, no spoilers, nothing that is not in
@@ -122,7 +152,10 @@ https://docs.manalens.dev/mcp/overview
    skill's folder (or the repo copy). It fails on a hook over 12 words, a missing link, a missing
    post ID or a script over 60 seconds.
 10. **Hand off.** Tell the user which footage to cut (or run `clip-cut`), and to post it
-   themselves. Never upload.
+   themselves, with the AI label on when the table above says so. Never upload. The user
+   replies to comments; AI may group a week of comments into questions, bug reports, and
+   requests, and the common questions become the next Short. In GDC's November 2026 survey,
+   QA and community support staff were the most negative about generative AI (76%).
 
 ## Output
 
@@ -164,12 +197,16 @@ the days after a post spikes. A week later, run `marketing-retro` to compare for
 view duration and by visits and wishlists per 1,000 views. Expect a wide range: reported cases
 run from under 1 to about 18 wishlists per 1,000 views. After 5 or more posts per format, keep
 the best two formats. A clip that holds viewers but does not spread is worth one faster re-cut
-before you drop it. Method: [from TikTok views to Steam wishlists](https://manalens.dev/blog/tiktok-short-form-video-to-steam-wishlists?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=shorts_script).
+before you drop it. On Reels, also read sends per reach (shares divided by reach): Instagram's
+head Adam Mosseri named it one of the most important numbers in June 2024, above likes and
+watch time. Boost (Spark Ads or Meta ads) only a post that already did well on its own, with its
+own tagged link (our practice). Method: [from TikTok views to Steam wishlists](https://manalens.dev/blog/tiktok-short-form-video-to-steam-wishlists?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=shorts_script).
 
 ## Gotchas
 
 - **Hook is true today, false tomorrow:** games change daily. Check each claim in the current
   build before posting, and never promise a feature that is not in what the viewer can play.
+  Valve's Content Survey says you promise Steam that the game matches your marketing.
 - **Title card first:** a logo or a title before the action loses most viewers. Put the game name
   in the description, not in the first seconds.
 - **Text under the platform UI:** the bottom 20% and the right edge are covered by buttons and
@@ -183,6 +220,10 @@ before you drop it. Method: [from TikTok views to Steam wishlists](https://manal
 - **Music claims:** a Short over 60 seconds with any active copyright claim is blocked worldwide.
   TikTok business accounts can only use the Commercial Music Library. The game's own soundtrack
   avoids both problems.
+- **AI voiceover or AI footage without the label:** a realistic AI narrator over real gameplay
+  still needs the label on TikTok and Reels. Record the developer's voice or use on-screen text.
+- **Reposted clips on Reels:** Mosseri said Instagram wants more value to go to original
+  creators than to accounts that repost. Post your own captured footage.
 - **Reposting the same clip:** TikTok's guidelines (Sep 2026) keep reused material without
   anything new out of the For You feed. Re-cut: new hook, new order, new length.
 
@@ -194,5 +235,9 @@ before you drop it. Method: [from TikTok views to Steam wishlists](https://manal
   Aug 2023, YouTube Help).
 - TikTok bio links need 1,000 followers or a business account; business accounts get only the
   Commercial Music Library (TikTok help, as of Nov 2026).
+- AI label rules: YouTube Help, Disclosing use of GenAI content; TikTok Support, AI-generated
+  content; Meta Misinformation policy (7 April 2025). All read 2026-11-26.
+- A Short can be square or vertical, up to 3 minutes; up to 15 can be uploaded at once from a
+  computer (YouTube Help, read 2026-11-26).
 
 Last verified 2026-11-26.

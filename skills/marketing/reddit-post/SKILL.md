@@ -35,8 +35,10 @@ policy, weekly threads, source and confidence) is
 4. **History:** the user's last post per subreddit. Read `marketing/reddit/tracker.csv` if it
    exists; otherwise ask the user to check their Reddit profile.
 5. **The account:** its age and karma in the subs you plan to use. Moderators check whether you
-   are a redditor with a game or a game that posts to Reddit. A rule of thumb from Reddit's own
-   guidance: at most about 1 in 10 of your posts and comments should be about your game.
+   are a redditor with a game or a game that posts to Reddit. Reddiquette (the user-written
+   guide on Reddit Help) calls 9:1 "a widely used rule of thumb": only 1 in 10 of your
+   submissions should be your own content. If all you post is your own game, it says you
+   "just might be a spammer".
 6. **Time budget:** how many posts a week the user can stay online for. Plan at least 2 hours of
    replies per post, and up to 6 hours if one takes off.
 7. **`marketing/rules.md`:** the do-not-say list.
@@ -68,15 +70,24 @@ https://docs.manalens.dev/mcp/overview
    Aim for 8 to 15. Skip rows with `promo_allowed` = `no` (use their weekly thread in slot C).
    Rules change and Reddit cannot be read by the agent, so for every sub with `confidence` below
    `high`, ask the user to open the sidebar and confirm: self-promotion allowed? which days?
-   flair? links? how often? Update the CSV row with what they find and today's date. Background:
+   flair? links? how often? AI posts allowed? Ask the user to paste the sidebar rules; check each
+   draft against them and name any rule it could break, by rule number. Ask the moderators when
+   unsure. Update the CSV row with what they find and today's date. Background:
    [Reddit posts and ads for indie games](https://manalens.dev/blog/reddit-ads-and-posts-for-indie-games?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=reddit_post).
 2. **Write one post per subreddit.** Rules:
    - Title in the first person, the way a person talks: "I made...", "I spent a year on...",
      "How the sailing feels in my game after a month of tuning". Personal stakes beat feature
      lists. No clickbait, no "please upvote", no all caps.
-   - Say you are the developer, in the title or the first comment.
+   - Keep titles factual and opinion free (Reddiquette): no hype words, and no question asked
+     only to bait comments. Name the genre and the spin, so the first second of the clip and the
+     title read the same way. Our practice: draft 5 options under 90 characters, pick one, and
+     check every fact. Reddit does not let you edit a title after you post.
+   - Say you are the developer, in the title or the first comment. Reddit Rule 5 asks you not
+     to mislead people, and readers trust a developer more than a fan account.
    - Write a different post for each community. Developers want how you built it; players want
-     to see the game. The same text pasted into several subs is what Reddit treats as spam.
+     to see the game. Reddit's spam policy names "mass-posting repetitive content" for exposure
+     or financial gain, and generative AI tools that facilitate spam. So one AI draft pasted
+     into ten subs is the pattern to avoid. Use AI to draft or shorten; the user edits and posts.
    - Upload the clip natively (video or GIF, about 30 seconds or less), not a YouTube link.
    - Player subs: lead with the clip. By default the store link goes in your first comment, or
      only in a reply when someone asks. Some subs (r/indiegames among them) remove store links in
@@ -132,7 +143,9 @@ https://docs.manalens.dev/mcp/overview
    posts where visits and wishlists came, fix or drop subs with removals or nothing after 2 or 3
    posts. Judge a sub on wishlists, not upvotes: viral posts often bring few.
 8. **Hand off.** The user posts by hand, at the slot time, from their own account, and stays to
-   answer comments. Remind them: no second accounts, no asking friends to upvote.
+   answer comments. Reddit Rule 2 asks people to participate authentically, so the user writes
+   every reply. AI may summarize a long thread so no question is missed; it never replies.
+   Remind them: no second accounts, no asking friends to upvote.
 
 ## Output
 
@@ -152,9 +165,22 @@ and per post a block:
 
 Record upvotes, comments and views per post in the tracker, plus visits and wishlists from the
 tagged links (`utm_source=reddit`, post ID in `utm_content`). `subreddit_report.py` turns them into
-a per-subreddit scoreboard; `marketing-retro` puts Reddit next to the other channels. Some developers report Reddit posts that went viral but moved few
-wishlists, and others report thousands from one post. Measure your own before you spend more
+a per-subreddit scoreboard; `marketing-retro` puts Reddit next to the other channels.
+
+Tagged links count only signed-in visitors who click. So also compare daily wishlists with the
+week before each post, as Ryan Sumo did for his Reddit ads.
+
+Results swing widely. A 30 second Laysara clip on r/gaming got 3.2 million views, 73,000 upvotes,
+and over 11,000 wishlists in under 24 hours (How To Market A Game, January 2022). Other
+developers report viral posts that moved few wishlists. Measure your own before you spend more
 time there.
+
+**Reddit ads** are Reddit's own answer for an account that mostly links to its business (spam
+policy). For Glyphica (May 2024), $500 of ads took weekly wishlists from 227 to 386, 91 of them
+through tagged links: about $5 per wishlist by Sumo's estimate. A plain, accurate ad worked.
+Broad and niche subreddit targeting converted 27% and 30% of tracked visits; a desktop-only ad
+converted 14% at a higher cost per click. Give each ad its own tagged link with
+`utm_medium=paid`, and change one thing per test (our practice).
 
 ## Gotchas
 
@@ -168,6 +194,8 @@ time there.
 - **Shadow limits on self-promoters:** an account whose history is mostly its own game gets
   filtered site-wide. Keep slot C.
 - **Same post, many subs, one hour:** reads as spam to Reddit's filter. Use the calendar.
+- **Wrong audience in dev subs:** r/gamedev readers mostly want to make games, not play them
+  (How To Market A Game, 2022). Post what you learned there, not a wishlist ask.
 - **Arguing in comments:** thank critics and move on. A defensive reply costs more than the post
   earns.
 - **Promotion dressed as a question:** "What do you think of my game?" with a store link breaks
@@ -180,5 +208,17 @@ Subreddit rules, flairs and weekly threads change often. `references/subreddits.
 from public guides and rule trackers (Reddit itself could not be read), with a source, date and
 confidence on each row. It is a starting point, not a source of truth: confirm on the sidebar
 and update the row.
+
+Reddit's own rules, all read 2026-11-26:
+- Reddit Help, Reddiquette (updated 5 October 2026): 9:1 rule, read the rules first, factual
+  titles, titles cannot be edited. https://support.reddithelp.com/hc/en-us/articles/205926439-Reddiquette
+- Reddit Help, Spam (updated 30 October 2026): mass-posting, generative AI tools, self-serve ads.
+  https://support.reddithelp.com/hc/en-us/articles/360043504051-Spam
+- Reddit Rules (Rule 2, participate authentically; Rule 5, do not mislead).
+  https://redditinc.com/policies/reddit-rules
+- How To Market A Game, Laysara case (Chris Zukowski, 10 January 2022).
+  https://howtomarketagame.com/2022/01/10/how-a-two-person-team-earned-11000-wishlists-with-one-reddit-post/
+- Squeaky Wheel, Reddit ads for Glyphica (Ryan Sumo, 21 June 2024).
+  https://www.squeakywheel.ph/blog/how-many-wishlists-can-500-worth-of-reddit-ads-get-you
 
 Last verified 2026-11-26.

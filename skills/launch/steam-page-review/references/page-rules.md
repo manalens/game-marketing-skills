@@ -14,7 +14,8 @@ Contents:
 6. System requirements
 7. Timing
 8. Why Valve rejects a page
-9. Fix list template
+9. AI-drafted text
+10. Fix list template
 
 ## Short description
 
@@ -23,8 +24,12 @@ Rules (Valve, Store Page Written Description):
 - A brief synopsis at the very top of the page, next to the header capsule. Also used where
   space is short. Valve: "limited to a few hundred characters".
 - Plain text. Line breaks and bullets do not render.
-- No time-based text: not "Now Available", "Available on March 4th" or "Prepurchase now".
-- No links in any description field.
+- No time-based text: not "Now Available", "Available on March 4th" or "Prepurchase now". Use
+  announcements for time-based news.
+- No prices: prices are managed elsewhere.
+- No links in any description field, and no implied URLs, even in images or QR codes. Use the
+  link fields on the Basic Info tab.
+- English is the default and only fallback language, so the English fields cannot be blank.
 - "It's often a good idea to mention the game genre."
 
 Guide (Manalens, community report): 300 characters, where the Steamworks editor stops.
@@ -53,7 +58,9 @@ Rules (Valve, Store Page Written Description; Review Process):
   avoid genre jargon, add GIFs or screenshots of key features.
 - Each image under 5 MB; all images under 15 MB in total.
 - No links to other websites, no graphics that mimic the Steam UI (a fake wishlist button), no
-  advertising of other games.
+  advertising of other games. Valve's rule is wider than ads: no text, images, links or widgets
+  that point to or reference other products on Steam. So do not name comparable games here.
+- Valve: write for "the Newbie Audience" and avoid "walls of text".
 - Only features and content available at launch.
 - Text inside an image needs a new image per language. Valve suggests images without text.
 
@@ -204,6 +211,46 @@ Rules, Store Graphical Assets, Written Description, Library Assets):
 
 Capsule and library rows belong to `steam-capsules`; list them here only when Valve's note names
 them.
+
+## AI-drafted text
+
+Rules (Valve, Content Survey; Store Page Written Description; Review Process):
+
+- The Content Survey asks about AI used to create content "that ships with your game, and is
+  consumed by players", and names artwork, sound, narrative and localization. Game Developer
+  reported on 16 January 2026 that the rewritten form also counts AI content in marketing assets
+  and on the store page, described in a text box.
+- Valve says efficiency gains from AI tools in your workflow are not the focus of that section.
+- Valve reviews AI content the same way as all other content. Under the Steam Distribution
+  Agreement, the game must be consistent with its marketing materials, so an invented feature is
+  the risk, not the tool.
+
+Our reading: text that AI wrote and you published counts; a spelling check on text you wrote
+does not. If unsure, describe it in one plain sentence in the survey.
+
+What AI gets wrong (Manalens practice): features from the genre rather than the build, numbers
+nobody counted ("hundreds of items"), generic adjectives, and names of other games.
+
+Steps (Manalens practice):
+
+1. Give the model only facts you can show: the fact table, the verbs, real counts, the pitch.
+2. Ask for several short drafts. Pick one and rewrite it yourself.
+3. Mark every claim and check it against the current build. Cut what you cannot show in a
+   screenshot or the trailer.
+4. Remove dates, prices, links and other game names.
+5. Read it aloud as a player who has never played the genre.
+
+Ownership: the U.S. Copyright Office concluded on 29 January 2025 that AI output is protected
+only where a person determined enough of the expressive elements, and that prompts alone are not
+enough. Text you rewrote line by line is safer to call yours than pasted output.
+
+Translations: AI-drafted store translations count as localization in the Content Survey. Valve
+suggests localization QA by a second company or by players who speak the language, and text
+inside images must be translated and uploaded again.
+
+Announcements: the last two announcements tied to the game show below the DLC section of the
+store page (Valve, Events and Announcements Tools). An AI-drafted patch note there is page text
+too: check each fix and date.
 
 ## Fix list template
 

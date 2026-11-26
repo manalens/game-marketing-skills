@@ -19,3 +19,18 @@ Written in our own words. Checked 2026-11-26.
 - Google Play Families policy: https://support.google.com/googleplay/android-developer/answer/9893335
 - US FTC, COPPA rule: https://www.ftc.gov/legal-library/browse/rules/childrens-online-privacy-protection-rule-coppa
 - This repo's link convention: `docs/LINKS.md`.
+- Twilio Segment documentation, Data Collection Best Practices (read 26 November 2026):
+  https://www.twilio.com/docs/segment/protocols/tracking-plan/best-practices (what a tracking plan
+  is for: which events, where in the code, and why).
+- Mixpanel documentation, Create A Tracking Plan (read 26 November 2026):
+  https://docs.mixpanel.com/docs/tracking-best-practices/tracking-plan (tracking every user
+  action wastes development work and leaves unused data).
+- Google Analytics Help, [GA4] Recommended events, For games (Google, read 26 November 2026):
+  https://support.google.com/analytics/answer/9267735?hl=en (the 11 recommended game events).
+- Manalens SDK docs, Godot and Unity pages (read 26 November 2026): flat values, strings cut at
+  1,024 characters, `app_version`, `build` and `storefront` set at `init()`.
+- Manalens docs, Ask AI (read 26 November 2026): https://docs.manalens.dev/features/ask-ai
+  (project memory: 280 characters an item, 80 items a project).
+- Manalens guide "How to use AI to write a tracking plan for your game" (26 November 2026), which
+  collects the points above:
+  https://manalens.dev/blog/ai-game-tracking-plan?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=tracking_plan

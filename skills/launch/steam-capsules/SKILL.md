@@ -189,6 +189,11 @@ sale, a festival or a big creator video. Change one asset at a time. Log the cha
 - **Busy art behind the logo:** the logo vanishes at 120 x 45. Darken or simplify the area behind
   it, or add a solid shadow.
 - **Release date on the capsule:** not allowed, not even in an override for the game's own launch.
+- **AI-generated capsule art:** Steam's Content Survey names artwork among AI content players
+  consume, and Game Developer reported (16 January 2026) that the form also counts marketing
+  assets and the store page. Disclose generated capsule art there. Valve reviews it like any
+  other art. GDC's November 2026 survey found "large opposition" among game professionals to AI
+  in player-facing features, one more reason to hire an artist.
 
 ## Version notes
 
@@ -196,6 +201,8 @@ sale, a festival or a big creator video. Change one asset at a time. Log the cha
   November 2026). Most capsules changed size in August 2024.
 - Rules: Valve Graphical Asset Rules, in effect since 1 September 2022; Artwork Overrides 14-day
   limit.
+- AI disclosure: Steamworks Content Survey, read 26 November 2026; capsule and store art in scope
+  per Game Developer, 16 January 2026.
 - Valve lists no file size limit for these assets (as of November 2026).
 - Manalens MCP `review_steam_page` with `capsules` (width, height, file type, optional bytes; not the image),
   checked 2026-11-26: new, so the name can still change. Match on the tool list.

@@ -159,6 +159,11 @@ https://docs.manalens.dev/mcp/overview
      elsewhere; it rarely grows the audience alone.
    - **Spend:** cost per wishlist and revenue per dollar under both models for each paid group.
      Move money only when a group is ahead under both models and not "too small".
+     Our practice: before you read the table, ask the user for the most they will pay per
+     wishlist. Work it out from what a wishlist is worth to them (the share of wishlists that turn
+     into sales, times what they keep per sale), not from an average. Then each paid group gets a
+     yes or a no. For a paid campaign that ran several weeks, compare wishlists per dollar in its
+     first and last week: paid channels often bring fewer per dollar as spend grows.
    - **What the data cannot show:** views without clicks, phone-to-PC journeys, Steam search,
      players who would have bought anyway. No causal claims. To test cause, pause one channel for
      2 weeks or compare a matched period, and say that this is the test.
@@ -217,6 +222,12 @@ both models by more than 2 x the square root of the old count. Week-to-week post
   Pool weeks or group wider (campaign instead of content) before deciding.
 - **Correlation:** a creator who posted during a Steam sale gets credit for the sale's buyers.
   Note sales, festivals and press in the range.
+- **Early reads undercount:** Steam credits a conversion up to 72 hours after the tagged click
+  and finalizes it about 4 days later. Read a campaign only after that, or the report (and any AI
+  summary of it) undercounts the last days.
+- **GA4 numbers use other models:** since November 2023 Google Analytics 4 offers only
+  data-driven and last click models. When the user compares with GA4, name the model behind each
+  number (`references/models.md`).
 
 ## Version notes
 

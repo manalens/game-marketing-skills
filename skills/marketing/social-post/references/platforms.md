@@ -9,6 +9,7 @@ pages before you rely on a limit.
 - Links
 - Hashtag days for game devs
 - Where game devs gather
+- Platform rules for game accounts
 
 ## Limits per platform
 
@@ -52,6 +53,49 @@ this month before you build a week around it.
   you, and use the feeds' keywords ("gamedev", "indiedev", your engine) in text and alt text.
   Reach is smaller than X but clicks are real; treat it as devs, press and fans.
 - **Threads:** smaller dev scene; cross-post the X version adapted to its longer limit.
+
+## Platform rules for game accounts
+
+From each platform's own pages, read 2026-11-26. help.x.com refused automated reads, so the X
+lines come from archived copies of X's pages.
+
+| Topic | X | Bluesky |
+|---|---|---|
+| Scheduling your own posts | Helpful automated posts are allowed | No rule against it found |
+| The same post again | No duplicate or substantially similar posts, on one account or several | No spam or repeated posts that disrupt conversations |
+| Automatic posts about trends | Not allowed | No artificial manipulation of features for reach |
+| Paid or sponsored posts | Follow the X Rules | Must clearly say it is commercial |
+| Scripting the website | May mean permanent suspension | No abuse of APIs or rate limits |
+| Auto-replies | Allowed to people who engage with you; no unsolicited messages | No content meant to mislead |
+
+X media: the April 2023 policy targets media "significantly and deceptively altered,
+manipulated, or fabricated" that is likely to cause harm. Animations and illustrations are
+generally fine unless they confuse people about what is real.
+
+Threads: Meta labels AI content it detects on Facebook, Instagram, and Threads. Its policy
+requires the AI-disclosure tool for photorealistic video or realistic audio made or altered
+digitally, and it may apply penalties when people skip it.
+
+## Sources for the rules
+
+- X Help Center, Automation rules (updated April 2026; archived 1 November 2026, read
+  2026-11-26). https://web.archive.org/web/20261101183713/https://help.x.com/en/rules-and-policies/x-automation
+- X Help Center, Synthetic and manipulated media policy (April 2023 version; archived 30 July
+  2024, read 2026-11-26). https://archive.is/3HUfw
+- Bluesky Community Guidelines (last updated 19 September 2025, read 2026-11-26).
+  https://bsky.social/about/support/community-guidelines
+- Bluesky documentation, Posts in depth (read 2026-11-26): up to 4 images, each with alt text.
+  https://bsky.network/docs/about-bluesky-content/posts/
+- Meta Transparency Center, Misinformation policy (version of 7 April 2025) and Labeling AI
+  Content (updated 19 February 2025), read 2026-11-26.
+  https://transparency.meta.com/policies/community-standards/misinformation/ and
+  https://transparency.meta.com/governance/tracking-impact/labeling-ai-content
+- How To Market A Game, Steam UTM feature and the #ScreenshotSaturday test (Chris Zukowski,
+  14 April 2021, read 2026-11-26). https://howtomarketagame.com/2021/04/14/how-to-use-steams-utm-feature-to-track-the-number-of-wishlists-and-sales-your-marketing-is-generating/
+- GDC, State of the Game Industry, November 2026 (read 2026-11-26).
+  https://gdconf.com/state-of-the-game-industry-november-2026/
+- Steamworks documentation, Content Survey (read 2026-11-26).
+  https://partner.steamgames.com/doc/gettingstarted/contentsurvey
 
 Last verified 2026-11-26.
 
