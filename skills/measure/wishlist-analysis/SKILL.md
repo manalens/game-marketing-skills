@@ -60,7 +60,9 @@ It is connected when your tool list has `get_steam_wishlists` and `get_analytics
    jumps on those days is a lead, not proof. Add it to the spike's row in "What this means".
 
 Copy each result's `notes` into "What this means". A note that no data covers the range means the
-Steamworks sync is not set up: use the CSV.
+Steamworks sync is not set up: use the CSV. With no rows and no CSV (the store page is not public
+yet, or has no wishlists), stop: say that there is nothing to analyse yet, and do not run the
+script on an empty file (it exits 2).
 
 ## Without it
 

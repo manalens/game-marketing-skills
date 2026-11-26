@@ -72,7 +72,9 @@ are `YYYY-MM-DD`. Each call replaces one export. Save each result as a CSV in
 | `get_analytics` | `{"report": "top_sources", "group_by": "content", ...dates}` | `web.csv`: `utm_content` (from `source`), `visits` (from `visitors`) |
 | `get_attribution` | `{"conversion_event": "wishlist_clicked", "model": "last_non_direct", "group_by": "content", ...dates}` | add `signups` (from `conversions`) to `web.csv` |
 
-Pass the files to the script as `--steam`, `--wishlists` and `--web` (Workflow step 4). Copy each
+Pass the files to the script as `--steam`, `--wishlists` and `--web` (Workflow step 4). A call
+with no rows (no Steam page yet, or no tagged visits) still gives a file with the header only. The
+script reads it: the numbers stay `-`, and an empty wishlist file is named under "Read with care". Copy each
 result's `notes` into "What we change". A note that no Steam data covers the range means the user
 has not imported it into Manalens: use the exports instead. `top_sources` returns the first 20
 groups; with more posts, call it once per beat with `"utm_campaign"`.
