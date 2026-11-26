@@ -1,0 +1,41 @@
+{
+  "name": "game-marketing-skills",
+  "owner": {
+    "name": "Manalens"
+  },
+  "metadata": {
+    "description": "Agent skills for indie game marketing and launch: Shorts, devlogs from git, Reddit and social posts, Steam page, capsules, press kit, launch timeline, and analysis of what drove wishlists."
+  },
+  "plugins": [
+    {
+      "name": "game-marketing",
+      "source": "./",
+      "description": "All game marketing and measurement skills.",
+      "strict": false,
+      "skills": [
+        "./skills/marketing/shorts-script",
+        "./skills/marketing/devlog-from-git",
+        "./skills/marketing/reddit-post",
+        "./skills/marketing/clip-cut",
+        "./skills/marketing/social-post",
+        "./skills/measure/marketing-retro",
+        "./skills/measure/tracking-plan",
+        "./skills/measure/attribution-report",
+        "./skills/measure/player-funnel",
+        "./skills/measure/wishlist-analysis",
+        "./skills/launch/steam-page-review",
+        "./skills/launch/steam-tags",
+        "./skills/launch/game-name-check",
+        "./skills/launch/playtest",
+        "./skills/launch/launch-timeline",
+        "./skills/launch/events-calendar",
+        "./skills/launch/press-kit",
+        "./skills/launch/press-outreach",
+        "./skills/launch/steam-capsules",
+        "./skills/launch/trailer-plan",
+        "./skills/launch/steam-pricing",
+        "./skills/launch/localization-plan"
+      ]
+    }
+  ]
+}

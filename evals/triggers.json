@@ -1,0 +1,816 @@
+[
+  {
+    "id": "shorts-script.s1",
+    "prompt": "can you write me a youtube short for my roguelike? i have a clip of the boss splitting into 8 slimes, want a good hook",
+    "expected": [
+      "shorts-script"
+    ],
+    "kind": "should",
+    "notes": "hook and script for one clip"
+  },
+  {
+    "id": "shorts-script.s2",
+    "prompt": "what should I post on tiktok this week for my cozy farming game? I have trailer footage and a few gameplay recordings",
+    "expected": [
+      "shorts-script"
+    ],
+    "kind": "should",
+    "notes": "weekly short-form plan"
+  },
+  {
+    "id": "shorts-script.s3",
+    "prompt": "my reels get 200 views and everyone swipes in the first second. here's my script, how do i fix the opening",
+    "expected": [
+      "shorts-script"
+    ],
+    "kind": "should",
+    "notes": "fix a weak hook"
+  },
+  {
+    "id": "shorts-script.nm",
+    "prompt": "crop my 16:9 gameplay recording to vertical 1080x1920 and burn in a caption",
+    "expected": [
+      "clip-cut"
+    ],
+    "kind": "near-miss",
+    "notes": "video processing, not script writing"
+  },
+  {
+    "id": "devlog-from-git.s1",
+    "prompt": "go through my commits from the last two weeks and find stuff I could make devlog shorts about",
+    "expected": [
+      "devlog-from-git"
+    ],
+    "kind": "should",
+    "notes": "mine git log"
+  },
+  {
+    "id": "devlog-from-git.s2",
+    "prompt": "I want to do those 'there's a PROBLEM in my game' videos. find real bugs I fixed recently that would look funny on camera",
+    "expected": [
+      "devlog-from-git"
+    ],
+    "kind": "should",
+    "notes": "conflict stories from fixes"
+  },
+  {
+    "id": "devlog-from-git.s3",
+    "prompt": "start a daily 'Update #N' series for my godot game from the changelog, what changed today that players can see?",
+    "expected": [
+      "devlog-from-git"
+    ],
+    "kind": "should",
+    "notes": "update series from commits"
+  },
+  {
+    "id": "devlog-from-git.nm",
+    "prompt": "write release notes for v0.4 of my game from the git log for the Steam update post",
+    "expected": [],
+    "kind": "near-miss",
+    "notes": "patch notes, not short-form devlog ideas"
+  },
+  {
+    "id": "reddit-post.s1",
+    "prompt": "which subreddits should I post my pixel art metroidvania demo in, and how often so I don't get banned",
+    "expected": [
+      "reddit-post"
+    ],
+    "kind": "should",
+    "notes": "subreddit shortlist and spacing"
+  },
+  {
+    "id": "reddit-post.s2",
+    "prompt": "make me a 2 week reddit calendar for my indie game launch, I have 3 gifs and a trailer",
+    "expected": [
+      "reddit-post"
+    ],
+    "kind": "should",
+    "notes": "calendar"
+  },
+  {
+    "id": "reddit-post.s3",
+    "prompt": "write a title for r/IndieGaming for this clip of my boat game, something that doesn't sound like an ad",
+    "expected": [
+      "reddit-post"
+    ],
+    "kind": "should",
+    "notes": "title per subreddit"
+  },
+  {
+    "id": "reddit-post.nm",
+    "prompt": "build a reddit bot that auto-posts my game to 20 subreddits every morning",
+    "expected": [],
+    "kind": "near-miss",
+    "notes": "automated posting is out of scope; skill drafts only"
+  },
+  {
+    "id": "clip-cut.s1",
+    "prompt": "cut a vertical clip for shorts and tiktok from footage/boss-fight.mp4, from 0:40 to 0:58",
+    "expected": [
+      "clip-cut"
+    ],
+    "kind": "should",
+    "notes": "9:16 cut from a path and times"
+  },
+  {
+    "id": "clip-cut.s2",
+    "prompt": "make a gif of my gameplay for reddit, it needs to loop and stay under the upload limit",
+    "expected": [
+      "clip-cut"
+    ],
+    "kind": "should",
+    "notes": "looping size-capped GIF"
+  },
+  {
+    "id": "clip-cut.s3",
+    "prompt": "add hook text to my gameplay clip for the first 3 seconds and put a wishlist on steam end card at the end",
+    "expected": [
+      "clip-cut"
+    ],
+    "kind": "should",
+    "notes": "burn in hook and end card"
+  },
+  {
+    "id": "clip-cut.nm",
+    "prompt": "what hook line should I open my tiktok with? the clip shows my cat character delivering mail by boat",
+    "expected": [
+      "shorts-script"
+    ],
+    "kind": "near-miss",
+    "notes": "writing the hook, not cutting the video"
+  },
+  {
+    "id": "marketing-retro.s1",
+    "prompt": "which of my shorts last week actually drove steam wishlists? I have the steam utm analytics csv and my posts.csv",
+    "expected": [
+      "marketing-retro"
+    ],
+    "kind": "should",
+    "notes": "join posts to Steam UTM"
+  },
+  {
+    "id": "marketing-retro.s2",
+    "prompt": "do a weekly marketing retro: compare my caption vs conflict tiktoks by watch time and tell me which formats to keep",
+    "expected": [
+      "marketing-retro"
+    ],
+    "kind": "should",
+    "notes": "format comparison"
+  },
+  {
+    "id": "marketing-retro.s3",
+    "prompt": "pull my manalens numbers by utm campaign and tell me which reddit posts brought visits to my site",
+    "expected": [
+      "marketing-retro"
+    ],
+    "kind": "should",
+    "notes": "Manalens MCP path"
+  },
+  {
+    "id": "marketing-retro.nm",
+    "prompt": "write three tiktok hooks for my cozy fishing game",
+    "expected": [
+      "shorts-script"
+    ],
+    "kind": "near-miss",
+    "notes": "writing content, not measuring it"
+  },
+  {
+    "id": "social-post.s1",
+    "prompt": "write a tweet and a bluesky post for this gif of my boss fight, I want people to wishlist",
+    "expected": [
+      "social-post"
+    ],
+    "kind": "should",
+    "notes": "X and Bluesky post"
+  },
+  {
+    "id": "social-post.s2",
+    "prompt": "what should I post for screenshot saturday this week? here are 3 gifs from my platformer",
+    "expected": [
+      "social-post"
+    ],
+    "kind": "should",
+    "notes": "hashtag day"
+  },
+  {
+    "id": "social-post.s3",
+    "prompt": "plan a week of posts on X, Bluesky and Threads for my indie game devlog",
+    "expected": [
+      "social-post"
+    ],
+    "kind": "should",
+    "notes": "weekly plan"
+  },
+  {
+    "id": "social-post.nm",
+    "prompt": "write a 20 second tiktok script for my bug fix clip",
+    "expected": [
+      "shorts-script"
+    ],
+    "kind": "near-miss",
+    "notes": "vertical video script"
+  },
+  {
+    "id": "tracking-plan.s1",
+    "prompt": "what events should I track in my game? it's a small roguelike demo on steam made in godot, I have no analytics yet",
+    "expected": [
+      "tracking-plan"
+    ],
+    "kind": "should",
+    "notes": "plan from scratch, engine detection, run events instead of levels"
+  },
+  {
+    "id": "tracking-plan.s2",
+    "prompt": "add analytics to my Godot game, I want to see where people quit the tutorial and which reddit posts brought players who actually played",
+    "expected": [
+      "tracking-plan"
+    ],
+    "kind": "should",
+    "notes": "instrument tutorial steps plus web to game identity linking"
+  },
+  {
+    "id": "tracking-plan.s3",
+    "prompt": "set up a tracking plan for my demo before next fest, unity game plus an astro website with a wishlist button",
+    "expected": [
+      "tracking-plan"
+    ],
+    "kind": "should",
+    "notes": "game and site, wishlist_clicked on both, check with --code twice"
+  },
+  {
+    "id": "tracking-plan.nm",
+    "prompt": "my analytics are in, now show me where players drop off between the tutorial and level 3 last week",
+    "expected": [
+      "player-funnel"
+    ],
+    "kind": "near-miss",
+    "notes": "reading results, not planning events; player-funnel owns this"
+  },
+  {
+    "id": "attribution-report.s1",
+    "prompt": "which creator brought the most sales for my game? we paid 4 youtubers for the launch and i have the steam utm export and what we paid each",
+    "expected": [
+      "attribution-report"
+    ],
+    "kind": "should",
+    "notes": "creator ROI over a launch, Steam UTM plus costs, group by content"
+  },
+  {
+    "id": "attribution-report.s2",
+    "prompt": "first touch vs last touch for my game: is my tiktok actually driving purchases or is it all the newsletter? manalens is connected",
+    "expected": [
+      "attribution-report"
+    ],
+    "kind": "should",
+    "notes": "two-model comparison through get_attribution"
+  },
+  {
+    "id": "attribution-report.s3",
+    "prompt": "I spent $2k on reddit and meta ads over the last two months. what's the ROI and cost per wishlist per channel?",
+    "expected": [
+      "attribution-report"
+    ],
+    "kind": "should",
+    "notes": "spend CSV, cost per wishlist and revenue per dollar"
+  },
+  {
+    "id": "attribution-report.nm",
+    "prompt": "which of my shorts from this week drove wishlists, and which format should I post more of next week?",
+    "expected": [
+      "marketing-retro"
+    ],
+    "kind": "near-miss",
+    "notes": "weekly per-post review belongs to marketing-retro, not a multi-week attribution report"
+  },
+  {
+    "id": "player-funnel.s1",
+    "prompt": "where do players drop off in my steam demo? I log game_open, tutorial_step and level_complete with manalens",
+    "expected": [
+      "player-funnel"
+    ],
+    "kind": "should",
+    "notes": "step funnel and the biggest drop, Manalens path"
+  },
+  {
+    "id": "player-funnel.s2",
+    "prompt": "do the players from my tiktoks stick around? want day 1 and day 7 retention split by where they came from",
+    "expected": [
+      "player-funnel"
+    ],
+    "kind": "should",
+    "notes": "retention by acquisition source"
+  },
+  {
+    "id": "player-funnel.s3",
+    "prompt": "here's a posthog events export of my playtest (events.csv). how long do people play and where do they quit?",
+    "expected": [
+      "player-funnel"
+    ],
+    "kind": "should",
+    "notes": "CSV path: playtime distribution and last event before churn"
+  },
+  {
+    "id": "player-funnel.nm",
+    "prompt": "which analytics events should I add to my godot game so I can see the tutorial later?",
+    "expected": [
+      "tracking-plan"
+    ],
+    "kind": "near-miss",
+    "notes": "designing events, not analysing them"
+  },
+  {
+    "id": "wishlist-analysis.s1",
+    "prompt": "Here's my Steamworks wishlist CSV. Why did my wishlists spike on Tuesday the 14th?",
+    "expected": [
+      "runs scripts/wishlists.py on the CSV",
+      "lists spike days with posts or events within 2 days",
+      "says a date match is not proof of cause",
+      "asks what else happened if nothing is logged"
+    ],
+    "kind": "should",
+    "notes": "Spike explanation joined with marketing/posts.csv."
+  },
+  {
+    "id": "wishlist-analysis.s2",
+    "prompt": "We launch on March 4. How many wishlists will I have at launch?",
+    "expected": [
+      "asks for outstanding wishlists or an all-history export",
+      "uses --target-date",
+      "gives low, baseline and high cases, not one number",
+      "mentions the Personal Calendar and that spikes add on top"
+    ],
+    "kind": "should",
+    "notes": "Cautious outlook at the current baseline."
+  },
+  {
+    "id": "wishlist-analysis.s3",
+    "prompt": "Did Next Fest actually work for us, and is our 3% wishlist conversion after launch normal?",
+    "expected": [
+      "events.csv with Next Fest start and end",
+      "extra adds over a local baseline",
+      "conversion with --launch",
+      "benchmarks as ranges with sources and dates, says wishlist-only vs all-sales ratios differ"
+    ],
+    "kind": "should",
+    "notes": "Event lift plus conversion context."
+  },
+  {
+    "id": "wishlist-analysis.nm",
+    "prompt": "Which of my TikToks and Reddit posts last week brought the most store visits and wishlists by UTM tag?",
+    "expected": [
+      "uses marketing-retro, not wishlist-analysis"
+    ],
+    "kind": "near-miss",
+    "notes": "Per-post review by UTM tag belongs to marketing-retro."
+  },
+  {
+    "id": "steam-page-review.s1",
+    "prompt": "can you review my steam page before I submit it? the text is in docs/store.md and screenshots are in marketing/steam/",
+    "expected": [
+      "steam-page-review"
+    ],
+    "kind": "should",
+    "notes": "full page review from local files"
+  },
+  {
+    "id": "steam-page-review.s2",
+    "prompt": "write my Steam short description, the game is a co-op fishing roguelite, the README has the pitch",
+    "expected": [
+      "steam-page-review"
+    ],
+    "kind": "should",
+    "notes": "short description draft from the repo"
+  },
+  {
+    "id": "steam-page-review.s3",
+    "prompt": "Valve rejected my store page and said something about features not in the build, why, and are my screenshots even right for Steam?",
+    "expected": [
+      "steam-page-review"
+    ],
+    "kind": "should",
+    "notes": "rejection reasons plus screenshot check"
+  },
+  {
+    "id": "steam-page-review.nm",
+    "prompt": "my small capsule logo is unreadable at 120x45, can you help me fix the capsule art?",
+    "expected": [
+      "steam-capsules"
+    ],
+    "kind": "near-miss",
+    "notes": "capsule art belongs to steam-capsules, not the page text review"
+  },
+  {
+    "id": "steam-tags.s1",
+    "prompt": "pick Steam tags for my game, it's a cozy farming sim with fishing and a small town, similar to Stardew",
+    "expected": [
+      "steam-tags"
+    ],
+    "kind": "should",
+    "notes": "choose a full tag set from the game and similar games"
+  },
+  {
+    "id": "steam-tags.s2",
+    "prompt": "which of my steam tags should come first? right now it's Indie, Action, Roguelike, Pixel Graphics, Singleplayer",
+    "expected": [
+      "steam-tags"
+    ],
+    "kind": "should",
+    "notes": "tag order, generic tags in the top 5"
+  },
+  {
+    "id": "steam-tags.s3",
+    "prompt": "help me find a niche for my roguelike on Steam, deckbuilders look really crowded",
+    "expected": [
+      "steam-tags"
+    ],
+    "kind": "should",
+    "notes": "niche read with tag benchmarks"
+  },
+  {
+    "id": "steam-tags.nm",
+    "prompt": "rewrite the short description and About section on my Steam page so it says the genre better",
+    "expected": [
+      "steam-page-review"
+    ],
+    "kind": "near-miss",
+    "notes": "store text belongs to steam-page-review, not tags"
+  },
+  {
+    "id": "game-name-check.s1",
+    "prompt": "is my game name taken? I'm calling my farming roguelike Lantern Tide and want to know before I put up the steam page",
+    "expected": [
+      "game-name-check"
+    ],
+    "kind": "should",
+    "notes": "availability check of one name before the store review"
+  },
+  {
+    "id": "game-name-check.s2",
+    "prompt": "help me name my game. it's a cozy deckbuilder where you run a haunted bakery, the working title is just Project Bake",
+    "expected": [
+      "game-name-check"
+    ],
+    "kind": "should",
+    "notes": "brainstorm and score a shortlist"
+  },
+  {
+    "id": "game-name-check.s3",
+    "prompt": "check if this title is searchable: Shadow Legends Quest. also are the handles free on tiktok and youtube?",
+    "expected": [
+      "game-name-check"
+    ],
+    "kind": "should",
+    "notes": "search uniqueness and handles"
+  },
+  {
+    "id": "game-name-check.nm",
+    "prompt": "review my steam store page text before I submit it for review: short description, about this game and the tags",
+    "expected": [
+      "steam-page-review"
+    ],
+    "kind": "near-miss",
+    "notes": "store page text, not the name"
+  },
+  {
+    "id": "playtest.s1",
+    "prompt": "plan a playtest for my demo. it's a 20 minute slice of my metroidvania and next fest is in february, I have a small discord",
+    "expected": [
+      "playtest"
+    ],
+    "kind": "should",
+    "notes": "plan: goal, recruiting, build, consent"
+  },
+  {
+    "id": "playtest.s2",
+    "prompt": "write a playtest survey for my cozy farming game, testers play about 30 minutes and I mostly want to know if the tutorial works",
+    "expected": [
+      "playtest"
+    ],
+    "kind": "should",
+    "notes": "survey for first-time experience"
+  },
+  {
+    "id": "playtest.s3",
+    "prompt": "summarise my playtest feedback, here's the google forms csv export with 22 responses",
+    "expected": [
+      "playtest"
+    ],
+    "kind": "should",
+    "notes": "analyse survey CSV and write the report"
+  },
+  {
+    "id": "playtest.nm",
+    "prompt": "where do players drop off between the tutorial and level 2? here is my event export from the demo",
+    "expected": [
+      "player-funnel"
+    ],
+    "kind": "near-miss",
+    "notes": "in-game analytics funnel, not a survey"
+  },
+  {
+    "id": "launch-timeline.s1",
+    "prompt": "plan my steam launch, i want to release around 20 may 2027 and do the february next fest with a demo",
+    "expected": [
+      "launch-timeline"
+    ],
+    "kind": "should",
+    "notes": "full dated plan with Next Fest deadlines"
+  },
+  {
+    "id": "launch-timeline.s2",
+    "prompt": "when should I put up my Coming Soon page if the game comes out in September?",
+    "expected": [
+      "launch-timeline"
+    ],
+    "kind": "should",
+    "notes": "Coming Soon date, 14-day rule, 60 days for the Personal Calendar"
+  },
+  {
+    "id": "launch-timeline.s3",
+    "prompt": "can I launch on 3 December and join the Winter Sale?",
+    "expected": [
+      "launch-timeline"
+    ],
+    "kind": "should",
+    "notes": "check mode: 30-day release cooldown before a seasonal sale"
+  },
+  {
+    "id": "launch-timeline.nm",
+    "prompt": "which festivals and showcases can my cozy farming game enter next spring?",
+    "expected": [
+      "events-calendar"
+    ],
+    "kind": "near-miss",
+    "notes": "festivals and showcases belong to events-calendar, not the launch plan"
+  },
+  {
+    "id": "events-calendar.s1",
+    "prompt": "which festivals can my game enter? it's a pixel art roguelike with a demo, we're a 2 person studio in Poland",
+    "expected": [
+      "events-calendar"
+    ],
+    "kind": "should",
+    "notes": "filter by status demo, tags and region eu"
+  },
+  {
+    "id": "events-calendar.s2",
+    "prompt": "what are the Next Fest deadlines for 2027 and which edition should I pick if I launch in September?",
+    "expected": [
+      "events-calendar"
+    ],
+    "kind": "should",
+    "notes": "Valve Next Fest dates, registration deadlines, last edition before launch"
+  },
+  {
+    "id": "events-calendar.s3",
+    "prompt": "showcases for cozy games 2027, anything I can still submit to?",
+    "expected": [
+      "events-calendar"
+    ],
+    "kind": "should",
+    "notes": "Wholesome Direct, Cozy Quest, matching Steam fests, open deadlines"
+  },
+  {
+    "id": "events-calendar.nm",
+    "prompt": "make me a dated launch plan from now to my release on 20 May 2027",
+    "expected": [
+      "launch-timeline"
+    ],
+    "kind": "near-miss",
+    "notes": "the overall launch plan belongs to launch-timeline"
+  },
+  {
+    "id": "press-kit.s1",
+    "prompt": "Make a press kit for my game. Everything is in this repo: the README, the art folder and the trailer export.",
+    "expected": [
+      "press/index.md",
+      "press/factsheet.md",
+      "press/assets.csv",
+      "check_press_kit.py"
+    ],
+    "kind": "should",
+    "notes": "Core request. Should write the press/ folder in presskit() order and run the check with --zip."
+  },
+  {
+    "id": "press-kit.s2",
+    "prompt": "Write my game's fact sheet: developer, release window, platforms, price, press contact.",
+    "expected": [
+      "press/factsheet.md",
+      "Last updated",
+      "Press contact"
+    ],
+    "kind": "should",
+    "notes": "Fact sheet only is still this skill."
+  },
+  {
+    "id": "press-kit.s3",
+    "prompt": "What goes in an indie press kit? I want screenshots and logos writers can actually use.",
+    "expected": [
+      "6 to 12 screenshots",
+      "transparent logo",
+      "key art with and without logo",
+      "streaming"
+    ],
+    "kind": "should",
+    "notes": "A question about contents; answer from the skill, offer to build press/."
+  },
+  {
+    "id": "press-kit.nm",
+    "prompt": "Write a pitch email to Rock Paper Shotgun about my launch and include a review key.",
+    "expected": [
+      "press-outreach"
+    ],
+    "kind": "near-miss",
+    "notes": "Pitch emails belong to press-outreach, which links to the press kit."
+  },
+  {
+    "id": "press-outreach.s1",
+    "prompt": "Pitch my game to YouTubers. It's a cozy farming game coming out in March.",
+    "expected": [
+      "marketing/outreach/contacts.csv",
+      "emails/",
+      "4 to 6 weeks",
+      "utm_content"
+    ],
+    "kind": "should",
+    "notes": "Finds creators via similar games, drafts one-to-one emails, never sends."
+  },
+  {
+    "id": "press-outreach.s2",
+    "prompt": "Write a press email for my launch with an embargo for review sites.",
+    "expected": [
+      "Embargo",
+      "time zone",
+      "key",
+      "follow-up"
+    ],
+    "kind": "should",
+    "notes": "Press pitch with key, embargo time and time zone, one follow-up."
+  },
+  {
+    "id": "press-outreach.s3",
+    "prompt": "Who should I send keys to? I got some emails from curators asking for 5 keys each.",
+    "expected": [
+      "Curator Connect",
+      "business email",
+      "contact_source",
+      "scam"
+    ],
+    "kind": "should",
+    "notes": "Key handling and the curator email scam."
+  },
+  {
+    "id": "press-outreach.nm",
+    "prompt": "Put together a press kit page with screenshots, logo and a fact sheet for my game.",
+    "expected": [
+      "press-kit"
+    ],
+    "kind": "near-miss",
+    "notes": "Building the kit belongs to press-kit."
+  },
+  {
+    "id": "steam-capsules.s1",
+    "prompt": "what sizes are steam capsules now? i have old 460x215 art from 2023 and want to know what to redo",
+    "expected": [
+      "steam-capsules"
+    ],
+    "kind": "should",
+    "notes": "size question, old sizes"
+  },
+  {
+    "id": "steam-capsules.s2",
+    "prompt": "make my steam capsules from my key art, art/key_art.png and art/logo.png are in the repo",
+    "expected": [
+      "steam-capsules"
+    ],
+    "kind": "should",
+    "notes": "make every size with the script"
+  },
+  {
+    "id": "steam-capsules.s3",
+    "prompt": "I need to brief an artist for capsule art for my pirate roguelike, can you write the brief and check the files they send back?",
+    "expected": [
+      "steam-capsules"
+    ],
+    "kind": "should",
+    "notes": "art brief plus check"
+  },
+  {
+    "id": "steam-capsules.nm",
+    "prompt": "review my steam page: are my screenshots ok and is the short description good enough?",
+    "expected": [
+      "steam-page-review"
+    ],
+    "kind": "near-miss",
+    "notes": "screenshots and store text, not capsule art"
+  },
+  {
+    "id": "trailer-plan.s1",
+    "prompt": "plan my game trailer for the steam page, it's a cozy farming sim, I have no idea what to show first",
+    "expected": [
+      "trailer-plan"
+    ],
+    "kind": "should",
+    "notes": "gameplay trailer plan and beat sheet"
+  },
+  {
+    "id": "trailer-plan.s2",
+    "prompt": "we announce in march. can you write a shot list for my announcement trailer from the features in our design doc?",
+    "expected": [
+      "trailer-plan"
+    ],
+    "kind": "should",
+    "notes": "announce trailer shot list"
+  },
+  {
+    "id": "trailer-plan.s3",
+    "prompt": "check my trailer export for steam, it's at build/trailer_final.mov, will it upload ok?",
+    "expected": [
+      "trailer-plan"
+    ],
+    "kind": "should",
+    "notes": "run check_trailer.py on an export"
+  },
+  {
+    "id": "trailer-plan.nm",
+    "prompt": "cut a 9:16 tiktok clip from my trailer with hook text in the first seconds",
+    "expected": [
+      "clip-cut"
+    ],
+    "kind": "near-miss",
+    "notes": "short vertical clip, not trailer planning"
+  },
+  {
+    "id": "steam-pricing.s1",
+    "prompt": "how much should I charge for my game? it's a 10 hour pixel art metroidvania, solo dev, coming to steam in march",
+    "expected": [
+      "steam-pricing"
+    ],
+    "kind": "should",
+    "notes": "base price from length, scope and comps"
+  },
+  {
+    "id": "steam-pricing.s2",
+    "prompt": "set up regional pricing for Steam for my $14.99 game, should I just accept what valve suggests for brazil and china?",
+    "expected": [
+      "steam-pricing"
+    ],
+    "kind": "should",
+    "notes": "regional table and per-region changes"
+  },
+  {
+    "id": "steam-pricing.s3",
+    "prompt": "plan my discounts for the first year after launch, I release on Feb 10 and want to be in the spring and summer sales",
+    "expected": [
+      "steam-pricing"
+    ],
+    "kind": "should",
+    "notes": "discount calendar with cooldowns and seasonal sales"
+  },
+  {
+    "id": "steam-pricing.nm",
+    "prompt": "when should I launch my game on Steam, and what do I need to do in the months before release?",
+    "expected": [
+      "launch-timeline"
+    ],
+    "kind": "near-miss",
+    "notes": "launch date and plan belong to launch-timeline, not pricing"
+  },
+  {
+    "id": "localization-plan.s1",
+    "prompt": "which languages should I translate my game into? it's a cozy farming sim, english only right now, launching on steam next spring",
+    "expected": [
+      "localization-plan"
+    ],
+    "kind": "should",
+    "notes": "language choice and order"
+  },
+  {
+    "id": "localization-plan.s2",
+    "prompt": "how many words is my game? I need a number for a translation quote, strings are in godot csv files and some .po files",
+    "expected": [
+      "localization-plan"
+    ],
+    "kind": "should",
+    "notes": "word count from string files and cost"
+  },
+  {
+    "id": "localization-plan.s3",
+    "prompt": "the translator sent back the french and german files, can you check my translation files for missing strings and broken placeholders",
+    "expected": [
+      "localization-plan"
+    ],
+    "kind": "should",
+    "notes": "coverage check on returned files"
+  },
+  {
+    "id": "localization-plan.nm",
+    "prompt": "can you review my steam store page description and short description before I submit it for review?",
+    "expected": [
+      "steam-page-review"
+    ],
+    "kind": "near-miss",
+    "notes": "store page text review belongs to steam-page-review, not localization"
+  }
+]

@@ -1,0 +1,98 @@
+# Finding the right people
+
+Contents:
+
+1. Start from similar games
+2. Press: writers, not inboxes
+3. YouTube creators
+4. Twitch streamers
+5. Steam curators
+6. Aggregator accounts
+7. What to write in the tracker
+8. Who to drop
+
+## 1. Start from similar games
+
+Pick 5 to 10 games a player of yours also plays: same genre, similar size, released in the last
+few years. Steam's "More like this" on your own page and on the closest hit are good places to
+look. Every search below starts from this list. A person who covered two or more of them is a
+strong lead; one who covered none is a cold contact, however big.
+
+The [Manalens Steam marketing snapshot](https://manalens.dev/tools/steam-marketing-snapshot?utm_source=game-marketing-skills&utm_medium=skill&utm_campaign=press-outreach)
+does the YouTube part for you: it takes the similar games from Steam and lists the creators who
+posted videos about them.
+
+## 2. Press: writers, not inboxes
+
+- Search `"<similar game>" review`, `"<similar game>" preview` and the outlet names you know.
+  Note the byline, not just the site.
+- Find the writer's own published contact: the outlet's staff or contact page, their personal
+  site, or the email in their social bio. A `tips@` inbox is the last resort.
+- Small and niche sites, newsletters and podcasts in your genre often answer more than large
+  sites. Add them.
+- Note in `similar_games` which of your games they covered, with the article link. You will use
+  it in the first line of the email.
+
+## 3. YouTube creators
+
+- Search YouTube by hand for each similar game with words like `gameplay`, `first look`, `demo`,
+  `let's play`. Sort or filter by upload date to find people active now. Do not scrape YouTube;
+  its terms forbid it.
+- Open each channel. Keep it when it uploads regularly, plays games like yours, and its recent
+  videos have real views and comments.
+- Small and mid creators who play the genre are the main list. They answer more often, and their
+  viewers came for that genre. One mid-size creator can be the first domino: in one case a single
+  video pulled other creators in (HTMAG, Aug 2025).
+- Take the email from the channel's About page ("View email address"). That is the business
+  email. Write in `contact_source` where you found it.
+
+## 4. Twitch streamers
+
+- On SullyGnome (sullygnome.com), open the page of each similar game. It lists the channels that
+  streamed it, with hours streamed and average viewers. Pick channels that streamed the game for
+  several hours, not one test stream.
+- Many streamers have no public email. Look in the channel's About panels. If there is none,
+  send a Whisper from your own Twitch account, and log the channel URL as `contact`.
+- Record average viewers as `audience`, not followers.
+
+## 5. Steam curators
+
+- Use Curator Connect in Steamworks. It sends a copy through Steam to a curator, with no key to
+  leak or resell. Up to 100 curators, at most 5 copies each (Valve).
+- Pick curators by tags and language fit, not follower count alone (Valve says the same).
+- Curator emails asking for keys are a known scam. See the Gotchas in SKILL.md.
+
+## 6. Aggregator accounts
+
+Accounts that repost indie games on X and Bluesky (for example IndieGameJoe, Indie Games Hub) can
+bring real wishlists. They want one polished, clear clip, about a minute, that makes sense without
+sound. IndieGameJoe has said he skips games that look unpolished or are hard to understand from
+the trailer (HTMAG, May 2026). Pitch them by their published contact, with the clip attached or
+linked. `utm_source` is the platform (`x`, `bluesky`).
+
+## 7. What to write in the tracker
+
+| Column | Example | Notes |
+|---|---|---|
+| name | Sam Writer | The person, not the site |
+| outlet | Cozy Weekly | Site, channel or account |
+| type | press | press, youtube, twitch, curator, aggregator, podcast, newsletter |
+| contact | sam@cozyweekly.net | Email, or an https link for a Twitch page or contact form |
+| contact_source | cozyweekly.net/about | Where the email is published; required before a key |
+| audience | 85k subscribers | Subscribers, average viewers or monthly readers, with the unit |
+| similar_games | Ooblets; Moonstone Island | Semicolons inside the field |
+| status | todo | todo, drafted, sent, followed-up, replied, declined, covered, no-reply |
+| sent_date | 2026-11-10 | YYYY-MM-DD |
+| follow_up_date | 2026-11-17 | About a week after sent |
+| key_sent | 2026-11-10 | Date, or empty. Never the key itself |
+| key_batch | press-launch-1 | The Steamworks batch the key came from |
+| coverage_url | https://... | Filled when it goes live |
+| utm_content | cozyweekly-sam | Unique contact slug |
+| link | https://store.steampowered.com/app/... | The tagged link in this contact's email |
+
+## 8. Who to drop
+
+- No activity in months, or view counts that are suspiciously even.
+- Never covers games like yours (only one AAA series, only Minecraft).
+- Only reachable through a free email that the channel page does not list.
+- Asked you for several keys "for the team" or "for giveaways".

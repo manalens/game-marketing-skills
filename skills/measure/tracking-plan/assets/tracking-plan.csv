@@ -1,0 +1,19 @@
+event,description,properties,trigger,funnel_step,owner
+page_view,A visit to the game website; carries the UTM tags of the landing link,utm_source;utm_campaign;utm_content,Each page load (automatic in web analytics SDKs),visit,sdk
+store_page_visit,A visit to the Steam or itch.io page from a tagged link,utm_source;utm_campaign;utm_content,Counted by Steam UTM Analytics or the store dashboard,visit,external
+wishlist_clicked,The player clicks a wishlist or store button,store;placement,On click of a store button on the site or in the game,wishlist,web;game
+demo_download,The visitor clicks a demo download or play button on the site,store;platform,On click of the demo button,install,web
+game_open,The game starts; the first one is the install,is_first_open;first_open_at,Each launch (automatic in the Manalens game SDKs),install,sdk
+session_start,A play session starts,,Launch or return after 30 minutes idle (automatic),return,sdk
+session_end,A play session ends,duration_s,Quit or 30 minutes idle (automatic),return,sdk
+tutorial_step,The player finishes one tutorial step,step;step_name,When each tutorial step is done,tutorial,game
+tutorial_complete,The player finishes the tutorial,duration_s;skipped,When the last tutorial step is done or the tutorial is skipped,tutorial,game
+level_start,The player starts a level or a run,level;attempt,When the level is loaded and playable,play,game
+level_complete,The player completes a level or a run,level;attempt;score;duration_s,On the win or exit screen,play,game
+level_fail,The player fails a level or dies,level;attempt;score;cause,On the fail or death screen,play,game
+feature_used,The player uses a key feature for the first time in a session,feature,First use per session of a feature you want to measure,play,game
+settings_changed,The player changes a setting that hints at a problem,setting;value,On apply in the options menu (graphics quality; difficulty; subtitles; text size; controls),health,game
+website_opened,The game opens the website with the identity handoff link,placement,When a link to the site is opened from the game,identity,game
+identity_handoff,The website joins a visitor to the game install that opened it,,Page load with mana_hid in the URL (automatic in the Manalens web SDK),identity,sdk
+error,A game error,severity;message;error_type;handled,Engine errors (automatic) or a track_error call,health,sdk
+purchase,A real-money purchase in the game or on your own site,amount_cents;currency;store,After the store confirms the payment,purchase,server
