@@ -766,7 +766,7 @@ def main(argv=None):
         web = load_web(args.web, args.key)
         wish = load_wishlists(args.wishlists) if args.wishlists else None
         if wish == {}:
-            # A header with no rows: what get_steam_wishlists gives before any Steam data exists.
+            # A header with no rows: what get_steam_stats (report wishlists) gives before any Steam data exists.
             warnings.append(f"{args.wishlists}: no daily rows (no Steam wishlist data yet), so "
                             "there is no wishlist lift section.")
             wish = None

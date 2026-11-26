@@ -258,14 +258,41 @@ def check_assets(folder, errors, warnings):
         errors.append("assets.csv: need the trailer as an MP4 download")
 
 
+MEDIA = {".png", ".jpg", ".jpeg", ".webp", ".gif", ".mp4", ".mov", ".webm", ".pdf", ".svg", ".txt", ".md", ".rtf",
+         ".docx", ".odt", ".html", ".css"}
+
+
+def project_root(folder):
+    """The repo that holds the press kit (the nearest folder with .git), else the press kit folder."""
+    start = folder.resolve()
+    for d in [start, *start.parents]:
+        if (d / ".git").exists():
+            return d
+    return start
+
+
+def zippable(f, root):
+    """A public press kit file: a plain media file under root, not hidden, not a link out of root."""
+    if f.is_symlink() or not f.is_file() or f.suffix.lower() not in MEDIA:
+        return False
+    real = f.resolve()
+    if root != real and root not in real.parents:
+        return False
+    return not any(part.startswith(".") for part in real.relative_to(root).parts)
+
+
 def build_zip(folder, name):
-    """Every file in the folder, plus assets.csv files that live outside it (stored by kind)."""
+    """Every media file in the folder, plus assets.csv files from elsewhere in the repo (stored by kind).
+
+    The zip is public, so only media files go in: no hidden files, no links that leave the repo,
+    and no assets.csv path outside the repo (absolute paths and .. are refused)."""
     target = folder / name
     inside = folder.resolve()
+    root = project_root(folder)
     with zipfile.ZipFile(target, "w", zipfile.ZIP_DEFLATED) as z:
         names = set()
         for f in sorted(folder.rglob("*")):
-            if f.is_file() and f.suffix.lower() != ".zip":
+            if zippable(f, inside):
                 arc = str(f.relative_to(folder))
                 z.write(f, arc)
                 names.add(arc)
@@ -273,12 +300,17 @@ def build_zip(folder, name):
         if manifest.exists():
             with manifest.open(newline="", encoding="utf-8") as fh:
                 for row in csv.DictReader(fh):
-                    f = (folder / (row.get("path") or "").strip()).resolve()
-                    if not f.is_file() or inside in f.parents:
+                    raw = (row.get("path") or "").strip()
+                    kind = (row.get("kind") or "").strip().lower()
+                    if not raw or kind not in MINS or Path(raw).is_absolute():
                         continue
-                    arc = f"{(row.get('kind') or 'files').strip().lower()}/{f.name}"
+                    f = folder / raw
+                    real = f.resolve()
+                    if inside in real.parents or not zippable(f, root):
+                        continue
+                    arc = f"{kind}/{real.name}"
                     if arc not in names:
-                        z.write(f, arc)
+                        z.write(real, arc)
                         names.add(arc)
     return target
 

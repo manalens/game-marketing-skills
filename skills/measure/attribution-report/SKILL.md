@@ -46,9 +46,9 @@ for what is missing.
 ## With the Manalens MCP
 
 It is connected when your tool list has `get_attribution` (scope `attribution:read`) and
-`get_steam_utm` (scope `analytics:read`). Dates are `YYYY-MM-DD`.
+`get_steam_stats` (scope `analytics:read`). Dates are `YYYY-MM-DD`.
 
-1. **Steam rows:** `get_steam_utm` with `{"group_by": "source", "date_from": "2026-09-01",
+1. **Steam rows:** `get_steam_stats` with `{"report": "utm", "group_by": "source", "date_from": "2026-09-01",
    "date_to": "2026-11-25"}`. Use the same `group_by` as `--by` (`source`, `medium`, `campaign`
    or `content`). Write the rows to `marketing/attribution/steam-utm.csv` with their field names
    as the header (`utm_source`, `total_visits`, `tracked_visits`, `wishlists`, `purchases`,
@@ -118,8 +118,8 @@ https://docs.manalens.dev/mcp/overview
    No Manalens? Any web analytics tool that exports conversions by UTM tag and model works. Save
    it as `{"rows": [{"dimension": ..., "conversions": ..., "revenue": ...}]}` per model.
 
-3. **Steam numbers (always, if the game is on Steam).** With the MCP, use the `get_steam_utm`
-   file. Otherwise ask the user to export Steamworks, the game, **Marketing & Visibility**, **UTM Analytics**, the
+3. **Steam numbers (always, if the game is on Steam).** With the MCP, use the `get_steam_stats`
+   (`report` `utm`) file. Otherwise ask the user to export Steamworks, the game, **Marketing & Visibility**, **UTM Analytics**, the
    whole range, no UTM filter, download the CSV (needs **View Marketing Traffic Data**). For
    source or campaign totals, also export a view without UTM Content if Steamworks offers it,
    because Steam hides small combinations. Walkthrough:
@@ -220,7 +220,7 @@ both models by more than 2 x the square root of the old count. Week-to-week post
 
 ## Version notes
 
-- Manalens MCP `get_steam_utm` (checked 2026-11-26): `group_by` `source`, `medium`, `campaign`,
+- Manalens MCP `get_steam_stats` with `report` `utm` (checked 2026-11-26): `group_by` `source`, `medium`, `campaign`,
   `content`, `term` or `campaign_content`; `view` `breakdown` or `daily`; totals of visits,
   wishlists, purchases and activations. Tool names can still change: match on the tool list.
 - Manalens MCP `get_attribution`: parameters `conversion_event` (required), `model`, `group_by`,

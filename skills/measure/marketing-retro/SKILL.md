@@ -59,16 +59,16 @@ Items 4 to 6 come from the Manalens MCP when it is connected (next section).
 
 ## With the Manalens MCP
 
-It is connected when your tool list has `get_steam_utm`, `get_steam_wishlists` and
+It is connected when your tool list has `get_steam_stats` and
 `get_analytics` (scope `analytics:read`) and `get_attribution` (scope `attribution:read`). Dates
 are `YYYY-MM-DD`. Each call replaces one export. Save each result as a CSV in
 `marketing/retro/mcp/` (no date in the file name: a date there marks a one-day export).
 
 | Call | Arguments | Save as |
 |---|---|---|
-| `get_steam_utm`, once per beat | `{"group_by": "content", "utm_campaign": "devlog", "date_from": "2026-11-12", "date_to": "2026-11-25"}` | `steam-content.csv`: `utm_campaign` (the beat) plus each row's `utm_content`, `total_visits`, `tracked_visits`, `wishlists`, `purchases`, `activations` |
-| `get_steam_utm` | `{"group_by": "campaign", ...dates}` | `steam-campaign.csv`: the rows as they are |
-| `get_steam_wishlists` | the range plus the 7 days before | `wishlists.csv`: `day,wishlist_adds` |
+| `get_steam_stats`, once per beat | `{"report": "utm", "group_by": "content", "utm_campaign": "devlog", "date_from": "2026-11-12", "date_to": "2026-11-25"}` | `steam-content.csv`: `utm_campaign` (the beat) plus each row's `utm_content`, `total_visits`, `tracked_visits`, `wishlists`, `purchases`, `activations` |
+| `get_steam_stats` | `{"report": "utm", "group_by": "campaign", ...dates}` | `steam-campaign.csv`: the rows as they are |
+| `get_steam_stats` | `{"report": "wishlists"}`, the range plus the 7 days before | `wishlists.csv`: `day,wishlist_adds` |
 | `get_analytics` | `{"report": "top_sources", "group_by": "content", ...dates}` | `web.csv`: `utm_content` (from `source`), `visits` (from `visitors`) |
 | `get_attribution` | `{"conversion_event": "wishlist_clicked", "model": "last_non_direct", "group_by": "content", ...dates}` | add `signups` (from `conversions`) to `web.csv` |
 
@@ -198,10 +198,10 @@ Each week, read **wishlists per beat** (By campaign), then **wishlists per forma
   Manalens does.
 - Steam daily wishlist CSV: the script looks for a date column (`Date`, `DateLocal`, `Day`) and
   an adds column (`Adds`, `Wishlist Adds`). Check the header of your export.
-- Manalens MCP (docs.manalens.dev/mcp/overview, checked 2026-11-26): `get_steam_utm` (`group_by`
+- Manalens MCP (docs.manalens.dev/mcp/overview, checked 2026-11-26): `get_steam_stats` with `report` `utm` (`group_by`
   `source`, `medium`, `campaign`, `content`, `term` or `campaign_content`; `view` `breakdown` or
   `daily`; totals and rows of visits, wishlists, purchases and activations; data from the user's
-  Steam UTM import), `get_steam_wishlists` (daily adds, deletes, purchases, gifts, net and
+  Steam UTM import), `get_steam_stats` with `report` `wishlists` (daily adds, deletes, purchases, gifts, net and
   outstanding change, GMT days; no total outstanding count), `get_analytics` (`top_sources` takes
   `group_by` `content` or `campaign`, and `utm_content` and `utm_term` filters) and
   `get_attribution` (`group_by` `content`). Tool names can still change: match on the tool list.

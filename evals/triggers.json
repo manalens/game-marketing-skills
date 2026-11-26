@@ -173,7 +173,7 @@
       "marketing-retro"
     ],
     "kind": "should",
-    "notes": "Steam UTM rows through get_steam_utm, no CSV export"
+    "notes": "Steam UTM rows through get_steam_stats, no CSV export"
   },
   {
     "id": "marketing-retro.nm",
@@ -368,7 +368,7 @@
     "id": "wishlist-analysis.s4",
     "prompt": "Manalens is connected to my Steamworks. How are my wishlists growing this month, and which days spiked?",
     "expected": [
-      "calls get_steam_wishlists and writes the rows as a CSV for scripts/wishlists.py",
+      "calls get_steam_stats (report wishlists) and writes the rows as a CSV for scripts/wishlists.py",
       "asks for the outstanding total from Steamworks",
       "says a date match is not proof of cause"
     ],
