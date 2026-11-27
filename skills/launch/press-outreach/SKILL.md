@@ -98,13 +98,18 @@ https://docs.manalens.dev/mcp/overview
    takes one name per line; paste the slugs, not display names, so the tags match the tracker.
 5. **Draft one email per contact** in `marketing/outreach/emails/<utm_content>.md`, from the
    templates in [references/emails.md](references/emails.md): short subject with the game's name,
-   the hook and the news; the first line says why this person; the key is in the email, not
-   offered; embargo date, time and time zone (the same for press and creators); three links. Under
+   the hook and the news; the first line says why this person; for a contact you checked, the
+   key is in the first email, not offered (see Keys, safely); embargo date, time and time zone (the same for press and creators); three links. Under
    150 words; for creators, near the 289 character body of Rigney's example. Ask creators to
    mention the key was free. If an AI tool drafts the body, give it only facts and the rules in
    [references/emails.md](references/emails.md#ai-drafts), then write the first line yourself
    from their real work. Draft the one follow-up in the same file. Set `status` to `drafted`.
 6. **Keys, safely.**
+   - First email: put the key in it when the contact is checked (business email from their own
+     page, active, covers games like yours). Mike Rose (Game Developer, 2013) and TrampolineTales
+     (2024) say send the game, do not ask. Hold the key back and ask them to reply for one only
+     when you cannot check the person yet, for a very large channel, or when keys are short
+     (Rigney, Push to Talk, 2025; Valve generally limits Release State Override keys to 2,500).
    - Keys only to the business email published on the channel or outlet page. If a request comes
      from another address, reply to the published one.
    - One key per person, from a batch made for this beat. Log the date in `key_sent` and the batch
@@ -157,7 +162,8 @@ first.
   first line only they could get.
 - **The tips@ inbox:** it is read by nobody in particular. Find the writer who covered similar
   games.
-- **Asking "would you like a key?":** it costs a round trip. Put the key in the first email.
+- **Asking "would you like a key?":** it costs a round trip. For a checked contact, put the key
+  in the first email; ask only when you cannot check them yet or keys are short.
 - **Staggered embargos:** press and creators get the same date, time and time zone. An earlier
   press embargo upsets creators.
 - **Fake creators and curators:** a request from an address the channel does not list, for

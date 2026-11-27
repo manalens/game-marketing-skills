@@ -12,7 +12,8 @@ Checks on the plan:
   - property names are snake_case, at most 8 per event (warning), at most 50 (error);
   - no property names that look like personal data (email, name, ip, phone, address ...);
   - funnel_step and owner use the known values;
-  - the required funnel steps are present (default: visit, wishlist, install, tutorial, play).
+  - the required funnel steps are present (default: visit, wishlist, install, tutorial, play);
+  - fewer than 15 events of your own (owners game, web and server), as a warning.
 
 With --code DIR (repeatable), it also greps the code for track calls and reports:
   - planned events that the code never sends (owners game, web and server only; owners sdk and
@@ -37,6 +38,9 @@ FUNNEL_STEPS = ["visit", "wishlist", "install", "tutorial", "play", "return", "p
 DEFAULT_REQUIRED = ["visit", "wishlist", "install", "tutorial", "play"]
 OWNERS = ["game", "web", "server", "sdk", "external"]
 CODE_OWNERS = {"game", "web", "server"}
+# Your own events (not SDK or external rows): about 10, fewer than 15. Manalens docs "Plan and
+# check your game events"; Google GA4 lists 11 recommended events for games.
+OWN_EVENTS_MAX = 15
 RESERVED_SINGLE = {"purchase", "resource", "error"}
 
 EVENT_RE = re.compile(r"^[a-z][a-z0-9]*(_[a-z0-9]+)+$")
@@ -198,6 +202,11 @@ def check_plan(rows, required, names="snake"):
     for step in required:
         if step not in steps:
             errors.append(f"funnel step '{step}' has no event")
+    own = [r for r in rows if r["event"]
+           and {o.lower() for o in split_list(r["owner"])} & CODE_OWNERS]
+    if len(own) >= OWN_EVENTS_MAX:
+        warnings.append(f"{len(own)} events of your own (owner game, web or server); start with "
+                        f"about 10 and stay under {OWN_EVENTS_MAX}, add more when a question needs one")
     return errors, warnings
 
 

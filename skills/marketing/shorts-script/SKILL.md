@@ -106,7 +106,9 @@ https://docs.manalens.dev/mcp/overview
    no intro, no slow pan.
 3. **Write 5 hooks** for the idea, using different templates from `references/hooks.md`. Score
    each 1 to 5 on: true in the build, clear with sound off, opens a question, says it is a game.
-   Keep the best. If no hook scores 4 or more, drop the idea. A weak hook means no video.
+   Keep the best. If no hook scores 4 or more, drop the idea. A weak hook means no video. A hook
+   is 8 words or fewer: adults read about 238 words a minute (Brysbaert, 2019), about 4 a
+   second, so 8 words take about 2 seconds and fit the 3-second window with the action visible.
 4. **Write the script** as a beat table (see Output). Rules:
    - 0 to 3 s: the hook line on screen, and the thing it talks about already visible.
    - Say "my game" early in the first line, for Caption and Conflict. Viewers who do not want a
@@ -128,9 +130,10 @@ https://docs.manalens.dev/mcp/overview
    - A spoken or on-screen call to action in the middle of the clip is a test, not a rule. Some
      makers found clips without one held viewers longer; others credit a clear ending CTA for
      their wishlists. Alternate and compare in `marketing-retro`.
-5. **Write the post text:** title under 70 characters (often the hook itself), description (one
-   sentence with the game's name, 3 to 5 hashtags such as `#indiegame #gamedev` plus genre tags),
-   and a pinned comment that names the game and where to find it. Make one post ID per platform
+5. **Write the post text:** title under 60 characters with the hook in the first 40 (often the
+   hook itself; YouTube allows 100 but cuts long titles on phones; on TikTok and Reels the first
+   caption line plays this part), description (one sentence with the game's name, 3 to 5
+   hashtags such as `#indiegame #gamedev` plus genre tags), and a pinned comment that names the game and where to find it. Make one post ID per platform
    with [docs/LINKS.md](../../../docs/LINKS.md). Links are not clickable in Shorts descriptions
    or comments, so also:
    - **YouTube:** set the Short's "related video" to a long video (a trailer or devlog) whose
@@ -149,8 +152,8 @@ https://docs.manalens.dev/mcp/overview
    post from the phone, use original or allowed sounds, re-cut rather than repost, and turn on the
    "Your brand" disclosure.
 9. **Run the check:** `python3 scripts/check_short.py marketing/shorts/<post-id>.md` from this
-   skill's folder (or the repo copy). It fails on a hook over 12 words, a missing link, a missing
-   post ID or a script over 60 seconds.
+   skill's folder (or the repo copy). It fails on a hook over 8 words, a title of 60 characters or more, a
+   missing link, a missing post ID or a script over 60 seconds.
 10. **Hand off.** Tell the user which footage to cut (or run `clip-cut`), and to post it
    themselves, with the AI label on when the table above says so. Never upload. The user
    replies to comments; AI may group a week of comments into questions, bug reports, and
@@ -170,12 +173,12 @@ https://docs.manalens.dev/mcp/overview
 - Footage: clips/pumpkin-bug.mp4 (0:03 to 0:11), clips/pumpkin-fixed.mp4
 
 ## Hook (0 to 3 s)
-In my farming game, the pumpkins started eating the farmer.
+My farming game's pumpkins started eating the farmer.
 
 ## Beats
 | Time | On screen | Text |
 |---|---|---|
-| 0-3 s | Pumpkin swallows the farmer | In my farming game, the pumpkins started eating the farmer. |
+| 0-3 s | Pumpkin swallows the farmer | My farming game's pumpkins started eating the farmer. |
 | 3-12 s | Three more times, from different angles | It only happened at night. |
 | 12-20 s | The collision box drawn in red, too big | The pumpkin's hitbox was the size of a house. |
 | 20-24 s | Farmer walks past a normal pumpkin | Now they only eat seeds. |

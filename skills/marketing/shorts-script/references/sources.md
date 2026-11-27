@@ -22,6 +22,14 @@ own reports and were not checked independently.
 - How To Market A Game, "Wishlist inflation is real, but they are still important" (Oct 2026):
   total wishlists still predict sales; 30-day velocity predicts no better.
   https://howtomarketagame.com/2026/10/13/wishlist-inflation-is-real-but-they-are-still-important/
+- Marc Brysbaert, "How many words do we read per minute? A review and meta-analysis of reading
+  rate", Journal of Memory and Language 109 (2019): silent reading of English non-fiction averages
+  238 words a minute, about 4 a second. Basis for hooks of 8 words or fewer (about 2 seconds).
+  https://doi.org/10.1016/j.jml.2019.104047
+- YouTube Help, Edit video settings (read 27 November 2026): titles have a limit of 100
+  characters. YouTube publishes no point where it cuts a title; feeds on phones show less.
+  Our practice: under 60 characters, with the hook in the first 40.
+  https://support.google.com/youtube/answer/57404
 - YouTube Help, links in Shorts: https://support.google.com/youtube/answer/13748639
 - Manalens blog: TikTok vs Shorts vs Reels for games; from TikTok views to Steam wishlists
   (Nov 2026), https://manalens.dev/blog?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=shorts_script

@@ -21,9 +21,11 @@ sends from their own address.
   first: `[Embargo 10 Mar, 17:00 UTC]`.
 - First line: why them. Name the similar game they covered or played, and link it if you can.
 - Then the news in one or two sentences: what the game is and what is happening, with the date.
-- Include the key in the email when you offer one. Do not ask if they want one. Writers and
-  creators skim: nearly 40% of journalists spent under 20 seconds per email in one survey (Mike
-  Rose, old, claim).
+- Key in the first email for a checked contact (published business email, active, covers games
+  like yours). Do not ask if they want one. Hold it back with one line, "Reply and I will send a
+  Steam key", only for a contact you cannot check yet, a very large channel, or when keys are
+  short. Writers and creators skim: nearly 40% of journalists spent under 20 seconds per email
+  in one survey (Mike Rose, old, claim).
 - Embargo: date, time and time zone, the same for everyone, press and creators alike.
 - Links: the contact's tagged Steam link, the press kit, the trailer. Three links, no more.
 - Short. One studied cold email body was 289 characters (Ryan K. Rigney, Push to Talk,

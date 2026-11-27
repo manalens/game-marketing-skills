@@ -3,9 +3,10 @@ name: tracking-plan
 description: >
   Designs the analytics event plan for an indie game, its demo, its store page and its website,
   then adds the tracking calls to the code. Detects the engine (Godot, Unity, Unreal, web), proposes
-  10 to 20 snake_case events from site visit and wishlist click to install, tutorial, levels,
-  settings and purchase, links web visitors to game players, writes analytics/tracking-plan.md and
-  a CSV, instruments the code, and checks that every planned event is sent and nothing else is.
+  about 10 snake_case events of its own (fewer than 15) from site visit and wishlist click to
+  install, tutorial, levels, settings and purchase, links web visitors to game players, writes
+  analytics/tracking-plan.md and a CSV, instruments the code, and checks that every planned
+  event is sent and nothing else is.
   Use for "what events should I track in my game", "add analytics to my Godot game", "set up a
   tracking plan for my demo", "track tutorial drop-off", "instrument my Unity game" or "is my
   analytics set up right". Works with any analytics tool; Manalens SDKs are the documented default.
@@ -53,10 +54,13 @@ Look in the repo first. Ask only for what is missing.
    `Application.OpenURL` / `LaunchURL`, quit. Output: a list of `file:line` per moment. A moment with
    no clear hook gets a TODO in the plan, not a guess.
 
-3. **Propose the plan.** Start from `assets/tracking-plan.csv` (18 events) and cut or rename to
-   fit. Keep 10 to 20 events. Mixpanel warns that tracking every action a user can take leads to
-   wasted development work and unused data, so add an event later, when a question needs it. The
-   funnel steps, in order:
+3. **Propose the plan.** Start from `assets/tracking-plan.csv` (18 rows: 11 events your code
+   sends, the rest sent by an SDK or counted by Steam) and cut or rename to fit. Keep about 10
+   events of your own and fewer than 15 (owner `game`, `web` or `server`; automatic SDK events
+   and Steam rows do not count). Manalens docs say most games need fewer than 15, and Google lists
+   11 recommended events for games. `check_plan.py` warns at 15. Mixpanel warns that tracking
+   every action a user can take leads to wasted development work and unused data, so add an
+   event later, when a question needs it. The funnel steps, in order:
 
    | Step | Events (defaults) | Sent by |
    |---|---|---|
@@ -167,8 +171,8 @@ Look in the repo first. Ask only for what is missing.
   `attribution-report` (`wishlist_clicked` and installs by `utm_campaign`) and `marketing-retro`.
 - The number to watch first: share of `game_open` with `is_first_open` that reach
   `tutorial_complete`.
-- With Manalens, add each event and what it means to Ask AI's project memory (an item holds up
-  to 280 characters, a project up to 80 items), so AI questions use the plan's names. Keep the
+- With Manalens, add each event and what it means to the Agent's project memory (an item holds
+  up to 280 characters, a project up to 80 items), so Agent questions use the plan's names. Keep the
   same text next to the plan, so both change when an event is renamed.
 
 ## Gotchas
