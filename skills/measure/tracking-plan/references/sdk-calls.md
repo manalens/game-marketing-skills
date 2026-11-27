@@ -56,7 +56,7 @@ func _ready() -> void:
 ```
 
 `init()` sends `session_start` and `game_open` (with `is_first_open`, `first_open_at`). Sessions,
-`session_end`, `error` (Godot 4.5+) and `app_unclean_exit` are automatic. Do not send them again.
+`session_end`, `error` (Godot 4.5+) and `app_crash` are automatic. Do not send them again.
 
 | Job | Call |
 |---|---|

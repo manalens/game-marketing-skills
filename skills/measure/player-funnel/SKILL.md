@@ -190,7 +190,7 @@ Look in the repo first. Ask only for what is missing.
 - **Numbers as strings:** `level` may be `3` or `"3"`. The script compares both; in SQL use
   `JSONExtractRaw` (see the queries file).
 - **Heartbeats as quit points:** skip housekeeping events with `--ignore` (default:
-  `session_start,session_end,heartbeat,app_unclean_exit`).
+  `session_start,session_end,heartbeat,app_crash`).
 - **Raw exports hold personal data:** the European Commission counts cookie IDs, IP addresses
   and advertising IDs as personal data, and pseudonymised data that can be re-identified still
   counts. Keep the raw CSV out of the repo and out of the report: the report holds counts and

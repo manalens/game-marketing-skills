@@ -398,8 +398,8 @@ def main():
     ap.add_argument("--quits", action="store_true", help="last event before churn")
     ap.add_argument("--churn-days", type=int, default=7, help="days with no event that count as churned (default 7)")
     ap.add_argument("--quits-after", help="only players who did this step, e.g. game_open")
-    ap.add_argument("--ignore", default="session_start,session_end,heartbeat,app_unclean_exit",
-                    help="events skipped when finding the last real event (default session_start,session_end,heartbeat,app_unclean_exit)")
+    ap.add_argument("--ignore", default="session_start,session_end,heartbeat,app_crash",
+                    help="events skipped when finding the last real event (default session_start,session_end,heartbeat,app_crash)")
     ap.add_argument("--top", type=int, default=10, help="rows in the quits table (default 10)")
     ap.add_argument("--by", help="split by this column (first value per player), or properties.<key>")
     ap.add_argument("--min-players", type=int, default=30, help="flag funnels and cohorts under this size (default 30)")
