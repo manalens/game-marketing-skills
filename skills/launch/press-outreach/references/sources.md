@@ -28,6 +28,15 @@ Read 2026-11-26. Written in our own words. A number marked "claim" is one source
 
 ## Keys and scams
 
+- Key in the first email or on request. Mike Rose, Game Developer, 20 Aug 2013 (link above): send
+  the game, do not ask first. Daniel DiIorio, TrampolineTales blog, "How to email YouTubers and
+  get them to play your game", 31 Aug 2024,
+  https://blog.trampolinetales.com/how-to-email-youtubers-and-get-them-to-play-your-game/ : a
+  unique key in every email. Ryan K. Rigney, Push to Talk, 11 Jul 2025 (link above): fine to
+  hold the key back from a cold email so a reply starts a conversation. Valve gives no rule on
+  timing; it says to treat keys like cash. Rule here: key in the first email for a checked
+  contact; on request for one you cannot check, a very large channel, or few keys.
+
 - Valve, Steamworks documentation, Steam Keys, https://partner.steamgames.com/doc/features/keys :
   treat keys like cash; fraudsters impersonate journalists; new developers wait 3 weeks after the
   AppID is created to request keys; Release State Override keys generally limited to 2,500, for

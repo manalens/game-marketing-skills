@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Check a Short script written by the shorts-script skill.
 
-Fails (exit 1) when the hook is longer than 12 words, a post ID is missing or malformed,
-the post text has no tagged link or related video, there is no end card line with the game name, the script runs over 60 seconds, or a word
+Fails (exit 1) when the hook is longer than 8 words, the title has 60 characters or more, a post
+ID is missing or malformed, the post text has no tagged link or related video, there is no end card line with the game name, the script runs over 60 seconds, or a word
 from marketing/rules.md ("Do not say" list) appears.
 """
 import argparse
@@ -40,7 +40,7 @@ def word_pattern(word):
     return re.compile(start + re.escape(word) + end)
 
 
-def check(path, rules_path, max_hook_words, max_seconds):
+def check(path, rules_path, max_hook_words, max_seconds, max_title_chars=59):
     text = path.read_text(encoding="utf-8")
     errors = []
 
@@ -62,6 +62,9 @@ def check(path, rules_path, max_hook_words, max_seconds):
     post = section(text, "Post text")
     if not re.search(r"utm_content=|utm_campaign=|<short link>|https?://|^- Related video:", post, re.M):
         errors.append("no link, tagged profile link or related video in '## Post text'")
+    t = re.search(r"^- Title:\s*(.+)$", post, re.M)
+    if t and len(t.group(1).strip()) > max_title_chars:
+        errors.append(f"title has {len(t.group(1).strip())} characters, max {max_title_chars}")
     if not re.search(r"^- End card", post, re.M):
         errors.append("no '- End card' line (show the game name at the end)")
 
@@ -83,7 +86,8 @@ def main():
     p.add_argument("files", nargs="+", type=Path, help="marketing/shorts/<post-id>.md files")
     p.add_argument("--rules", type=Path, default=Path("marketing/rules.md"),
                    help="do-not-say list; lines like '- `word`' (default: marketing/rules.md)")
-    p.add_argument("--max-hook-words", type=int, default=12)
+    p.add_argument("--max-hook-words", type=int, default=8)
+    p.add_argument("--max-title-chars", type=int, default=59)
     p.add_argument("--max-seconds", type=int, default=60)
     args = p.parse_args()
 
@@ -93,7 +97,7 @@ def main():
             print(f"{f}: not found", file=sys.stderr)
             failed = True
             continue
-        errors = check(f, args.rules, args.max_hook_words, args.max_seconds)
+        errors = check(f, args.rules, args.max_hook_words, args.max_seconds, args.max_title_chars)
         if errors:
             failed = True
             for e in errors:

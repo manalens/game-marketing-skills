@@ -29,7 +29,7 @@ Written in our own words. Checked 2026-11-26.
   https://support.google.com/analytics/answer/9267735?hl=en (the 11 recommended game events).
 - Manalens SDK docs, Godot and Unity pages (read 26 November 2026): flat values, strings cut at
   1,024 characters, `app_version`, `build` and `storefront` set at `init()`.
-- Manalens docs, Ask AI (read 26 November 2026): https://docs.manalens.dev/features/ask-ai
+- Manalens docs, Agent (read 27 November 2026): https://docs.manalens.dev/features/agent
   (project memory: 280 characters an item, 80 items a project).
 - Manalens guide "How to use AI to write a tracking plan for your game" (26 November 2026), which
   collects the points above:

@@ -146,8 +146,9 @@ and which shape held viewers. `marketing-retro` reads `marketing/posts.csv` for 
   licence. Platform music libraries are added in the app, not here.
 - **Hook not true any more:** the game changes. Recheck the hook against the current build before
   each post.
-- **Text too long:** the script wraps and shrinks the font, but more than about 6 words on screen
-  at once will not be read in 3 seconds. Split the line or shorten it.
+- **Text too long:** the script wraps and shrinks the font. Keep the hook to 8 words or fewer
+  (about 2 seconds of reading at 4 words a second, Brysbaert 2019, as in `shorts-script`) and
+  later lines to about 6. Split the line or shorten it.
 - **No font found:** pass `--font /path/to/Bold.ttf`. On Linux install `fonts-dejavu-core`.
 - **`ffmpeg` missing or without `drawtext`:** install a full build (`brew install ffmpeg`,
   `apt install ffmpeg`, `winget install ffmpeg`).

@@ -1,7 +1,9 @@
 # Hook templates
 
 Use these as shapes, not as copy. Every hook must be true in the build the viewer can play.
-A good hook opens a question that only the end of the video answers.
+A good hook opens a question that only the end of the video answers. Fill a template in 8 words
+or fewer: a viewer reads about 4 words a second (238 a minute, Brysbaert 2019), so the hook is
+read in about 2 seconds.
 
 ## Contents
 
