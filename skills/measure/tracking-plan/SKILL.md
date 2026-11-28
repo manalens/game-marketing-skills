@@ -121,11 +121,12 @@ Look in the repo first. Ask only for what is missing.
      key; the Publishable key (`mana_pk_`) is the only one that goes in a build. Leave a
      `YOUR_PUBLISHABLE_KEY` placeholder if the user has not given one.
    - Do not send `game_open`, `session_*`, `error` or `game_crash` by hand: the game SDKs do.
-   - Every link from the game to the site goes through `Manalens.link_url(url)` (Godot),
-     `Manalens.LinkUrl(url)` (Unity) or `LinkUrl` (Unreal), so the web visit joins this player.
+   - Every link from the game to the site goes through `Manalens.get_handoff_url(url)` (Godot),
+     `Manalens.GetHandoffUrl(url)` (Unity), `GetHandoffUrl` (Unreal) or `manalens.getHandoffUrl(url)`
+     (a browser game on a portal, web SDK 0.10.0), so the web visit joins this player.
    - Store buttons send `wishlist_clicked` first, then open the tagged store URL.
    - Consent: if needed, `consent_required: true` and a call to `set_consent()` from a consent
-     screen. Kids' games: consent mode, no `identify()`, no `link_url()`.
+     screen. Kids' games: consent mode, no `identify()`, no `get_handoff_url()`.
    - No Manalens? Add the stub wrapper from `references/sdk-calls.md` section 7 and call it
      everywhere. Never call two tools from game code directly.
    - Show the diff. Do not commit.
@@ -199,9 +200,9 @@ Look in the repo first. Ask only for what is missing.
 ## Version notes
 
 - Manalens SDKs (docs read 2026-11-26): Godot 4 addon (`init`, `track`, `identify`, `set_consent`,
-  `link_url`; automatic `game_open`, `session_start`, `session_end`, `error` on 4.5+,
-  `game_crash`), Unity (`Init`, `Track`, `LinkUrl`), Unreal (settings, `Track` with three
-  maps, `LinkUrl`), web SDK (`track`, automatic page views and UTM, `identity_handoff`). Handoff
+  `get_handoff_url`; automatic `game_open`, `session_start`, `session_end`, `error` on 4.5+,
+  `game_crash`), Unity (`Init`, `Track`, `GetHandoffUrl`), Unreal (settings, `Track` with three
+  maps, `GetHandoffUrl`), web SDK (`track`, automatic page views and UTM, `identity_handoff`). Handoff
   links expire after 10 minutes. Event limits: names 1 to 128 characters, at most 50 properties and
   8 KB, string values cut at 1,024 characters. Events older than 7 days are refused. Platform,
   storefront, app version, build and engine travel in each event's context.

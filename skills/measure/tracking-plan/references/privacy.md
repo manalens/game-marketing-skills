@@ -41,7 +41,7 @@ If the game is made for children or likely to attract them:
 - Treat it as needing consent from a parent in many places (for example COPPA in the US for under
   13, and the GDPR age of digital consent in the EU, 13 to 16 by country). Ask the user to check
   with their adviser before shipping analytics.
-- Use consent mode. Do not call `identify()`. Do not link the game to the website (`link_url()`).
+- Use consent mode. Do not call `identify()`. Do not link the game to the website (`get_handoff_url()`).
   Keep only aggregate gameplay events: tutorial, level, session, errors.
 - No ads or marketing events tied to a child.
 - Apple's Kids Category and Google Play's Families policy restrict third-party analytics in apps

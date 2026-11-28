@@ -64,10 +64,10 @@ func _ready() -> void:
 | Error | `Manalens.track_error("Save failed", {"error_type": "SaveFailed", "severity": "critical", "handled": false})` |
 | Player ID after sign-in | `Manalens.identify("player_42", {"supporter": true})`; `Manalens.reset()` on sign out |
 | Consent | `Manalens.set_consent(true)` or `false` |
-| Open the website joined to this player | `OS.shell_open(Manalens.link_url("https://example.com/news"))` |
+| Open the website joined to this player | `OS.shell_open(Manalens.get_handoff_url("https://example.com/news"))` |
 | Send now | `Manalens.flush()` |
 
-`link_url()` adds `mana_hid=<anonymous ID>.<unix seconds>`. It works for 10 minutes, and before
+`get_handoff_url()` adds `mana_handoff=<anonymous ID>.<unix seconds>`. It works for 10 minutes, and before
 consent it returns the URL unchanged. The site needs the Manalens web SDK, which then sends
 `identity_handoff` by itself.
 
@@ -101,7 +101,7 @@ public class AnalyticsBootstrap : MonoBehaviour
 | Error | `Manalens.TrackError("Save failed", new TrackErrorOptions { ErrorType = "SaveFailed", Severity = "critical", Handled = false });` |
 | Player ID | `Manalens.Identify("player_42", traits)`; `Manalens.Reset()` |
 | Consent | `ConsentRequired = true` in options, then `Manalens.SetConsent(true)` |
-| Open the website | `Application.OpenURL(Manalens.LinkUrl("https://example.com/news"));` |
+| Open the website | `Application.OpenURL(Manalens.GetHandoffUrl("https://example.com/news"));` |
 
 `Init()` returns `false` and logs why if an option is wrong. `Track()` works from any thread.
 
@@ -124,7 +124,7 @@ if (UManalensSubsystem* Manalens = GetGameInstance()->GetSubsystem<UManalensSubs
 
 `UManalensSubsystem::Get(this)` also returns it from any object with a world. Other calls:
 `TrackJson()`, `TrackError()`, `Identify()`, `Reset`, `SetConsent(true)`, and
-`FPlatformProcess::LaunchURL(*Manalens->LinkUrl(TEXT("https://example.com/news")), nullptr, nullptr);`.
+`FPlatformProcess::LaunchURL(*Manalens->GetHandoffUrl(TEXT("https://example.com/news")), nullptr, nullptr);`.
 In Blueprint: **Get ManalensSubsystem**, then **Track**. Play in Editor runs send the build `dev`.
 
 ## 5. Website and browser games (Manalens web SDK)
@@ -145,7 +145,7 @@ tags are captured by default. Track only completed actions:
 
 npm: `import { createAnalytics } from '@manalens/web'`, then `analytics.track(name, props)`.
 Consent: `data-require-consent="true"` (or `requireConsent: true`), then `setConsent(true)` from the
-banner on every page load. Players who arrive from the game with `mana_hid` are joined with no code.
+banner on every page load. Players who arrive from the game with `mana_handoff` are joined with no code.
 
 A browser game can use the same SDK with the `app` option (`platform: 'web'`). Then it must send
 `game_open`, `session_start` and `session_end` itself (see the App events doc).
@@ -178,7 +178,7 @@ func track(event_name: String, properties: Dictionary = {}) -> void:
     print_verbose("[analytics] ", event_name, " ", properties)
 
 func open_site(url: String) -> void:
-    # With Manalens: OS.shell_open(Manalens.link_url(url))
+    # With Manalens: OS.shell_open(Manalens.get_handoff_url(url))
     OS.shell_open(url)
 ```
 
@@ -198,5 +198,5 @@ func _on_wishlist_pressed() -> void:
 
 Steam UTM Analytics counts links to the app page or a sale page. Whether a link opened in the Steam
 overlay or the Steam client keeps its UTM tags is not documented: test it on a real build and
-check the UTM report 4 days later. A button that opens your own site should use `link_url()`
+check the UTM report 4 days later. A button that opens your own site should use `get_handoff_url()`
 instead, so the site visit joins this player.

@@ -14,6 +14,6 @@ level_fail,The player fails a level or dies,level;attempt;score;cause,On the fai
 feature_used,The player uses a key feature for the first time in a session,feature,First use per session of a feature you want to measure,play,game
 settings_changed,The player changes a setting that hints at a problem,setting;value,On apply in the options menu (graphics quality; difficulty; subtitles; text size; controls),health,game
 website_opened,The game opens the website with the identity handoff link,placement,When a link to the site is opened from the game,identity,game
-identity_handoff,The website joins a visitor to the game install that opened it,,Page load with mana_hid in the URL (automatic in the Manalens web SDK),identity,sdk
+identity_handoff,The website joins a visitor to the game install that opened it,,Page load with mana_handoff in the URL (automatic in the Manalens web SDK),identity,sdk
 error,A game error,severity;message;error_type;handled,Engine errors (automatic) or a track_error call,health,sdk
 purchase,A real-money purchase in the game or on your own site,amount_cents;currency;store,After the store confirms the payment,purchase,server

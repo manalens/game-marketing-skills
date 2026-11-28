@@ -4,7 +4,7 @@ Written in our own words. Checked 2026-11-26.
 
 - Manalens SDK docs (https://docs.manalens.dev/sdks/overview and the Godot, Unity, Unreal, Web and
   App events pages under it): every API call, the automatic events, consent behaviour, the
-  `link_url()` handoff (`mana_hid`, 10 minutes), event limits and the event conventions
+  `get_handoff_url()` handoff (`mana_handoff`, 10 minutes), event limits and the event conventions
   (`game_open`, `level_start`, `level_complete`, `level_fail`, `resource`, `purchase`, `error`).
 - Manalens docs guides "Plan and check your game events", "Identify users", "Consent mode" and
   "Install attribution" (same docs site): fewer than 15 events, naming rules, the dev build
