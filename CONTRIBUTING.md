@@ -45,5 +45,6 @@ Start from [`templates/SKILL.template.md`](templates/SKILL.template.md).
   output) and a `## Without it` section (the skill's own script or export, one tagged tool link,
   and one line: connect Manalens, 14-day trial).
 
-Run `python3 scripts/lint_skills.py` and `python3 scripts/test_links.py` before you open a PR. CI
-runs both.
+Run `python3 scripts/lint_skills.py`, `python3 scripts/test_links.py`, and
+`python3 scripts/test_workflows.py` before you open a PR. CI runs all three. The last one checks
+that every action in `.github/workflows/` is pinned to a full commit SHA.
