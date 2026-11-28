@@ -78,22 +78,27 @@ connect Manalens (14-day trial): https://docs.manalens.dev/mcp/overview
    only if measured), platforms, languages, state. Mark each fact with the file it came from. Any
    feature that is planned but not in the build goes on a separate "not at launch" list: Valve
    rejects pages that list content the game will not have at launch.
-2. **Write the short description.** Formula: genre (and setting), then the hook, then 2 or 3
-   player verbs in loop order. Write the 3 to 5 word label first; if you cannot, the positioning
+2. **Write the short description.** Formula: genre (and setting), then the hook or the end goal,
+   then 2 or 3 player verbs in loop order. Name no lore terms a stranger would not know ("fight
+   back against an alien invasion", not the faction's name). Write the 3 to 5 word label first; if you cannot, the positioning
    is the problem, not the text. Plain text, about 300 characters or fewer, no "Now available",
    no dates, no prices, no Early Access promises, no links, no other game names, no line breaks.
    Write 3 versions from the fact table only, pick one, and rewrite it in the team's voice. Mark
    each claim and check it against the build. Save it alone to
    `launch/steam-short-description.txt` for the check.
-3. **Write About This Game.** Short blocks with bold headers, each opening with what the player
-   does, with a GIF slot between blocks. Lead with the core loop, then the systems, then the
-   content at launch, then what is different. No jargon a newcomer to the genre would miss. No
+3. **Write About This Game.** Open with 1 or 2 plain sentences that say what the game is, before
+   any image. Then short blocks with bold headers, each opening with what the player does, with
+   2 to 4 GIF slots between blocks. Lead with the core loop, then the systems, then what is
+   different, and end with a short features list (controller support, level count, modes). Keep
+   it skimmable: one practitioner checklist keeps the whole section near 1,000 characters. No
+   emoji in headers; many shoppers read them as generated text. No jargon a newcomer to the genre would miss. No
    links or QR codes, no prices, no fake Steam buttons, no text that names or points to other
    games on Steam. If the game is in Early Access, add
    Valve's Early Access answers in their own field, not here. Template:
    [references/page-rules.md](references/page-rules.md#about-this-game).
 4. **Plan the screenshots.** List the files in store order with one line each: what it shows and
-   its job. First 4 = core action, second system, reward or progress, variety (the store hover
+   its job. Plan 7 or more (Valve's minimum is 5), each a different place, colour or system.
+   First 4 = core action (the main mechanic), second system, reward or progress, variety (the store hover
    shows the first 4, not the trailer). Gameplay with the HUD visible. No baked-in text, logos,
    awards or feature captions. At least 5 categorized as gameplay. Mark at least 4 "suitable for
    all ages" when the content allows.
@@ -101,13 +106,19 @@ connect Manalens (14-day trial): https://docs.manalens.dev/mcp/overview
    it from the trailer edit notes. Fail it if the first seconds are logos, a studio card or a slow
    pan. Steam builds the 6-second microtrailer from six 1-second clips of the first trailer, so
    menus and logos there make a weak loop. Gameplay trailer first; at most one or two trailers
-   before the screenshots.
+   before the screenshots. Practice: 4 or 5 different highlights in the first 15 seconds, no
+   shot over about 6 seconds, a 5 to 8 second end card ("Wishlist now" or "Demo out now"), and
+   the same trailer on YouTube for embeds.
 6. **Languages, requirements and timing.** List supported languages (interface, full audio,
-   subtitles) only where the build has them. Draft minimum requirements per platform from tested
+   subtitles) only where the build has them. For the store page, suggest a starting set beyond
+   English: German, Brazilian Portuguese, Latin American Spanish, Russian, Simplified Chinese,
+   Japanese and Korean. Draft minimum requirements per platform from tested
    hardware, with the OS line starting at Windows 10. Work out the timing plan: page review at
    least 7 business days before it must be live, a public Coming Soon page at least 2 weeks before
    release, a first game waits 21 days after the app fee, an exact release date 60 or more days
-   ahead for the Personal Calendar page. See
+   ahead for the Personal Calendar page. Until then a month or a year is a fair choice; see
+   Gotchas. Note the links to set in Steamworks (website or press kit, Discord, YouTube), the
+   developer homepage, and an announcement post for the day the page goes public. See
    [references/page-rules.md](references/page-rules.md#timing).
 7. **Run the check** (draft only, nothing is uploaded):
 
@@ -118,7 +129,8 @@ connect Manalens (14-day trial): https://docs.manalens.dev/mcp/overview
 
    It fails on fewer than 5 usable screenshots, any under 1920x1080 or not 16:9, odd file types,
    a short description over 300 characters, time-based text, links, markup, and description media
-   over 5 MB each or 15 MB in total. It warns on missing genre word or verb. It needs `ffprobe`
+   over 5 MB each or 15 MB in total. It warns on missing genre word or verb, 5 or 6 screenshots,
+   an About section that opens with an image, and emoji in headers. It needs `ffprobe`
    for image sizes and exits 2 if it is missing. Paste its summary into the fix list.
 8. **Write the fix list** in `launch/steam-page.md`, three levels: **Blocks review** (breaks a
    Valve rule; see the rejection table in
@@ -208,6 +220,13 @@ use it as a rough floor, not a target. Every link you post to the page uses the 
   [references/page-rules.md](references/page-rules.md#ai-drafted-text).
 - **English fields left blank:** English is the only fallback language, so its fields must be
   filled even for a game that launches in another language first.
+- **Practice numbers are not rules:** 7 screenshots, a 30 to 50 second trailer, about 1,000
+  characters of About text and the 8 starting languages come from one marketer's checklist
+  (Marnix Wyns). Other editors suggest 90 to 180 seconds for a trailer. Put them under **Costs
+  wishlists** or **Polish**, never **Blocks review**.
+- **Exact date or month:** Valve's Personal Calendar needs an exact date, ideally 60+ days ahead.
+  Many developers show only a month or a year until launch is under 2 months away, because an
+  exact date locks two weeks out. Pick the trade-off on purpose; the grader marks it info.
 - **The grader cannot see everything:** the grader and `review_steam_page` cannot judge capsule
   readability, screenshot content or the trailer's opening. The local check and your eyes cover those.
 
@@ -224,8 +243,9 @@ use it as a rough floor, not a target. Every link you post to the page uses the 
 - Review: submit 7 business days ahead; build review took up to 12 business days on
   3 November 2026. First game: 21 days after the app fee, Coming Soon for 2 weeks.
 - Personal Calendar left Steam Labs on 23 October 2026; exact date 60+ days ahead.
+- Practice (not Valve): Marnix Wyns, Steam Store Page Checklist, read 28 November 2026.
 - Manalens MCP game marketing tools (`review_steam_page`), checked 2026-11-26: new, so names can still change. Match on the
   tool list.
 - Full list with sources: [references/sources.md](references/sources.md).
 
-Last verified 2026-11-26.
+Last verified 2026-11-28.

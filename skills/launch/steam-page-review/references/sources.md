@@ -60,6 +60,13 @@ tool rules this skill follows, unless noted).
 - Manalens, How to write Steam system requirements (24 November 2026).
 - Manalens, How to optimize a Steam store page: median page view to wishlist rate 8.9% (survey of
   56 festival games, 2020).
+- Marnix Wyns, "Steam Store Page Checklist", Notion (read 28 November 2026):
+  https://app.notion.com/p/marnixwyns/Steam-Store-Page-Checklist-38fc5591ef1a8043889cc79a8945d996.
+  Practice: 7+ varied screenshots, the main mechanic first; a 30 to 50 second trailer with a cold
+  open, 4 or 5 highlights in 15 seconds, shots under 6 seconds and a 5 to 8 second end card;
+  About text near 1,000 characters that opens with text, 2 to 4 clips at 800 pixels wide, a
+  features list and no emoji headers; 15 to 20 tags; 8 starting languages; month or year until
+  under 2 months from launch.
 - Chris Zukowski, Game Developer, "How Steam users see your game", 6 September 2019.
 - Chris Zukowski, How To Market A Game, "10 easy tips to get your game ready for the Summer sale",
   25 May 2020.

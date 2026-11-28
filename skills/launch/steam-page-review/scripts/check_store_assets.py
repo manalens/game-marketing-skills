@@ -8,8 +8,14 @@ Short description (--short FILE): plain text, 300 characters or fewer (Manalens 
 "a few hundred"), no time-based text ("Now available", dates, quarters, Early Access promises),
 no links. Warns when no genre word or player verb is found.
 
-About This Game (--about FILE): no links; warns under 150 words (Manalens rule of thumb).
+About This Game (--about FILE): no links; warns under 150 words (Manalens rule of thumb), when
+fewer than 10 words come before the first image, and when a header holds an emoji (practice from
+Marnix Wyns's Steam Store Page Checklist). Notes the length against that checklist's ~1,000
+characters.
 Description media (--about-media DIR): each GIF or image under 5 MB, all under 15 MB (Valve).
+Notes when there are not 2 to 4 clips (practice).
+
+Screenshots warn at 5 or 6: Valve's minimum is 5, practitioner checklists ask for 7 or more.
 
 Exit code 0 when nothing fails, 1 when a check fails, 2 on a usage or setup error.
 Warnings do not fail the run unless you pass --strict.
@@ -29,6 +35,13 @@ from pathlib import Path
 SCREENSHOT_MIN_W, SCREENSHOT_MIN_H, SCREENSHOT_MIN_COUNT = 1920, 1080, 5
 SHORT_GUIDE = 300
 ABOUT_WORDS_MIN = 150
+# Practice from Marnix Wyns's Steam Store Page Checklist (read 28 November 2026), not Valve rules.
+SCREENSHOT_PRACTICE = 7
+OPENING_WORDS_MIN = 10
+ABOUT_CHARS_PRACTICE = 1000
+CLIPS_PRACTICE = (2, 4)
+# Emoji and pictographs; (c), (r) and TM are left out because they belong to game names.
+EMOJI = re.compile("[\U0001F000-\U0001FAFF\u2600-\u27BF\u2B00-\u2BFF\uFE0F]")
 MEDIA_MAX_EACH, MEDIA_MAX_TOTAL = 5 * 1024 * 1024, 15 * 1024 * 1024
 SAFE_TYPES = {".png", ".jpg", ".jpeg"}
 IMAGE_TYPES = SAFE_TYPES | {".gif", ".webp", ".bmp", ".tif", ".tiff", ".avif", ".heic"}
@@ -136,6 +149,9 @@ def check_screenshots(folder, rep, min_count):
     status = "pass" if good >= min_count else "fail"
     rep.add(area, status, f"{good} usable screenshot(s) of {len(images)} image(s). Valve asks for at "
                           f"least {min_count}, and at least 5 categorized as gameplay (since 3 Nov 2026).")
+    if min_count <= good < SCREENSHOT_PRACTICE:
+        rep.add(area, "warn", f"{good} meets Valve's minimum, but practitioner checklists ask for "
+                              f"{SCREENSHOT_PRACTICE} or more, each of a different place or system.")
     rep.add(area, "info", "Not checked by this script: baked-in marketing text, gameplay vs menu "
                           "content, the 'suitable for all ages' mark. Look at each image yourself.")
 
@@ -188,7 +204,7 @@ def check_short(path, rep):
 
 
 BBCODE_TAG = re.compile(r"^/?(h1|h2|h3|b|u|i|strike|spoiler|noparse|hr|list|olist|\*|img|url|quote|code|"
-                        r"table|tr|th|td|previewyoutube|video)\b", re.I)
+                        r"table|tr|th|td|previewyoutube|video)(?![a-z0-9])", re.I)
 
 
 def check_about(path, rep):
@@ -211,6 +227,25 @@ def check_about(path, rep):
     if holes:
         rep.add(area, "warn", f"{len(holes)} placeholder(s) in square brackets, such as {holes[0]}. "
                               "Fill each from the build or cut it before review.")
+    first_media = re.search(r"\[(img|video|previewyoutube)\b|<(img|video)\s", text, re.I)
+    opening = text[:first_media.start()] if first_media else text
+    opening_words = len(re.findall(r"[A-Za-z0-9']+", re.sub(r"<[^>]+>|\[[^\]]+\]", " ", opening)))
+    if first_media:
+        rep.add(area, "pass" if opening_words >= OPENING_WORDS_MIN else "warn",
+                f"{opening_words} words before the first image or clip. Practice: open with 1 or 2 "
+                "sentences that say what the game is.")
+    headers = re.findall(r"\[(h[1-3]|b)\]([^\[]{0,200})\[/\1\]|<(h[1-6]|strong|b)\b[^>]*>([^<]{0,200})</\3>"
+                         r"|^#{1,3}\s+(.+)$", text, re.I | re.M)
+    emoji = [h for h in (parts[1] or parts[3] or parts[4] for parts in headers) if EMOJI.search(h)]
+    rep.add(area, "warn" if emoji else "pass",
+            f"{len(emoji)} header(s) with an emoji, such as '{emoji[0].strip()}'. Many shoppers read emoji "
+            "headers as generated text." if emoji else "No emoji in headers.")
+    chars = len(re.sub(r"\s+", " ", re.sub(r"<[^>]+>|\[[^\]]+\]", " ", text)).strip())
+    rep.add(area, "info", f"{chars} characters of text. Marnix Wyns's checklist keeps the whole section "
+                          f"near {ABOUT_CHARS_PRACTICE:,}, headers included; Valve asks for no walls of text.")
+    if not re.search(r"feature", text, re.I):
+        rep.add(area, "info", "No 'Features' header found. Practice: end with a short list (controller "
+                              "support, level count, modes), only what the build has.")
     for phrase in ["wishlist now", "buy now", "click here", "add to wishlist"]:
         if phrase in text.lower():
             rep.add(area, "warn", f"'{phrase}': make sure no image or text copies a Steam button.")
@@ -230,6 +265,10 @@ def check_media(folder, rep):
         rep.add(area, "pass" if size < MEDIA_MAX_EACH else "fail", f"{p.name}: {mb:.2f} MB (limit under 5 MB each).")
     rep.add(area, "pass" if total < MEDIA_MAX_TOTAL else "fail",
             f"{len(files)} file(s), {total / 1024 / 1024:.2f} MB in total (limit under 15 MB).")
+    low, high = CLIPS_PRACTICE
+    if not low <= len(files) <= high:
+        rep.add(area, "info", f"{len(files)} clip(s). Practice: {low} to {high} short gameplay clips, "
+                              "about 800 pixels wide, between the text blocks.")
 
 
 def main():

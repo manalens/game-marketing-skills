@@ -16,6 +16,7 @@ Contents:
 8. Why Valve rejects a page
 9. AI-drafted text
 10. Fix list template
+11. Practice beyond Valve's rules
 
 ## Short description
 
@@ -70,6 +71,8 @@ clips and three blocks.
 Template:
 
 ```text
+<1 or 2 plain sentences: what the game is and what the player does. Text comes before any image.>
+
 [GIF 1: the core loop in 4 to 6 seconds, no text]
 
 [b]<What the player does, as a header>[/b]
@@ -83,9 +86,12 @@ Template:
 [b]<What is different>[/b]
 <The hook, shown, not claimed. No "unique", "revolutionary" or "next-gen".>
 
-[b]At launch[/b]
-<A short list of real, counted content: 3 biomes, 40 cards, 2 endings. Only what the build has.>
+[b]Features[/b]
+<A short list of real, counted content and support: 3 biomes, 40 cards, 2 endings, controller
+support. Only what the build has.>
 ```
+
+Headers in plain words, no emoji (practice: many shoppers read emoji headers as generated text).
 
 Use the Steamworks editor's own formatting (it accepts BBCode-style tags). Keep the list short;
 bullets render here, unlike the short description.
@@ -137,6 +143,11 @@ Practice (Derek Lieu via Game Developer 19 April 2021; GameDiscoverCo 19 Septemb
 - 90 to 180 seconds for a store trailer; shots of about 3 to 5 seconds.
 - Many viewers scrub the progress bar, so every point of the timeline shows play.
 - Do not stack old trailers on the page.
+
+Practice (Marnix Wyns, Steam Store Page Checklist, 28 November 2026): 30 to 50 seconds; a cold
+open with 4 or 5 different highlights in the first 15 seconds; no shot over about 6 seconds; a
+5 to 8 second end card ("Wishlist now" or "Demo out now"); the same trailer on YouTube. The
+length differs from the 90 to 180 seconds above; a shorter cut is safer in the first slot.
 
 Review question for the user: "List the first 10 seconds shot by shot." Fail if shot 1 is not
 play.
@@ -263,3 +274,22 @@ too: check each fix and date.
 ### Polish
 - [ ] <what>. Fix: <one line>.
 ```
+
+## Practice beyond Valve's rules
+
+From Marnix Wyns's Steam Store Page Checklist (read 28 November 2026), in our words. These are
+one marketer's practice, not review rules, so they go under **Costs wishlists** or **Polish**.
+
+| Part | Valve | Practice |
+|---|---|---|
+| Capsule | Readable name or logo; art, name, subtitle only | Custom or stylized logo, strong contrast with the art, logo inside the template safe area, a border; no AI art |
+| Short description | A few hundred characters; mention the genre | Genre, end goal and player verbs; no lore names |
+| Screenshots | At least 5 | 7 or more; main mechanic first; varied colour and scenes; no menus in the first few |
+| Trailer | First trailer mainly gameplay | 30 to 50 s, cold open, end card, also on YouTube |
+| About This Game | Skimmable; media size limits | Near 1,000 characters; text first; 2 to 4 clips about 800 px wide; features list; no emoji headers |
+| Links | Website in the link fields, not the text | Discord, YouTube, website or press kit; follow your discussion board |
+| Languages | Store and game localization are separate | English, German, Brazilian Portuguese, Latin American Spanish, Russian, Simplified Chinese, Japanese, Korean; tick the game's own languages too |
+| Tags | At least 5; up to 20 count | 15 to 20 |
+| Release date | Exact date for the Personal Calendar | Month or year until under 2 months out |
+| Launch of the page | None | Developer homepage set up; announcement post and press release on the day the page goes public |
+
