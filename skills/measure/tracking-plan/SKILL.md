@@ -72,7 +72,7 @@ Look in the repo first. Ask only for what is missing.
    | `return` | `session_start`, `session_end` (`duration_s`) | Game SDK |
    | `purchase` | `purchase` (`amount_cents`, `currency`, `store`) for in-game or own-site sales | Your code or server |
    | `identity` | `website_opened` from the game with a handoff link; `identity_handoff` on the site | Your code; web SDK |
-   | `health` | `settings_changed` (`setting`, `value`); `error`; `app_crash` | Your code; game SDK |
+   | `health` | `settings_changed` (`setting`, `value`); `error`; `game_crash` | Your code; game SDK |
 
    - Runs, not levels: `run_start` and `run_end` with `outcome`. Matches: `match_start`,
      `match_end`. Genre plans with properties: https://manalens.dev/tracking-plans?utm_source=skill&utm_campaign=game_marketing_skills&utm_content=tracking_plan
@@ -120,7 +120,7 @@ Look in the repo first. Ask only for what is missing.
    - SDK setup: `init()` once at boot with `build` set to `dev` in the editor. Never paste a Secret
      key; the Publishable key (`mana_pk_`) is the only one that goes in a build. Leave a
      `YOUR_PUBLISHABLE_KEY` placeholder if the user has not given one.
-   - Do not send `game_open`, `session_*`, `error` or `app_crash` by hand: the game SDKs do.
+   - Do not send `game_open`, `session_*`, `error` or `game_crash` by hand: the game SDKs do.
    - Every link from the game to the site goes through `Manalens.link_url(url)` (Godot),
      `Manalens.LinkUrl(url)` (Unity) or `LinkUrl` (Unreal), so the web visit joins this player.
    - Store buttons send `wishlist_clicked` first, then open the tagged store URL.
@@ -200,7 +200,7 @@ Look in the repo first. Ask only for what is missing.
 
 - Manalens SDKs (docs read 2026-11-26): Godot 4 addon (`init`, `track`, `identify`, `set_consent`,
   `link_url`; automatic `game_open`, `session_start`, `session_end`, `error` on 4.5+,
-  `app_crash`), Unity (`Init`, `Track`, `LinkUrl`), Unreal (settings, `Track` with three
+  `game_crash`), Unity (`Init`, `Track`, `LinkUrl`), Unreal (settings, `Track` with three
   maps, `LinkUrl`), web SDK (`track`, automatic page views and UTM, `identity_handoff`). Handoff
   links expire after 10 minutes. Event limits: names 1 to 128 characters, at most 50 properties and
   8 KB, string values cut at 1,024 characters. Events older than 7 days are refused. Platform,

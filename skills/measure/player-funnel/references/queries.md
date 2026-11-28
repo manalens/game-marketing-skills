@@ -312,9 +312,9 @@ WITH per_player AS (
         if(user_id != '', user_id, anonymous_id) AS player,
         min(original_timestamp) AS first_seen,
         max(original_timestamp) AS last_seen,
-        argMaxIf(event, original_timestamp, event NOT IN ('session_start', 'session_end', 'heartbeat', 'app_crash')) AS last_event,
-        argMaxIf(trim(BOTH '"' FROM JSONExtractRaw(properties, 'level')), original_timestamp, event NOT IN ('session_start', 'session_end', 'heartbeat', 'app_crash')) AS last_level,
-        argMaxIf(trim(BOTH '"' FROM JSONExtractRaw(properties, 'step')), original_timestamp, event NOT IN ('session_start', 'session_end', 'heartbeat', 'app_crash')) AS last_step
+        argMaxIf(event, original_timestamp, event NOT IN ('session_start', 'session_end', 'heartbeat', 'game_crash')) AS last_event,
+        argMaxIf(trim(BOTH '"' FROM JSONExtractRaw(properties, 'level')), original_timestamp, event NOT IN ('session_start', 'session_end', 'heartbeat', 'game_crash')) AS last_level,
+        argMaxIf(trim(BOTH '"' FROM JSONExtractRaw(properties, 'step')), original_timestamp, event NOT IN ('session_start', 'session_end', 'heartbeat', 'game_crash')) AS last_step
     FROM raw_events
     WHERE type = 'track'
         AND channel = 'app'
