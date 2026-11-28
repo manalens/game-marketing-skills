@@ -123,7 +123,8 @@ start with a 14-day trial.
 ## Contributing
 
 New skills and fixes are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) and run
-`python3 scripts/lint_skills.py` and `python3 scripts/test_links.py` before you open a PR.
+`python3 scripts/lint_skills.py`, `python3 scripts/test_links.py`, and
+`python3 scripts/test_workflows.py` before you open a PR.
 
 ## License
 
